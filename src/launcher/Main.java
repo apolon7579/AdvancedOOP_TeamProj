@@ -7,6 +7,7 @@ public class Main {
 		System.out.println("HI ");
 		System.out.println("HI ");
 		System.out.println("Hi im JungHwa and jun myeng");
+		System.out.println("Hi lee sol");
 	}
 
 }
