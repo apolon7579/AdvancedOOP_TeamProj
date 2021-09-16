@@ -8,7 +8,8 @@ public class Main {
 		System.out.println("HI ");
 		System.out.println("Hi im JungHwa and jun myeng");
 		System.out.println("Hi lee sol");
-		//깃 작동 확인
+        System.out.println("Hi dong wan");
+		//源� �옉�룞 �솗�씤
 	}
 
 }
