@@ -7,7 +7,7 @@ import service.DataService;
 import service.DataServiceImpl;
 import view.Test;
 
-public class TestController {
+public class TestController{
 
 	private Test panel;
 	private DataService dataService;
@@ -23,9 +23,8 @@ public class TestController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//dataService.getAllNationList();
-				System.out.println("이벤트동작 확인");
+				System.out.println("ì�´ë²¤íŠ¸ë�™ìž‘ í™•ì�¸");
 			}
 		});
 	}
-	
 }
