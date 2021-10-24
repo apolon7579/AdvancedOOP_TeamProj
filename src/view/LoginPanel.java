@@ -1,62 +1,86 @@
 package view;
 
+import java.awt.Font;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.LoginController;
-import controller.TestController;
-
-import javax.swing.JLabel;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-
-import javax.swing.JButton;
 
 public class LoginPanel extends JPanel {
-	
-	private LoginController _lc;
-	
+
+	private JTextField txtId;
+	private JTextField txtPswd;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+
 	public LoginPanel() {
+		setBounds(103, 10, 1028, 661);
 		setLayout(null);
-		setBounds(30, 30, 400, 400);
-		//check panel size
-		setBackground(Color.BLUE);
-	
-		
-		JLabel lblNewLabel = new JLabel("\uC544\uC774\uB514");
-		lblNewLabel.setBounds(80, 134, 57, 15);
-		add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("\uD328\uC2A4\uC6CC\uB4DC");
-		lblNewLabel_1.setBounds(80, 162, 57, 15);
-		add(lblNewLabel_1);
-		
-		JTextField textField = new JTextField();
-		textField.setBounds(137, 131, 116, 21);
-		add(textField);
-		textField.setColumns(10);
-		
-		JTextField textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(137, 159, 116, 21);
-		add(textField_1);
-		
-		JButton btnNewButton = new JButton("\uB85C\uADF8\uC778");
-		btnNewButton.setBounds(147, 190, 97, 23);
-		add(btnNewButton);
-		btnNewButton.addActionListener(_lc);
-		
-		JLabel lblNewLabel_2 = new JLabel("\uC640!\uB098\uB77C\uC704\uD0A4");
-		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 34));
-		lblNewLabel_2.setBounds(121, 33, 212, 83);
-		add(lblNewLabel_2);
-		
-		JButton btnNewButton2 = new JButton("\uD68C\uC6D0\uAC00\uC785");
-		btnNewButton2.setBounds(146, 222, 97, 23);
-		add(btnNewButton2);
-		btnNewButton2.addActionListener(_lc);
+
+		JLabel lblNewLabel = new JLabel("\uC640! \uB098\uB77C\uC704\uD0A4");
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 50));
+		lblNewLabel.setBounds(341, 10, 400, 219);
+		this.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("ID");
+		lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 22));
+		lblNewLabel_1.setBounds(404, 260, 18, 26);
+		this.add(lblNewLabel_1);
+
+		JLabel lblNewLabel_2 = new JLabel("PASSWORD");
+		lblNewLabel_2.setFont(new Font("굴림", Font.PLAIN, 22));
+		lblNewLabel_2.setBounds(318, 306, 111, 26);
+		this.add(lblNewLabel_2);
+
+		txtId = new JTextField();
+		txtId.setText("id");
+		txtId.setFont(new Font("굴림", Font.PLAIN, 22));
+		txtId.setBounds(441, 253, 155, 35);
+		this.add(txtId);
+		txtId.setColumns(10);
+
+		txtPswd = new JTextField();
+		txtPswd.setText("pswd");
+		txtPswd.setFont(new Font("굴림", Font.PLAIN, 22));
+		txtPswd.setBounds(441, 302, 155, 35);
+		this.add(txtPswd);
+		txtPswd.setColumns(10);
+
+		btnNewButton = new JButton("Sign in");
+		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 22));
+		btnNewButton.setBounds(441, 369, 150, 35);
+		this.add(btnNewButton);
+
+		btnNewButton_1 = new JButton("Sigin up");
+		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 22));
+		btnNewButton_1.setBounds(441, 413, 150, 35);
+		this.add(btnNewButton_1);
+
 	}
+
+	public void setBtnListener(ActionListener l) {
+		btnNewButton.addActionListener(l);
+		btnNewButton_1.addActionListener(l);
+	}
+
+	public JButton getSignInBtn() {
+		return btnNewButton;
+	}
+
+	public JButton getSignUpBtn() {
+		return btnNewButton_1;
+	}
+
+	public String getID() {
+		return txtId.getText();
+	}
+
+	public String getPWD() {
+		return txtPswd.getText();
+	}
+
 }
