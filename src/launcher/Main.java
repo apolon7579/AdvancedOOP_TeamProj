@@ -2,12 +2,15 @@ package launcher;
 
 import javax.swing.JFrame;
 
-import view.MainFrame;
+import view.MFrame;
 
 public class Main {
 
 	public static void main(String[] args) {
-		JFrame display = new MainFrame();
+
+		JFrame display = new MFrame();
+		display.setVisible(true);
+
 	}
 
 }
