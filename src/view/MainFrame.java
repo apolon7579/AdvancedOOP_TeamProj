@@ -8,11 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
-public class MFrame extends JFrame {
+public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
 
-	public MFrame() {
+	public MainFrame() {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
