@@ -36,5 +36,11 @@ public class MFrame extends JFrame {
 		getContentPane().add(_signUpPanel);
 
 		_lc = new LoginController(_loginPanel, _signUpPanel);
+
+		// setBounds(100, 100, 800, 600);
+		// contentPane = new Test();
+		// contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		// setContentPane(contentPane);
+		// contentPane.setLayout(null);
 	}
 }

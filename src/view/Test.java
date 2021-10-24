@@ -16,7 +16,7 @@ public class Test extends JPanel {
 		setLayout(null);
 		
 		btnNewButton = new JButton("New button");
-		
+		btnNewButton.setBounds(328, 328, 97, 23);
 		add(btnNewButton);
 		
 		controller = new TestController(this);
