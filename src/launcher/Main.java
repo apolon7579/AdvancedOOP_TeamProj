@@ -10,7 +10,7 @@ public class Main {
 
 		JFrame display = new MFrame();
 		display.setVisible(true);
-
+		
 	}
 
 }
