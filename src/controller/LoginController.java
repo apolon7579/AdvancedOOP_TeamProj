@@ -17,6 +17,7 @@ public class LoginController{
 	String id = "1234";
 	String pwd = "12345";
 
+	//LoginPanel의 이베
 	public LoginController(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		this.loginPanel = mainFrame.getLoginPanel();

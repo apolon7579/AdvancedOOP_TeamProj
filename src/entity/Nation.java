@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 public class Nation {
 	private int id;

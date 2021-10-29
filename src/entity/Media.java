@@ -1,11 +1,11 @@
-package Entity;
+package entity;
 
-public class City {
+public class Media {
 	private int id;
 	private int nationId;
 	private String name;
 	
-	public City(int id, int nationId, String name) {
+	public Media(int id, int nationId, String name) {
 		super();
 		this.id = id;
 		this.nationId = nationId;

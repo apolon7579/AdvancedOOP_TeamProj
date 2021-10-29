@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 public class Religion {
 	private int id;
