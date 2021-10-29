@@ -14,8 +14,8 @@ public class LoginPanel extends JPanel {
 
 	private JTextField txtId;
 	private JTextField txtPswd;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
+	private JButton signInBtn;
+	private JButton signUpBtn;
 
 	public LoginPanel() {
 		setBounds(103, 10, 1028, 661);
@@ -50,29 +50,25 @@ public class LoginPanel extends JPanel {
 		this.add(txtPswd);
 		txtPswd.setColumns(10);
 
-		btnNewButton = new JButton("Sign in");
-		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 22));
-		btnNewButton.setBounds(441, 369, 150, 35);
-		this.add(btnNewButton);
+		signInBtn = new JButton("Sign in");
+		signInBtn.setFont(new Font("굴림", Font.PLAIN, 22));
+		signInBtn.setBounds(441, 369, 150, 35);
+		this.add(signInBtn);
 
-		btnNewButton_1 = new JButton("Sigin up");
-		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 22));
-		btnNewButton_1.setBounds(441, 413, 150, 35);
-		this.add(btnNewButton_1);
+		signUpBtn = new JButton("Sigin up");
+		signUpBtn.setFont(new Font("굴림", Font.PLAIN, 22));
+		signUpBtn.setBounds(441, 413, 150, 35);
+		this.add(signUpBtn);
 
-	}
 
-	public void setBtnListener(ActionListener l) {
-		btnNewButton.addActionListener(l);
-		btnNewButton_1.addActionListener(l);
 	}
 
 	public JButton getSignInBtn() {
-		return btnNewButton;
+		return signInBtn;
 	}
 
 	public JButton getSignUpBtn() {
-		return btnNewButton_1;
+		return signUpBtn;
 	}
 
 	public String getID() {

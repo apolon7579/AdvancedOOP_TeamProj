@@ -11,10 +11,10 @@ import controller.LoginController;
 
 public class SignUpPanel extends JPanel {
 
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JButton btnNewButton;
+	private JTextField idBtn;
+	private JTextField pwdBtn;
+	private JTextField pwdReBtn;
+	private JButton signUpButton;
 
 	public SignUpPanel() {
 		setBounds(320, 200, 517, 398);
@@ -36,46 +36,42 @@ public class SignUpPanel extends JPanel {
 		lblPassword.setBounds(62, 147, 138, 30);
 		this.add(lblPassword);
 
-		textField = new JTextField();
-		textField.setBounds(205, 107, 132, 30);
-		this.add(textField);
-		textField.setColumns(10);
+		idBtn = new JTextField();
+		idBtn.setBounds(205, 107, 132, 30);
+		this.add(idBtn);
+		idBtn.setColumns(10);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(205, 147, 132, 30);
-		this.add(textField_1);
+		pwdBtn = new JTextField();
+		pwdBtn.setColumns(10);
+		pwdBtn.setBounds(205, 147, 132, 30);
+		this.add(pwdBtn);
 
 		JLabel lblPassword_1 = new JLabel("PASSWORD RE");
 		lblPassword_1.setFont(new Font("굴림", Font.PLAIN, 25));
 		lblPassword_1.setBounds(23, 187, 177, 30);
 		this.add(lblPassword_1);
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(205, 188, 132, 30);
-		this.add(textField_2);
+		pwdReBtn = new JTextField();
+		pwdReBtn.setColumns(10);
+		pwdReBtn.setBounds(205, 188, 132, 30);
+		this.add(pwdReBtn);
 
-		btnNewButton = new JButton("Sign up");
-		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 22));
-		btnNewButton.setBounds(162, 259, 175, 40);
-		this.add(btnNewButton);
+		signUpButton = new JButton("Sign up");
+		signUpButton.setFont(new Font("굴림", Font.PLAIN, 22));
+		signUpButton.setBounds(162, 259, 175, 40);
+		this.add(signUpButton);
 
-	}
-
-	public void setBtnListener(LoginController l) {
-		btnNewButton.addActionListener(l);
 	}
 
 	public JButton getSignUpBtn() {
-		return btnNewButton;
+		return signUpButton;
 	}
 
 	public String getID() {
-		return textField.getText();
+		return idBtn.getText();
 	}
 
 	public String getPWD() {
-		return textField_2.getText();
+		return pwdReBtn.getText();
 	}
 }

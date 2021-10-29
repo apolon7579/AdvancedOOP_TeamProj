@@ -20,27 +20,28 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
 
-public class MFrame extends JFrame {
+public class MainFrame extends JFrame {
 
-	private LoginController _lc;
+	private SignUpPanel signUpPanel;
+	private LoginPanel loginPanel;
 
-	public MFrame() {
+	public MainFrame() {
 		setSize(1280, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
-		LoginPanel _loginPanel = new LoginPanel();
-		getContentPane().add(_loginPanel);
+		loginPanel = new LoginPanel();
+		getContentPane().add(loginPanel);
 
-		SignUpPanel _signUpPanel = new SignUpPanel();
-		getContentPane().add(_signUpPanel);
-
-		_lc = new LoginController(_loginPanel, _signUpPanel);
-
-		// setBounds(100, 100, 800, 600);
-		// contentPane = new Test();
-		// contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		// setContentPane(contentPane);
-		// contentPane.setLayout(null);
+		signUpPanel = new SignUpPanel();
+		getContentPane().add(signUpPanel);
+	}
+	
+	public SignUpPanel getSinUpPanel() {
+		return this.signUpPanel;
+	}
+	
+	public LoginPanel getLoginPanel() {
+		return this.loginPanel;
 	}
 }
