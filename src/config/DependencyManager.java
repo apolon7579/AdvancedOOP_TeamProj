@@ -3,6 +3,7 @@ package config;
 import controller.LoginController;
 import controller.SignUpController;
 import view.MainFrame;
+import view.NationData_SlidePanel;
 
 public class DependencyManager {
 

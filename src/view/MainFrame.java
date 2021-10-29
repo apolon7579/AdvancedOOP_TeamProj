@@ -19,16 +19,22 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.CardLayout;
+import javax.swing.JScrollPane;
 
 public class MainFrame extends JFrame {
 
 	private SignUpPanel signUpPanel;
 	private LoginPanel loginPanel;
+	private NationData_SlidePanel testtt;
 
 	public MainFrame() {
 		setSize(1280, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+
+		// 이중화 슬라이드 판넬 테스트
+		testtt = new NationData_SlidePanel();
+		getContentPane().add(testtt);
 
 		loginPanel = new LoginPanel();
 		getContentPane().add(loginPanel);
@@ -36,12 +42,16 @@ public class MainFrame extends JFrame {
 		signUpPanel = new SignUpPanel();
 		getContentPane().add(signUpPanel);
 	}
-	
+
 	public SignUpPanel getSinUpPanel() {
 		return this.signUpPanel;
 	}
-	
+
 	public LoginPanel getLoginPanel() {
 		return this.loginPanel;
+	}
+
+	public NationData_SlidePanel getShowNationDataPanel() {
+		return testtt;
 	}
 }
