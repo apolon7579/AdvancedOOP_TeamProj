@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-import domain.Nation;
+import entity.Nation;
 
 public class DataServiceImpl implements DataService{
 

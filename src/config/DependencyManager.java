@@ -1,9 +1,9 @@
 package config;
 
 import controller.LoginController;
+import controller.MainRetrieveController;
 import controller.SignUpController;
 import view.MainFrame;
-import view.NationData_SlidePanel;
 
 public class DependencyManager {
 
@@ -19,6 +19,7 @@ public class DependencyManager {
 		MainFrame mainFrame = new MainFrame();
 		LoginController loginController = new LoginController(mainFrame);
 		SignUpController signUpController = new SignUpController(mainFrame);
+		MainRetrieveController mainRetrieveController = new MainRetrieveController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 	

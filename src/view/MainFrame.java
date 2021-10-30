@@ -26,21 +26,26 @@ public class MainFrame extends JFrame {
 	private SignUpPanel signUpPanel;
 	private LoginPanel loginPanel;
 	private NationData_SlidePanel testtt;
+	private MainRetrievePanel mainRetrievePanel;
 
 	public MainFrame() {
 		setSize(1280, 720);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 
 		// 이중화 슬라이드 판넬 테스트
 		testtt = new NationData_SlidePanel();
-		getContentPane().add(testtt);
+		//getContentPane().add(testtt);
 
 		loginPanel = new LoginPanel();
-		getContentPane().add(loginPanel);
+		//getContentPane().add(loginPanel);
 
 		signUpPanel = new SignUpPanel();
-		getContentPane().add(signUpPanel);
+		//getContentPane().add(signUpPanel);
+		
+		mainRetrievePanel = new MainRetrievePanel();
+		getContentPane().add(mainRetrievePanel);
 	}
 
 	public SignUpPanel getSinUpPanel() {
@@ -49,6 +54,10 @@ public class MainFrame extends JFrame {
 
 	public LoginPanel getLoginPanel() {
 		return this.loginPanel;
+	}
+	
+	public MainRetrievePanel getMainRetrievePanel() {
+		return mainRetrievePanel;
 	}
 
 	public NationData_SlidePanel getShowNationDataPanel() {
