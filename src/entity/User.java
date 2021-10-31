@@ -15,4 +15,24 @@ public class User {
 		this.password = password;
 		this.level = level;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public int getLevel() {
+		return level;
+	}
 }
