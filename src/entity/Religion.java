@@ -6,6 +6,22 @@ public class Religion {
 	private String name;
 	private double percentage;
 	
+	public int getId() {
+		return id;
+	}
+
+	public int getNationId() {
+		return nationId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getPercentage() {
+		return percentage;
+	}
+
 	public Religion(int id, int nationId, String name, double percentage) {
 		super();
 		this.id = id;

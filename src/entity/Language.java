@@ -11,4 +11,16 @@ public class Language {
 		this.nationId = nationId;
 		this.name = name;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public int getNationId() {
+		return nationId;
+	}
+
+	public String getName() {
+		return name;
+	}
 }

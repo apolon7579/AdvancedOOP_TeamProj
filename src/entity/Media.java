@@ -2,6 +2,18 @@ package entity;
 
 public class Media {
 	private int id;
+	public int getId() {
+		return id;
+	}
+
+	public int getNationId() {
+		return nationId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 	private int nationId;
 	private String name;
 	

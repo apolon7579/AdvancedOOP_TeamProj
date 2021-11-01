@@ -61,6 +61,7 @@ public class SignUpPanel extends JPanel {
 		signUpButton.setBounds(162, 259, 175, 40);
 		this.add(signUpButton);
 
+		setVisible(false);
 	}
 
 	public JButton getSignUpBtn() {

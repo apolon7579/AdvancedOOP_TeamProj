@@ -4,13 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import view.MainFrame;
-import view.NationData_SlidePanel;
+import view.NationDataSlidePanel;
 
-public class ShowNationDataController {
+public class NationDataSlideController {
 
-	private NationData_SlidePanel panel;
+	private NationDataSlidePanel panel;
 
-	public ShowNationDataController(MainFrame mainFrame) {
+	public NationDataSlideController(MainFrame mainFrame) {
 		panel = mainFrame.getShowNationDataPanel();
 		eventInit();
 	}

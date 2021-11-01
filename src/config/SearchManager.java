@@ -8,7 +8,7 @@ import java.sql.Statement;
 import entity.Nation;
 
 public class SearchManager {
-
+	
     static public Nation[] GetAllNation()
     {
         Connection con = ConnectionManager.getConnection();

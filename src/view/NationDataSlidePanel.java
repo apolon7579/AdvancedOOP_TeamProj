@@ -16,11 +16,11 @@ import javax.swing.SwingConstants;
 
 //이름 변경 해도 OK
 
-public class NationData_SlidePanel extends JPanel {
+public class NationDataSlidePanel extends JPanel {
 
 	private JButton btnNewButton;
 
-	public NationData_SlidePanel() {
+	public NationDataSlidePanel() {
 		setLayout(null);
 		setBounds(12, 10, 1240, 661);
 		setBackground(Color.PINK);
@@ -259,6 +259,8 @@ public class NationData_SlidePanel extends JPanel {
 		lblNewLabel.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));
 		this.add(lblNewLabel);
+		
+		setVisible(true);
 	}
 
 	public JButton getBackBtn() {

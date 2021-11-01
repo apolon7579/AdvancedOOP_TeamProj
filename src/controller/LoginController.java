@@ -3,8 +3,11 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import service.UserService;
+import service.UserServiceImpl;
 import view.LoginPanel;
 import view.MainFrame;
+import view.MainRetrievePanel;
 import view.SignUpPanel;
 
 public class LoginController{
@@ -12,16 +15,16 @@ public class LoginController{
 	private MainFrame mainFrame;
 	private LoginPanel loginPanel;
 	private SignUpPanel signUpPanel;
-
-	// User information Model Example
-	String id = "1234";
-	String pwd = "12345";
+	private MainRetrievePanel mainRetrievePanel;
+	private UserService userService = new UserServiceImpl();
+	
 
 	//LoginPanel의 이베
 	public LoginController(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		this.loginPanel = mainFrame.getLoginPanel();
 		this.signUpPanel = mainFrame.getSinUpPanel();
+		this.mainRetrievePanel = mainFrame.getMainRetrievePanel();
 		eventInit();
 	}
 
@@ -29,10 +32,11 @@ public class LoginController{
 		loginPanel.getSignInBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Push Sign in Button!!");
-				if (id.equals(loginPanel.getID()) && pwd.equals(loginPanel.getPWD())) {
-					System.out.println("Login Success!!");
-					System.out.println("Login Panel visible false");
+				boolean check = userService.userLogin(loginPanel.getID(), loginPanel.getPWD());
+				
+				if (check) {
+					loginPanel.setVisible(false);
+					mainRetrievePanel.setVisible(true);		
 				} else {
 					System.out.println("Login Fail!!");
 				}

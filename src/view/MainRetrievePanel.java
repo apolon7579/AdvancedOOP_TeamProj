@@ -69,5 +69,7 @@ public class MainRetrievePanel extends JPanel{
 		table.setPreferredScrollableViewportSize(new Dimension(800,370));
 		table.setFillsViewportHeight(true);
 		scrollPane.setViewportView(table);
+		
+		setVisible(false);
 	}
 }

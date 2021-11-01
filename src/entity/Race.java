@@ -13,4 +13,20 @@ public class Race {
 		this.name = name;
 		this.percentage = percentage;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public int getNationId() {
+		return nationId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getPercentage() {
+		return percentage;
+	}
 }

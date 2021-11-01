@@ -5,6 +5,18 @@ public class City {
 	private int nationId;
 	private String name;
 	
+	public int getId() {
+		return id;
+	}
+
+	public int getNationId() {
+		return nationId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 	public City(int id, int nationId, String name) {
 		super();
 		this.id = id;

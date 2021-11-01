@@ -2,7 +2,7 @@ package config;
 
 import controller.LoginController;
 import controller.MainRetrieveController;
-import controller.ShowNationDataController;
+import controller.NationDataSlideController;
 import controller.SignUpController;
 import view.MainFrame;
 
@@ -24,7 +24,7 @@ public class DependencyManager {
 		LoginController loginController = new LoginController(mainFrame);
 		SignUpController signUpController = new SignUpController(mainFrame);
 		MainRetrieveController mainRetrieveController = new MainRetrieveController(mainFrame);
-		ShowNationDataController showNationDataController = new ShowNationDataController(mainFrame);
+		NationDataSlideController showNationDataController = new NationDataSlideController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 
