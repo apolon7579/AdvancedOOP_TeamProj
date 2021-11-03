@@ -15,32 +15,13 @@ public class UserServiceImpl implements UserService {
 
 	UserDao userDao = new UserDaoImpl();
 
-	// 유저 등록
 	@Override
-	public boolean userResist(User user) {
-		try {
-			PreparedStatement psmt = con
-					.prepareStatement("INSERT INTO user(name, user_id, password, level) VALUES(?, ?, ?, ?)");
-			psmt.setString(1, user.getName());
-			psmt.setString(2, user.getUserId());
-			psmt.setString(3, user.getPassword());
-			psmt.setInt(4, 0);
-
-			int flag = psmt.executeUpdate();
-			psmt.close();
-
-			return (flag == 1) ? true : false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
+	public boolean RegistrationByNameAndUserIdAndPassword(String name, String id, String password) {
+		return userDao.createByNameAndUserIdAndPassword(name, id, password);
 	}
 
-	// 유저 조회(로그인)
 	@Override
-	public boolean userLogin(String userId, String password) {
-		
+	public boolean LoginByUserIdAndPassword(String userId, String password) {
 		User user = userDao.retrieveByUserIdAndPassword(userId, password);
 		
 		if(user == null) {
@@ -51,26 +32,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean userUpdate(User user) {
+	public boolean UpdateByUserIdAndUser(String id, User newUser) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean userDelete(User user) {
-		try {
-			PreparedStatement psmt = con.prepareStatement("DELETE FROM user WHERE user_id = ? AND password = ? ");
-			psmt.setString(1, user.getUserId());
-			psmt.setString(2, user.getPassword());
-
-			int flag = psmt.executeUpdate();
-			psmt.close();
-
-			return (flag == 1) ? true : false;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
+	public boolean DeleteByuserId(String userId) {
+		return userDao.deleteByUserId(userId);
 	}
+
+
 
 }
