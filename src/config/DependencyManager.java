@@ -1,6 +1,7 @@
 package config;
 
 import controller.LoginController;
+import controller.MainNavigatorController;
 import controller.MainRetrieveController;
 import controller.NationDataSlideController;
 import controller.SignUpController;
@@ -24,7 +25,8 @@ public class DependencyManager {
 		LoginController loginController = new LoginController(mainFrame);
 		SignUpController signUpController = new SignUpController(mainFrame);
 		MainRetrieveController mainRetrieveController = new MainRetrieveController(mainFrame);
-		NationDataSlideController showNationDataController = new NationDataSlideController(mainFrame);
+		NationDataSlideController nationDataController = new NationDataSlideController(mainFrame);
+		MainNavigatorController mainNavigatorController = new MainNavigatorController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 

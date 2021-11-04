@@ -40,16 +40,16 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 
 		loginPanel = new LoginPanel();
-		// getContentPane().add(loginPanel);
+		getContentPane().add(loginPanel);
 
 		signUpPanel = new SignUpPanel();
-		// getContentPane().add(signUpPanel);
+		getContentPane().add(signUpPanel);
 
 		nationDataPanel = new NationDataSlidePanel();
-		// getContentPane().add(nationDataPanel);
+		getContentPane().add(nationDataPanel);
 
 		mainRetrievePanel = new MainRetrievePanel();
-		// getContentPane().add(mainRetrievePanel);
+		getContentPane().add(mainRetrievePanel);
 
 		mainNavigatorPanel = new MainNavigatorPanel();
 		getContentPane().add(mainNavigatorPanel);

@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -76,10 +77,18 @@ public class MainNavigatorPanel extends JPanel {
 		NameLabel.setBounds(387, 160, 152, 37);
 		this.add(NameLabel);
 
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public JButton getExitBtn() {
 		return ExitButton;
+	}
+
+	public JButton getSearchBtn() {
+		return SearchButton;
+	}
+	
+	public JButton getGameBtn() {
+		return GameButton;
 	}
 }
