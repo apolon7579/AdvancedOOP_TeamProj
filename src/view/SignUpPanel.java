@@ -19,7 +19,6 @@ public class SignUpPanel extends JPanel {
 	public SignUpPanel() {
 		setBounds(320, 200, 517, 398);
 		setLayout(null);
-		setVisible(false);
 
 		JLabel lblNewLabel = new JLabel("Sign up");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 25));
