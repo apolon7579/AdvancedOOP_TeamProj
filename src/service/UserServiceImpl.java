@@ -16,12 +16,12 @@ public class UserServiceImpl implements UserService {
 	UserDao userDao = new UserDaoImpl();
 
 	@Override
-	public boolean RegistrationByNameAndUserIdAndPassword(String name, String id, String password) {
+	public boolean registrationByNameAndUserIdAndPassword(String name, String id, String password) {
 		return userDao.createByNameAndUserIdAndPassword(name, id, password);
 	}
 
 	@Override
-	public boolean LoginByUserIdAndPassword(String userId, String password) {
+	public boolean loginByUserIdAndPassword(String userId, String password) {
 		User user = userDao.retrieveByUserIdAndPassword(userId, password);
 		
 		if(user == null) {
@@ -32,13 +32,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean UpdateByUserIdAndUser(String id, User newUser) {
+	public boolean updateByUserIdAndUser(String id, User newUser) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean DeleteByuserId(String userId) {
+	public boolean deleteByUserId(String userId) {
 		return userDao.deleteByUserId(userId);
 	}
 

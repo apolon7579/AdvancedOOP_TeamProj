@@ -38,15 +38,14 @@ public class MainFrame extends JFrame {
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 
-		// 이중화 슬라이드 판넬 테스트
-		nationDataPanel = new NationDataSlidePanel();
-		//getContentPane().add(nationDataPanel);
-
 		loginPanel = new LoginPanel();
 		getContentPane().add(loginPanel);
-
+		
 		signUpPanel = new SignUpPanel();
-		//getContentPane().add(signUpPanel);
+		getContentPane().add(signUpPanel);
+		
+		nationDataPanel = new NationDataSlidePanel();
+		getContentPane().add(nationDataPanel);
 
 		mainRetrievePanel = new MainRetrievePanel();
 		getContentPane().add(mainRetrievePanel);
