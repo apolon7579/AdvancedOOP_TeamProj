@@ -60,7 +60,7 @@ public class LoginPanel extends JPanel {
 		signUpBtn.setBounds(441, 413, 150, 35);
 		this.add(signUpBtn);
 
-
+		
 	}
 
 	public JButton getSignInBtn() {

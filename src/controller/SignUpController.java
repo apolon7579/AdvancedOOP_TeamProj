@@ -24,7 +24,8 @@ public class SignUpController {
 		signUpPanel.getSignUpBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("signUpBtn Clicked");
+				signUpPanel.setVisible(false);
+				loginPanel.setVisible(true);
 			}
 		});
 	}

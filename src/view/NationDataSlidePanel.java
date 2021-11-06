@@ -24,7 +24,7 @@ public class NationDataSlidePanel extends JPanel {
 		setLayout(null);
 		setBounds(12, 10, 1240, 661);
 		setBackground(Color.PINK);
-
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(12, 52, 1216, 599);
@@ -260,7 +260,7 @@ public class NationDataSlidePanel extends JPanel {
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));
 		this.add(lblNewLabel);
 		
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public JButton getBackBtn() {

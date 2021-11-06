@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import config.ConnectionManager;
 import entity.User;
 
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 
 	private Connection con = ConnectionManager.getConnection();
-	
+
 	@Override
 	public boolean createByNameAndUserIdAndPassword(String name, String id, String password) {
 		try {
@@ -31,20 +31,19 @@ public class UserDaoImpl implements UserDao{
 			return false;
 		}
 	}
-	
+
 	@Override
 	public User retrieveByUserIdAndPassword(String id, String password) {
-		
+
 		User user = null;
-		
+
 		try {
 			PreparedStatement psmt = con.prepareStatement("SELECT * FROM user WHERE user_id = ? AND password = ? ");
 			psmt.setString(1, id);
 			psmt.setString(2, password);
 			ResultSet resultSet = psmt.executeQuery();
-			
 
-			if(resultSet != null) {
+			if (resultSet != null) {
 				resultSet.next();
 				int primaryId = resultSet.getInt("id");
 				String name = resultSet.getString("name");
@@ -53,13 +52,13 @@ public class UserDaoImpl implements UserDao{
 				int level = resultSet.getInt("level");
 				user = new User(primaryId, name, user_id, password2, level);
 			}
-			
+
 			resultSet.close();
 			psmt.close();
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return user;
 	}
 
