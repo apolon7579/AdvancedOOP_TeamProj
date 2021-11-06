@@ -32,7 +32,7 @@ public class LoginController{
 		loginPanel.getSignInBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				boolean check = userService.userLogin(loginPanel.getID(), loginPanel.getPWD());
+				boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
 				
 				if (check) {
 					loginPanel.setVisible(false);
