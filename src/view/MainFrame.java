@@ -34,7 +34,7 @@ public class MainFrame extends JFrame {
 	private MainNavigatorPanel mainNavigatorPanel;
 
 	public MainFrame() {
-		setSize(1280, 720);
+		setSize(1030, 660);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);

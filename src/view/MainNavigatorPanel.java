@@ -52,29 +52,33 @@ public class MainNavigatorPanel extends JPanel {
 	private JButton SettingButton;
 
 	private void initialize() {
-		this.setBounds(103, 10, 1028, 661);
+		this.setBounds(0, 0, 1030, 660);
 		this.setLayout(null);
 
 		SearchButton = new JButton("검색");
-		SearchButton.setBounds(373, 217, 186, 51);
+		SearchButton.setBounds(368, 218, 230, 80);
 		this.add(SearchButton);
 
 		GameButton = new JButton("\uAC8C\uC784");
-		GameButton.setBounds(373, 290, 186, 51);
+		GameButton.setBounds(368, 334, 230, 80);
 		this.add(GameButton);
 
 		ExitButton = new JButton("\uC885\uB8CC");
-		ExitButton.setBounds(373, 366, 186, 51);
+		ExitButton.setBounds(368, 451, 230, 80);
 		this.add(ExitButton);
 
 		SettingButton = new JButton("\uC124\uC815");
-		SettingButton.setBounds(960, 30, 68, 23);
+		SettingButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		SettingButton.setBounds(898, 28, 68, 23);
 		this.add(SettingButton);
 
 		JLabel NameLabel = new JLabel("\uB098\uB77C\uC704\uD0A4");
-		NameLabel.setFont(new Font("굴림", Font.PLAIN, 25));
+		NameLabel.setFont(new Font("굴림", Font.PLAIN, 30));
 		NameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		NameLabel.setBounds(387, 160, 152, 37);
+		NameLabel.setBounds(401, 127, 152, 37);
 		this.add(NameLabel);
 
 		setVisible(false);
