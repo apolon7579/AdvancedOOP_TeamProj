@@ -10,17 +10,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
-public class GameRulePannel extends JPanel {
+public class GameRulePanel extends JPanel {
 	private JTextField textField;
 
-	/**
-	 * Create the panel.
-	 */
-	public GameRulePannel() {
+	public GameRulePanel() {
 		setLayout(null);
 		
 		textField = new JTextField();
-		textField.setDropMode(DropMode.ON);
 		textField.setEditable(false);
 		textField.setEnabled(false);
 		textField.setFont(new Font("굴림", Font.PLAIN, 20));
