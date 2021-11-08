@@ -3,6 +3,15 @@ package entity;
 public class Climate {
 	private int id;
 	private int nationId;
+	private String name;
+	
+	public Climate(int id, int nationId, String name) {
+		super();
+		this.id = id;
+		this.nationId = nationId;
+		this.name = name;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -27,13 +36,6 @@ public class Climate {
 		this.name = name;
 	}
 
-	private String name;
 	
-	public Climate(int id, int nationId, String name) {
-		super();
-		this.id = id;
-		this.nationId = nationId;
-		this.name = name;
-	}
 	
 }

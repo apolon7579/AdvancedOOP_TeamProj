@@ -1,29 +1,6 @@
 package view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import controller.LoginController;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.awt.Font;
-import java.awt.Button;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.CardLayout;
-import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-import javax.swing.ScrollPaneConstants;
 
 public class MainFrame extends JFrame {
 
@@ -32,9 +9,10 @@ public class MainFrame extends JFrame {
 	private NationDataSlidePanel nationDataPanel;
 	private MainRetrievePanel mainRetrievePanel;
 	private MainNavigatorPanel mainNavigatorPanel;
+	private GameRulePanel gameRulePanel;
 
 	public MainFrame() {
-		setSize(1280, 720);
+		setSize(1030, 660);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
@@ -53,6 +31,9 @@ public class MainFrame extends JFrame {
 
 		mainNavigatorPanel = new MainNavigatorPanel();
 		getContentPane().add(mainNavigatorPanel);
+		
+		gameRulePanel = new GameRulePanel();
+		getContentPane().add(gameRulePanel);
 	}
 
 	public SignUpPanel getSinUpPanel() {
@@ -67,11 +48,15 @@ public class MainFrame extends JFrame {
 		return mainRetrievePanel;
 	}
 
-	public NationDataSlidePanel getShowNationDataPanel() {
+	public NationDataSlidePanel getNationDataSlidePanel() {
 		return nationDataPanel;
 	}
 
 	public MainNavigatorPanel getMainNevigatorPanel() {
 		return mainNavigatorPanel;
+	}
+	
+	public GameRulePanel getGameRulePannel() {
+		return gameRulePanel;
 	}
 }

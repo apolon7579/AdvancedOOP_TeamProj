@@ -21,7 +21,7 @@ public class SignUpController {
 	}
 	
 	private void eventInit() {
-		signUpPanel.getSignUpBtn().addActionListener(new ActionListener() {
+		signUpPanel.getGoBackButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				signUpPanel.setVisible(false);
