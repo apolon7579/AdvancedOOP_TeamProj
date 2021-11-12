@@ -18,6 +18,8 @@ public class MainRetrievePanel extends JPanel{
 	private JButton retrieveAllBtn;
 	private JButton detailBtn;
 	private JTable table;
+	private String[] header = {"이름","국가코드","수도","위치","면적"};
+	private String[][] data = {};
 	
 	public MainRetrievePanel() {
 		setBounds(0, 0, 1030, 660);
@@ -49,13 +51,7 @@ public class MainRetrievePanel extends JPanel{
 		retrieveAllBtn = new JButton("전체조회");
 		retrieveAllBtn.setBounds(543, 574, 97, 23);
 		add(retrieveAllBtn);
-		
-		String[][] data = {
-				{"튀니지", "TN", "튀니스", "북부 아프리카 중앙지중해 연안", "155360"},
-				{"트리니다드토바고", "TT", "포트 오브 스페인", "카리브해", "5130"}
-		};
-		String[] header = {"이름","국가코드","수도","위치","면적"};
-		
+				
 		detailBtn = new JButton("상세조회");
 		detailBtn.setBounds(663, 574, 97, 23);
 		add(detailBtn);
@@ -64,7 +60,7 @@ public class MainRetrievePanel extends JPanel{
 		scrollPane.setBounds(93, 134, 800, 370);
 		add(scrollPane);
 		
-		table = new JTable(data,header);
+		table = new JTable();
 		table.setBounds(95, 159, 800, 370);
 		table.setPreferredScrollableViewportSize(new Dimension(800,370));
 		table.setFillsViewportHeight(true);
@@ -104,6 +100,20 @@ public class MainRetrievePanel extends JPanel{
 	public JTable getTable() {
 		return table;
 	}
+
+	public void setData(String[][] data) {
+		this.data = data;
+	}
+
+	public String[] getHeader() {
+		return header;
+	}
+
+	public String[][] getData() {
+		return data;
+	}
+
+
 	
 	
 }

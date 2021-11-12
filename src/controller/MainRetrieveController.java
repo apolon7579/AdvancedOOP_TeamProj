@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import service.NationService;
+import service.NationServiceImpl;
 import view.MainFrame;
 import view.MainNavigatorPanel;
 import view.MainRetrievePanel;
@@ -15,9 +17,9 @@ public class MainRetrieveController {
 	private NationDataSlidePanel nationDataSlidePanel;
 	
 	public MainRetrieveController(MainFrame mainFrame) {
+		
 		mainRetrievePanel = mainFrame.getMainRetrievePanel();
 		mainNavigatorPanel = mainFrame.getMainNevigatorPanel();
-		nationDataSlidePanel = mainFrame.getNationDataSlidePanel();
 		eventInit();
 	}
 
