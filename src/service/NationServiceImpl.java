@@ -15,4 +15,10 @@ public class NationServiceImpl implements NationService{
 		return nationDao.retrieveAllNation();
 	}
 
+	@Override
+	public List<Nation> retrieveBySearchValue(String searchValue, String columnName) {
+		// TODO Auto-generated method stub
+		return nationDao.retrieveNationsBySearchValue(searchValue, columnName);
+	}
+
 }
