@@ -22,12 +22,12 @@ public class NationDataSlidePanel extends JPanel {
 
 	public NationDataSlidePanel() {
 		setLayout(null);
-		setBounds(12, 10, 1240, 661);
+		setBounds(0, 0, 1030, 660);
 		setBackground(Color.PINK);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(12, 52, 1216, 599);
+		scrollPane.setBounds(15, 52, 980, 660);
 		this.add(scrollPane);
 
 		JPanel panel = new JPanel();
@@ -45,106 +45,106 @@ public class NationDataSlidePanel extends JPanel {
 		FlowLayout flowLayout_1 = (FlowLayout) panel_2.getLayout();
 		flowLayout_1.setVgap(40);
 		panel_2.setBackground(Color.ORANGE);
-		panel_2.setPreferredSize(new Dimension(1100, 1000));
+		panel_2.setPreferredSize(new Dimension(800, 1000));
 		panel.add(panel_2, BorderLayout.CENTER);
 
 		JLabel lblNewLabel_2_1 = new JLabel("\tGH");
-		lblNewLabel_2_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1.setOpaque(true);
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("아크라(Accra, 234만명)(＇19, EIU)");
-		lblNewLabel_2_1_1_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_1.setOpaque(true);
 		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_1);
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("열대성, 남부고온다습, 북부고온건조, 연평균 27℃");
-		lblNewLabel_2_1_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1.setOpaque(true);
 		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1);
 
 		JLabel lblNewLabel_2_1_1_2 = new JLabel("서부 아프리카 대서양의 기니만 연안");
-		lblNewLabel_2_1_1_2.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2.setOpaque(true);
 		lblNewLabel_2_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2);
 
 		JLabel lblNewLabel_2_1_1_2_1 = new JLabel(
 				"쿠마시(Kumasi, 206만명), 타말레(Tamale, 56만명) 타코라디(Takoradi, 26만명)(＇19, EIU)");
-		lblNewLabel_2_1_1_2_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1.setOpaque(true);
 		lblNewLabel_2_1_1_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1);
 
 		JLabel lblNewLabel_2_1_1_2_1_1 = new JLabel("기독교(71%), 이슬람교(17.6%)");
-		lblNewLabel_2_1_1_2_1_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1_1.setOpaque(true);
 		lblNewLabel_2_1_1_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1_1);
 
 		JLabel lblNewLabel_2_1_1_2_1_1_1 = new JLabel("Akan, Ewe족 등");
-		lblNewLabel_2_1_1_2_1_1_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1_1_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1_1_1.setOpaque(true);
 		lblNewLabel_2_1_1_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1_1_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1_1_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1_1_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1_1_1);
 
 		JLabel lblNewLabel_2_1_1_2_1_1_1_1 = new JLabel(
 				"신 문 Daily Graphic(일간지), Ghanaian Times(일간지), Ghanaian Voice(주간지) TV·라디오 Ghana Broadcasting Corporation(GBC)");
-		lblNewLabel_2_1_1_2_1_1_1_1.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1_1_1_1.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1_1_1_1.setOpaque(true);
 		lblNewLabel_2_1_1_2_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1_1_1_1.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1_1_1_1.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1_1_1_1);
 
 		JLabel lblNewLabel_2_1_1_2_1_1_1_2 = new JLabel("227540");
-		lblNewLabel_2_1_1_2_1_1_1_2.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1_1_1_2.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1_1_1_2.setOpaque(true);
 		lblNewLabel_2_1_1_2_1_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1_1_1_2.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1_1_1_2.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1_1_1_2.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1_1_1_2.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1_1_1_2);
 
 		JLabel lblNewLabel_2_1_1_2_1_1_1_3 = new JLabel("('19) World Bank (최근 수정일 : 2020.12.16.)");
-		lblNewLabel_2_1_1_2_1_1_1_3.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1_1_1_3.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1_1_1_3.setOpaque(true);
 		lblNewLabel_2_1_1_2_1_1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1_1_1_3.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1_1_1_3.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1_1_1_3.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1_1_1_3.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1_1_1_3);
 
 		JLabel lblNewLabel_2_1_1_2_1_1_1_4 = new JLabel("영어 공용어, 70%, Twi어 , Ewe어");
-		lblNewLabel_2_1_1_2_1_1_1_4.setPreferredSize(new Dimension(1050, 35));
+		lblNewLabel_2_1_1_2_1_1_1_4.setPreferredSize(new Dimension(800, 35));
 		lblNewLabel_2_1_1_2_1_1_1_4.setOpaque(true);
 		lblNewLabel_2_1_1_2_1_1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_2_1_1_1_4.setFont(new Font("굴림", Font.PLAIN, 20));
+		lblNewLabel_2_1_1_2_1_1_1_4.setFont(new Font("굴림", Font.PLAIN, 18));
 		lblNewLabel_2_1_1_2_1_1_1_4.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		lblNewLabel_2_1_1_2_1_1_1_4.setBackground(Color.GREEN);
 		panel_2.add(lblNewLabel_2_1_1_2_1_1_1_4);
@@ -253,7 +253,7 @@ public class NationDataSlidePanel extends JPanel {
 		this.add(btnNewButton);
 
 		JLabel lblNewLabel = new JLabel("가나");
-		lblNewLabel.setBounds(556, 10, 100, 32);
+		lblNewLabel.setBounds(465, 10, 100, 32);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setOpaque(true);
 		lblNewLabel.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));

@@ -11,10 +11,11 @@ public class NationDataSlideController {
 
 	private NationDataSlidePanel panel;
 	private MainRetrievePanel mainRetrievePanel;
-
+	private MainFrame mainFrame;
 	public NationDataSlideController(MainFrame mainFrame) {
 		panel = mainFrame.getNationDataSlidePanel();
 		mainRetrievePanel = mainFrame.getMainRetrievePanel();
+		this.mainFrame = mainFrame;
 		eventInit();
 	}
 
@@ -22,8 +23,7 @@ public class NationDataSlideController {
 		panel.getBackBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				panel.setVisible(false);
-				mainRetrievePanel.setVisible(true);
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainRetrievePanel");
 			}
 		});
 	}

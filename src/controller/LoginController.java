@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -33,13 +34,9 @@ public class LoginController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
-				
-				//이중화 드라이버 연결 실패 예외처리 나서 우선 true로 테스트
-				//boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
 
 				if (check) {
-					loginPanel.setVisible(false);
-					mainNavigatorPanel.setVisible(true);
+					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 				} else {
 					System.out.println("Login Fail!!");
 				}
@@ -49,8 +46,7 @@ public class LoginController {
 		loginPanel.getSignUpBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				signUpPanel.setVisible(true);
-				loginPanel.setVisible(false);
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "signUpPanel");
 			}
 		});
 	}
