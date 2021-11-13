@@ -54,6 +54,44 @@ public class MainRetrieveController {
 			
 		});
 		
+		//전체조회 버튼
+		mainRetrievePanel.getRetrieveAllBtn().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				List<Nation> nationList = nationService.retrieveAllNation();
+				Nation arr[] = nationList.toArray(new Nation[nationList.size()]);
+				JTable table = mainRetrievePanel.getTable();
+				DefaultTableModel dtm = (DefaultTableModel)table.getModel();
+				
+				dtm.setRowCount(arr.length);
+				dtm.setColumnCount(5);
+				table.setModel(dtm);
+				
+				table.getColumnModel().getColumn(0).setHeaderValue("이름");
+				table.getColumnModel().getColumn(1).setHeaderValue("국가코드");
+				table.getColumnModel().getColumn(2).setHeaderValue("수도");
+				table.getColumnModel().getColumn(3).setHeaderValue("위치");
+				table.getColumnModel().getColumn(4).setHeaderValue("면적");
+				
+				for(int i = 0; i < arr.length; i++) {
+										
+					String name = arr[i].getName();
+					String code = arr[i].getCode();
+					String capital = arr[i].getCapital();
+					String location = arr[i].getLocation();
+					String area = Integer.toString(arr[i].getArea());
+					
+					table.setValueAt(name, i, 0);
+					table.setValueAt(code, i, 1);
+					table.setValueAt(capital, i, 2);
+					table.setValueAt(location, i, 3);
+					table.setValueAt(area, i, 4);
+				}
+			}
+			
+		});
+		
 		//검색하기 버튼
 		mainRetrievePanel.getSearchBtn().addActionListener(new ActionListener() {
 

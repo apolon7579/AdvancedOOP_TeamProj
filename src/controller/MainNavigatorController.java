@@ -46,8 +46,6 @@ public class MainNavigatorController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-
-				
 				List<Nation> nationList = nationService.retrieveAllNation();
 				Nation arr[] = nationList.toArray(new Nation[nationList.size()]);
 				JTable table = mainRetrievePanel.getTable();
