@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import dto.NationDto;
 import entity.Nation;
 import service.NationService;
 import service.NationServiceImpl;
@@ -48,6 +49,12 @@ public class MainRetrieveController {
 		mainRetrievePanel.getDetailBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				JTable table = mainRetrievePanel.getTable();
+				int row = table.getSelectedRow();
+				String nationName = (String) table.getModel().getValueAt(row, 0);
+				NationDto nation = nationService.retrieveNationByName(nationName);
+				
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "nationDataPanel");
 			}
 
