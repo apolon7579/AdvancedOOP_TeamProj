@@ -33,9 +33,6 @@ public class LoginController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
-				
-				//이중화 드라이버 연결 실패 예외처리 나서 우선 true로 테스트
-				//boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
 
 				if (check) {
 					loginPanel.setVisible(false);
