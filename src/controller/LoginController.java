@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -35,8 +36,7 @@ public class LoginController {
 				boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
 
 				if (check) {
-					loginPanel.setVisible(false);
-					mainNavigatorPanel.setVisible(true);
+					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 				} else {
 					System.out.println("Login Fail!!");
 				}
@@ -46,8 +46,7 @@ public class LoginController {
 		loginPanel.getSignUpBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				signUpPanel.setVisible(true);
-				loginPanel.setVisible(false);
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "signUpPanel");
 			}
 		});
 	}

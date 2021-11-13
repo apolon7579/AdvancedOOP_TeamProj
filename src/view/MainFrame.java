@@ -1,6 +1,12 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 
@@ -11,29 +17,36 @@ public class MainFrame extends JFrame {
 	private MainNavigatorPanel mainNavigatorPanel;
 	private GameRulePanel gameRulePanel;
 
+	private CardLayout cardLayout;
+
 	public MainFrame() {
 		setSize(1030, 660);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
 
+		getContentPane().setLayout(cardLayout = new CardLayout());
+
 		loginPanel = new LoginPanel();
-		getContentPane().add(loginPanel);
+		getContentPane().add("loginPanel", loginPanel);
 
 		signUpPanel = new SignUpPanel();
-		getContentPane().add(signUpPanel);
+		getContentPane().add("signUpPanel", signUpPanel);
 
 		nationDataPanel = new NationDataSlidePanel();
-		getContentPane().add(nationDataPanel);
+		getContentPane().add("nationDataPanel", nationDataPanel);
 
 		mainRetrievePanel = new MainRetrievePanel();
-		getContentPane().add(mainRetrievePanel);
+		getContentPane().add("mainRetrievePanel", mainRetrievePanel);
 
 		mainNavigatorPanel = new MainNavigatorPanel();
-		getContentPane().add(mainNavigatorPanel);
-		
+		getContentPane().add("mainNavigatorPanel", mainNavigatorPanel);
+
 		gameRulePanel = new GameRulePanel();
-		getContentPane().add(gameRulePanel);
+		getContentPane().add("gameRulePanel", gameRulePanel);
+	}
+
+	public CardLayout getCardLayout() {
+		return this.cardLayout;
 	}
 
 	public SignUpPanel getSinUpPanel() {
@@ -55,7 +68,7 @@ public class MainFrame extends JFrame {
 	public MainNavigatorPanel getMainNevigatorPanel() {
 		return mainNavigatorPanel;
 	}
-	
+
 	public GameRulePanel getGameRulePannel() {
 		return gameRulePanel;
 	}

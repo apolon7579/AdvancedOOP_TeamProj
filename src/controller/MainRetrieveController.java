@@ -22,9 +22,10 @@ public class MainRetrieveController {
 	private MainNavigatorPanel mainNavigatorPanel;
 	private NationDataSlidePanel nationDataSlidePanel;
 	private NationService nationService;
-	
+	private MainFrame mainFrame;
+
 	public MainRetrieveController(MainFrame mainFrame) {
-		
+		this.mainFrame = mainFrame;
 		mainRetrievePanel = mainFrame.getMainRetrievePanel();
 		mainNavigatorPanel = mainFrame.getMainNevigatorPanel();
 		nationDataSlidePanel = mainFrame.getNationDataSlidePanel();
@@ -33,28 +34,26 @@ public class MainRetrieveController {
 	}
 
 	private void eventInit() {
-		
-		//뒤로가기 버튼
+
+		// 뒤로가기 버튼
 		mainRetrievePanel.getGoBackBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mainRetrievePanel.setVisible(false);
-				mainNavigatorPanel.setVisible(true);
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 			}
-			
+
 		});
-		
-		//상세조회 버튼
+
+		// 상세조회 버튼
 		mainRetrievePanel.getDetailBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mainRetrievePanel.setVisible(false);
-				nationDataSlidePanel.setVisible(true);
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "nationDataPanel");
 			}
-			
+
 		});
-		
-		//검색하기 버튼
+
+		// 검색하기 버튼
 		mainRetrievePanel.getSearchBtn().addActionListener(new ActionListener() {
 
 			@Override
@@ -62,30 +61,30 @@ public class MainRetrieveController {
 				JComboBox box = mainRetrievePanel.getSearchComboBox();
 				String searchValue = mainRetrievePanel.getSearchField().getText();
 				String val = box.getSelectedItem().toString();
-				
-				if(val.equals("이름")) {
+
+				if (val.equals("이름")) {
 					List<Nation> nationList = nationService.retrieveBySearchValue(searchValue, "name");
 					JTable table = mainRetrievePanel.getTable();
-					DefaultTableModel dtm = (DefaultTableModel)table.getModel();
-					
+					DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+
 					dtm.setRowCount(nationList.size());
 					dtm.setColumnCount(5);
 					table.setModel(dtm);
-					
+
 					table.getColumnModel().getColumn(0).setHeaderValue("이름");
 					table.getColumnModel().getColumn(1).setHeaderValue("국가코드");
 					table.getColumnModel().getColumn(2).setHeaderValue("수도");
 					table.getColumnModel().getColumn(3).setHeaderValue("위치");
 					table.getColumnModel().getColumn(4).setHeaderValue("면적");
-					
-					for(int i = 0; i < nationList.size(); i++) {
-						
+
+					for (int i = 0; i < nationList.size(); i++) {
+
 						String name = nationList.get(i).getName();
 						String code = nationList.get(i).getCode();
 						String capital = nationList.get(i).getCapital();
 						String location = nationList.get(i).getLocation();
 						String area = Integer.toString(nationList.get(i).getArea());
-						
+
 						table.setValueAt(name, i, 0);
 						table.setValueAt(code, i, 1);
 						table.setValueAt(capital, i, 2);
@@ -94,8 +93,8 @@ public class MainRetrieveController {
 					}
 				}
 			}
-			
+
 		});
 	}
-	
+
 }

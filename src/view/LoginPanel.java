@@ -9,6 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.LoginController;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JEditorPane;
 
 public class LoginPanel extends JPanel {
 
@@ -16,11 +21,13 @@ public class LoginPanel extends JPanel {
 	private JTextField txtPswd;
 	private JButton signInBtn;
 	private JButton signUpBtn;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	public LoginPanel() {
 		setBounds(0, 0, 1030, 660);
 		setLayout(null);
-
+		
 		JLabel lblNewLabel = new JLabel("\uC640! \uB098\uB77C\uC704\uD0A4");
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 50));
 		lblNewLabel.setBounds(332, 45, 400, 219);
@@ -59,8 +66,6 @@ public class LoginPanel extends JPanel {
 		signUpBtn.setFont(new Font("굴림", Font.PLAIN, 22));
 		signUpBtn.setBounds(425, 448, 150, 35);
 		this.add(signUpBtn);
-
-		
 	}
 
 	public JButton getSignInBtn() {
@@ -78,5 +83,4 @@ public class LoginPanel extends JPanel {
 	public String getPWD() {
 		return txtPswd.getText();
 	}
-
 }
