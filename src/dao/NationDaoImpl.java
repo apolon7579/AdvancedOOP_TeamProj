@@ -142,10 +142,10 @@ public class NationDaoImpl implements NationDao {
 	@Override
 	public List<NationForGame> retrieveAllNationForGame() {
 
-		String query = "select n.name, n.code, n.area, n.capital, n.location, c.name city, l.name language, cl.name climate, re.name religion, r.name race"
-				+ "from nation n" + "left outer join city c on n.id = c.id"
-				+ "left outer join climate cl on n.id = cl.id" + "left outer join language l  on n.id = l.id"
-				+ "left outer join race r on n.id = r.id" + "left outer join religion re on n.id = re.id";
+		String query = "select n.name, n.code, n.area, n.capital, n.location, c.name city, l.name language, cl.name climate, re.name religion, r.name race\n"
+				+ "from nation n\n" + "left outer join city c on n.id = c.id\n"
+				+ "left outer join climate cl on n.id = cl.id\n" + "left outer join language l  on n.id = l.id\n"
+				+ "left outer join race r on n.id = r.id\n" + "left outer join religion re on n.id = re.id";
 
 		List<NationForGame> nationList = new ArrayList<NationForGame>();
 
@@ -168,5 +168,6 @@ public class NationDaoImpl implements NationDao {
 
 		return nationList;
 	}
+
 
 }

@@ -42,7 +42,7 @@ public class NationServiceImpl implements NationService{
 	}
 	
 	@Override
-	public List<NationForGame> retrieveAllNationForGmae() {
+	public List<NationForGame> retrieveAllNationForGame() {
 		return nationDao.retrieveAllNationForGame();
 	}
 
