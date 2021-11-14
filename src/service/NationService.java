@@ -9,7 +9,7 @@ import entity.NationForGame;
 public interface NationService {
 	List<Nation> retrieveAllNation();
 	
-	List<NationForGame> retrieveAllNationForGmae();
+	List<NationForGame> retrieveAllNationForGame();
 
 	List<Nation> retrieveBySearchValue(String string, String columnName);
 
