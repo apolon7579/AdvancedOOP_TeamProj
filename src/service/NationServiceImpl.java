@@ -22,6 +22,7 @@ import entity.Climate;
 import entity.Language;
 import entity.Media;
 import entity.Nation;
+import entity.NationForGame;
 import entity.Race;
 import entity.Religion;
 
@@ -38,6 +39,11 @@ public class NationServiceImpl implements NationService{
 	@Override
 	public List<Nation> retrieveAllNation() {
 		return nationDao.retrieveAllNation();
+	}
+	
+	@Override
+	public List<NationForGame> retrieveAllNationForGmae() {
+		return nationDao.retrieveAllNationForGame();
 	}
 
 	@Override
@@ -65,5 +71,6 @@ public class NationServiceImpl implements NationService{
 		
 		return nationDao.retrieveNationByName(nationName);
 	}
+
 
 }
