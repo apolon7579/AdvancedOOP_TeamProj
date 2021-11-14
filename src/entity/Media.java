@@ -1,6 +1,6 @@
 package entity;
 
-public class Media {
+public class Media implements ListItem {
 	private int id;
 	private int nationId;
 	private String name;

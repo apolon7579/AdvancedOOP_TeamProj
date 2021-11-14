@@ -1,6 +1,6 @@
 package entity;
 
-public class City {
+public class City implements ListItem {
 	private int id;
 	private int nationId;
 	private String name;

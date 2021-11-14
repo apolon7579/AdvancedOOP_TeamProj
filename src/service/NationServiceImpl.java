@@ -69,7 +69,7 @@ public class NationServiceImpl implements NationService{
 		nation.setRaceList(raceList);
 		nation.setReligionList(religionList);
 		
-		return nationDao.retrieveNationByName(nationName);
+		return nation;
 	}
 
 

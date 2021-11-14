@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 import dto.NationDto;
 import entity.Climate;
+import entity.ListItem;
 import entity.Nation;
 import service.NationService;
 import service.NationServiceImpl;
@@ -38,11 +39,14 @@ public class MainRetrieveController {
 	
 	private <T> String getListString(List<T> list) {
 		
+		List<ListItem> tmpList = (List<ListItem>) list;
+		
 		String tmp = "";
 		
 		if(list != null) {
 			for(int i = 0; i < list.size(); i++) {
-				tmp += list.get(0) + " ";
+				String item = tmpList.get(i).getName();
+				tmp += (item + " ");
 			}
 		}
 		
@@ -87,6 +91,9 @@ public class MainRetrieveController {
 				nationCodeValue.setText(nation.getCode());
 				capitalValue.setText(nation.getCapital());
 								
+				List<Climate> climateList = nation.getClimateList();
+				getListString(climateList);
+				
 				climateValue.setText(getListString(nation.getClimateList()));
 				cityValue.setText(getListString(nation.getCityList()));
 				religionValue.setText(getListString(nation.getReligionList()));

@@ -1,6 +1,6 @@
 package entity;
 
-public class Language {
+public class Language implements ListItem{
 	private int id;
 	private int nationId;
 	private String name;
