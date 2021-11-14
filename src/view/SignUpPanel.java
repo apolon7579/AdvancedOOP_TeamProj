@@ -18,6 +18,7 @@ public class SignUpPanel extends JPanel {
 	private JTextField pwdReBtn;
 	private JButton signUpButton;
 	private JButton goBackButton;
+	private JTextField nameBtn;
 
 	public SignUpPanel() {
 		setBounds(0, 0, 1030, 660);
@@ -71,6 +72,16 @@ public class SignUpPanel extends JPanel {
 		goBackButton.setFont(new Font("굴림", Font.PLAIN, 22));
 		goBackButton.setBounds(816, 574, 145, 40);
 		add(goBackButton);
+		
+		JLabel lblName = new JLabel("NAME");
+		lblName.setFont(new Font("굴림", Font.PLAIN, 25));
+		lblName.setBounds(273, 201, 79, 30);
+		add(lblName);
+		
+		nameBtn = new JTextField();
+		nameBtn.setColumns(10);
+		nameBtn.setBounds(475, 204, 132, 30);
+		add(nameBtn);
 
 		setVisible(false);
 	}
@@ -79,6 +90,10 @@ public class SignUpPanel extends JPanel {
 		return signUpButton;
 	}
 
+    public String getName() {
+        return nameBtn.getText();
+    }
+    
 	public String getID() {
 		return idBtn.getText();
 	}
