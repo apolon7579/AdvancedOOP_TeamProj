@@ -5,10 +5,12 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import dto.NationDto;
+import entity.Climate;
 import entity.Nation;
 import service.NationService;
 import service.NationServiceImpl;
@@ -33,6 +35,19 @@ public class MainRetrieveController {
 		nationService = new NationServiceImpl();
 		eventInit();
 	}
+	
+	private <T> String getListString(List<T> list) {
+		
+		String tmp = "";
+		
+		if(list != null) {
+			for(int i = 0; i < list.size(); i++) {
+				tmp += list.get(0) + " ";
+			}
+		}
+		
+		return tmp;
+	}
 
 	private void eventInit() {
 
@@ -54,6 +69,33 @@ public class MainRetrieveController {
 				int row = table.getSelectedRow();
 				String nationName = (String) table.getModel().getValueAt(row, 0);
 				NationDto nation = nationService.retrieveNationByName(nationName);
+				
+				JLabel title = nationDataSlidePanel.getPageTitle();
+				JLabel nationCodeValue = nationDataSlidePanel.getNationCodeValue();
+				JLabel capitalValue = nationDataSlidePanel.getCapitalValue();
+				JLabel climateValue = nationDataSlidePanel.getClimateValue();
+				JLabel cityValue = nationDataSlidePanel.getCityValue();
+				JLabel religionValue = nationDataSlidePanel.getReligionValue();
+				JLabel raceValue = nationDataSlidePanel.getRaceValue();
+				JLabel mediaValue = nationDataSlidePanel.getMediaValue();
+				JLabel locationValue = nationDataSlidePanel.getLocationValue();
+				JLabel areaValue = nationDataSlidePanel.getAreaValue();
+				JLabel areaSourceValue = nationDataSlidePanel.getAreaSourceValue();
+				JLabel languageValue = nationDataSlidePanel.getLanguageValue();
+				
+				title.setText(nation.getName());
+				nationCodeValue.setText(nation.getCode());
+				capitalValue.setText(nation.getCapital());
+								
+				climateValue.setText(getListString(nation.getClimateList()));
+				cityValue.setText(getListString(nation.getCityList()));
+				religionValue.setText(getListString(nation.getReligionList()));
+				raceValue.setText(getListString(nation.getRaceList()));
+				mediaValue.setText(getListString(nation.getMediaList()));
+				locationValue.setText(nation.getLocation());
+				areaValue.setText(Integer.toString(nation.getArea()));
+				areaSourceValue.setText(nation.getAreaSource());
+				languageValue.setText(getListString(nation.getLanguageList()));
 				
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "nationDataPanel");
 			}
