@@ -1,6 +1,6 @@
 package entity;
 
-public class Religion {
+public class Religion implements ListItem {
 	private int id;
 	private int nationId;
 	private String name;

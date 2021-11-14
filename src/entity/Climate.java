@@ -1,6 +1,6 @@
 package entity;
 
-public class Climate {
+public class Climate implements ListItem{
 	private int id;
 	private int nationId;
 	private String name;
