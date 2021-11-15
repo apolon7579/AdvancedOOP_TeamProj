@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 //이름 변경 해도 OK
 
@@ -42,7 +43,9 @@ public class NationDataSlidePanel extends JPanel {
 	private JLabel areaSourceValue;
 	private JLabel language;
 	private JLabel languageValue;
-
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	
 	public NationDataSlidePanel() {
 		setLayout(null);
 		setBounds(0, 0, 1030, 660);
@@ -66,9 +69,11 @@ public class NationDataSlidePanel extends JPanel {
 
 		JPanel panel_2 = new JPanel();
 		FlowLayout flowLayout_1 = (FlowLayout) panel_2.getLayout();
+		flowLayout_1.setAlignment(FlowLayout.LEFT);
+		flowLayout_1.setHgap(10);
 		flowLayout_1.setVgap(40);
 		panel_2.setBackground(Color.ORANGE);
-		panel_2.setPreferredSize(new Dimension(800, 1000));
+		panel_2.setPreferredSize(new Dimension(750, 1000));
 		panel.add(panel_2, BorderLayout.CENTER);
 
 		nationCodeValue = new JLabel("\tGH");
@@ -125,6 +130,11 @@ public class NationDataSlidePanel extends JPanel {
 		religionValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
 		religionValue.setBackground(Color.GREEN);
 		panel_2.add(religionValue);
+		
+		btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.setIcon(new ImageIcon("..\\image\\graph.png"));
+		btnNewButton_1.setPreferredSize(new Dimension(35,35));
+		panel_2.add(btnNewButton_1);
 
 		raceValue = new JLabel("Akan, Ewe족 등");
 		raceValue.setPreferredSize(new Dimension(800, 35));
@@ -172,6 +182,11 @@ public class NationDataSlidePanel extends JPanel {
 		languageValue.setBackground(Color.GREEN);
 		panel_2.add(languageValue);
 
+		btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setIcon(new ImageIcon("..\\image\\graph.png"));
+		btnNewButton_2.setPreferredSize(new Dimension(35,35));
+		panel_2.add(btnNewButton_2);
+		
 		nationCode = new JLabel("국가코드");
 		nationCode.setPreferredSize(new Dimension(90, 35));
 		nationCode.setOpaque(true);
