@@ -12,6 +12,7 @@ public class NationDataSlideController {
 	private NationDataSlidePanel panel;
 	private MainRetrievePanel mainRetrievePanel;
 	private MainFrame mainFrame;
+
 	public NationDataSlideController(MainFrame mainFrame) {
 		panel = mainFrame.getNationDataSlidePanel();
 		mainRetrievePanel = mainFrame.getMainRetrievePanel();
@@ -24,6 +25,22 @@ public class NationDataSlideController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainRetrievePanel");
+			}
+		});
+
+		panel.getreligionGraphBtn().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Get religion graph");
+			}
+		});
+
+		panel.getLanguageGraphBtn().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Get Language graph");
 			}
 		});
 	}

@@ -300,7 +300,15 @@ public class NationDataSlidePanel extends JPanel {
 		
 		setVisible(false);
 	}
-
+	
+	public JButton getreligionGraphBtn() {
+		return btnNewButton_1;
+	}
+	
+	public JButton getLanguageGraphBtn() {
+		return btnNewButton_2;
+	}
+	
 	public JButton getBackBtn() {
 		return btnNewButton;
 	}
