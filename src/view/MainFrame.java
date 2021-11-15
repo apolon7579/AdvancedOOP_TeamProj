@@ -16,6 +16,7 @@ public class MainFrame extends JFrame {
 	private MainRetrievePanel mainRetrievePanel;
 	private MainNavigatorPanel mainNavigatorPanel;
 	private GameRulePanel gameRulePanel;
+	private MenuBarPanel menuBarPanel;
 
 	private CardLayout cardLayout;
 
@@ -43,6 +44,16 @@ public class MainFrame extends JFrame {
 
 		gameRulePanel = new GameRulePanel();
 		getContentPane().add("gameRulePanel", gameRulePanel);
+
+		menuBarPanel = new MenuBarPanel();
+		getContentPane().add(menuBarPanel);
+	}
+
+	public void setJMenuBar(boolean b) {
+		if (b)
+			setJMenuBar(menuBarPanel.menuBar);
+		else
+			setJMenuBar(null);
 	}
 
 	public CardLayout getCardLayout() {
@@ -71,5 +82,9 @@ public class MainFrame extends JFrame {
 
 	public GameRulePanel getGameRulePannel() {
 		return gameRulePanel;
+	}
+
+	public MenuBarPanel getMenuBarPanel() {
+		return menuBarPanel;
 	}
 }

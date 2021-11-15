@@ -37,6 +37,7 @@ public class LoginController {
 
 				if (check) {
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
+					mainFrame.setJMenuBar(true);
 				} else {
 					System.out.println("Login Fail!!");
 				}
