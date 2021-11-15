@@ -14,4 +14,6 @@ public interface NationService {
 	List<Nation> retrieveBySearchValue(String string, String columnName);
 
 	NationDto retrieveNationByName(String nationName);
+	
+	List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName);
 }

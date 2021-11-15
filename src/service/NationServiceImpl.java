@@ -72,5 +72,10 @@ public class NationServiceImpl implements NationService{
 		return nation;
 	}
 
+	@Override
+	public List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName) {
+		return nationDao.retrieveBySearchValueAndTable(searchValue, tableName);
+	}
+
 
 }

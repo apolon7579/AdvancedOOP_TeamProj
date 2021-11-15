@@ -53,6 +53,36 @@ public class MainRetrieveController {
 		return tmp;
 	}
 
+	private void initTableByNationList(List<Nation> nationList) {
+		JTable table = mainRetrievePanel.getTable();
+		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+
+		dtm.setRowCount(nationList.size());
+		dtm.setColumnCount(5);
+		table.setModel(dtm);
+
+		table.getColumnModel().getColumn(0).setHeaderValue("이름");
+		table.getColumnModel().getColumn(1).setHeaderValue("국가코드");
+		table.getColumnModel().getColumn(2).setHeaderValue("수도");
+		table.getColumnModel().getColumn(3).setHeaderValue("위치");
+		table.getColumnModel().getColumn(4).setHeaderValue("면적");
+
+		for (int i = 0; i < nationList.size(); i++) {
+
+			String name = nationList.get(i).getName();
+			String code = nationList.get(i).getCode();
+			String capital = nationList.get(i).getCapital();
+			String location = nationList.get(i).getLocation();
+			String area = Integer.toString(nationList.get(i).getArea());
+
+			table.setValueAt(name, i, 0);
+			table.setValueAt(code, i, 1);
+			table.setValueAt(capital, i, 2);
+			table.setValueAt(location, i, 3);
+			table.setValueAt(area, i, 4);
+		}
+	}
+	
 	private void eventInit() {
 
 		// 뒤로가기 버튼
@@ -186,6 +216,18 @@ public class MainRetrieveController {
 						table.setValueAt(location, i, 3);
 						table.setValueAt(area, i, 4);
 					}
+				}else if(val.equals("기후")) {
+					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "climate");
+					initTableByNationList(nationList);
+				}else if(val.equals("종교")) {
+					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "religion");
+					initTableByNationList(nationList);
+				}else if(val.equals("민족")) {
+					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "race");
+					initTableByNationList(nationList);
+				}else if(val.equals("언어")) {
+					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "language");
+					initTableByNationList(nationList);
 				}
 			}
 
