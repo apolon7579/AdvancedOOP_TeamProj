@@ -3,9 +3,11 @@ package config;
 import controller.LoginController;
 import controller.MainNavigatorController;
 import controller.MainRetrieveController;
+import controller.MenuBarController;
 import controller.NationDataSlideController;
 import controller.SignUpController;
 import view.MainFrame;
+import view.MenuBarPanel;
 
 public class DependencyManager {
 
@@ -27,6 +29,7 @@ public class DependencyManager {
 		MainRetrieveController mainRetrieveController = new MainRetrieveController(mainFrame);
 		NationDataSlideController nationDataController = new NationDataSlideController(mainFrame);
 		MainNavigatorController mainNavigatorController = new MainNavigatorController(mainFrame);
+		MenuBarController menuBarController = new MenuBarController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 

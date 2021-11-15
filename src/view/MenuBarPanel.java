@@ -94,7 +94,47 @@ public class MenuBarPanel extends JPanel {
 	}
 
 	// TODO..
-	public void getSearchMenuItem() {
+	public JMenuItem getSearchMenuItem() {
+		return searchItem;
+	}
 
+	public JMenuItem getGameMenuItem() {
+		return gameItem;
+	}
+
+	public JMenuItem getLoginMenuItem() {
+		return loginItem;
+	}
+
+	public JMenuItem getExitMenuItem() {
+		return exitItem;
+	}
+
+	public JMenuItem getResolution_1MenuItem() {
+		return resolutionItem_1;
+	}
+
+	public JMenuItem getResolution_2MenuItem() {
+		return resolutionItem_2;
+	}
+
+	public JMenuItem getResolution_3MenuItem() {
+		return resolutionItem_3;
+	}
+
+	public JMenuItem getLanguageKorMenuItem() {
+		return languageMenuItem_1;
+	}
+
+	public JMenuItem getLanguageEngMenuItem() {
+		return languageMenuItem_2;
+	}
+
+	public JMenuItem getHelpMenuItem() {
+		return helpItem;
+	}
+
+	public JMenuItem getDevelopersMenuItem() {
+		return developerItem;
 	}
 }
