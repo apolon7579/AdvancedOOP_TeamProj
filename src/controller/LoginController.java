@@ -50,5 +50,23 @@ public class LoginController {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "signUpPanel");
 			}
 		});
+		
+		loginPanel.getCheckBox().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				//체크박스 체크 되있는 경우 = show pwd
+				if(loginPanel.getCheckBox().isSelected()) {
+					loginPanel.getVisibleTextField().setText(loginPanel.getUnVisibleTextField().getText());
+					loginPanel.getVisibleTextField().setVisible(true);
+					loginPanel.getUnVisibleTextField().setVisible(false);
+				}
+				else {
+					loginPanel.getUnVisibleTextField().setText(loginPanel.getVisibleTextField().getText());
+					loginPanel.getVisibleTextField().setVisible(false);
+					loginPanel.getUnVisibleTextField().setVisible(true);
+				}
+			}
+		});
 	}
 }
