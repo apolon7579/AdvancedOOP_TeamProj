@@ -5,20 +5,25 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controller.LoginController;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class SignUpPanel extends JPanel {
 
 	private JTextField idBtn;
 	private JTextField pwdBtn;
 	private JTextField pwdReBtn;
+	private JPasswordField pwdBtn2;
+	private JPasswordField pwdReBtn2;
 	private JButton signUpButton;
 	private JButton goBackButton;
 	private JTextField nameBtn;
+	private JCheckBox chckbxNewCheckBox;
 
 	public SignUpPanel() {
 		setBounds(0, 0, 1030, 660);
@@ -48,6 +53,13 @@ public class SignUpPanel extends JPanel {
 		pwdBtn.setColumns(10);
 		pwdBtn.setBounds(475, 287, 132, 30);
 		this.add(pwdBtn);
+		pwdBtn.setVisible(false);
+		
+		pwdBtn2 = new JPasswordField();
+		pwdBtn2.setColumns(10);
+		pwdBtn2.setBounds(475, 287, 132, 30);
+		this.add(pwdBtn2);
+		pwdBtn2.setVisible(true);
 
 		JLabel lblPassword_1 = new JLabel("PASSWORD RE");
 		lblPassword_1.setFont(new Font("굴림", Font.PLAIN, 25));
@@ -58,7 +70,14 @@ public class SignUpPanel extends JPanel {
 		pwdReBtn.setColumns(10);
 		pwdReBtn.setBounds(475, 328, 132, 30);
 		this.add(pwdReBtn);
-
+		pwdReBtn.setVisible(false);
+		
+		pwdReBtn2 = new JPasswordField();
+		pwdReBtn2.setColumns(10);
+		pwdReBtn2.setBounds(475, 328, 132, 30);
+		this.add(pwdReBtn2);
+		pwdReBtn2.setVisible(true);
+		
 		signUpButton = new JButton("회원가입");
 		signUpButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,10 +101,30 @@ public class SignUpPanel extends JPanel {
 		nameBtn.setColumns(10);
 		nameBtn.setBounds(475, 204, 132, 30);
 		add(nameBtn);
+		
+		chckbxNewCheckBox = new JCheckBox("Show password");
+		chckbxNewCheckBox.setBounds(475, 364, 132, 23);
+		add(chckbxNewCheckBox);
 
 		setVisible(false);
 	}
-
+	
+	public JCheckBox getCheckBox() {
+		return chckbxNewCheckBox;
+	}
+	
+	public JTextField[] getVisibleTextField() {
+		JTextField[] arr = {pwdBtn,pwdReBtn};
+		return arr;
+	}
+	
+	public JPasswordField[] getUnVisibleTextField() {
+		JPasswordField[] arr = {pwdBtn2,pwdReBtn2};
+		return arr;
+	}
+	
+	
+	
 	public JButton getSignUpBtn() {
 		return signUpButton;
 	}
