@@ -111,4 +111,11 @@ public class LoginPanel extends JPanel {
 	public JPasswordField getUnVisibleTextField() {
 		return txtPswdUnVisible;
 	}
+	
+	public void Clean() {
+		//씬이 바뀔때 text에 저장된 값을 비워줌 약간 소멸자 느낌
+		txtId.setText("");
+		txtPswdUnVisible.setText("");
+		txtPswdVisible.setText("");
+	}
 }

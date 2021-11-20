@@ -40,6 +40,7 @@ public class LoginController {
 				if (check) {
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 					mainFrame.setJMenuBar(true);
+					loginPanel.Clean();
 				} else {
 					JOptionPane.showMessageDialog(null, "계정을 찾을 수 없습니다.");
 				}

@@ -29,6 +29,7 @@ public class SignUpController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "loginPanel");
+				signUpPanel.Clean();
 			}
 		});
 		signUpPanel.getSignUpBtn().addActionListener(new ActionListener() {
@@ -52,9 +53,10 @@ public class SignUpController {
 				UserService userService = new UserServiceImpl();
 				boolean check = userService.registrationByNameAndUserIdAndPassword(signUpPanel.getName(),
 						signUpPanel.getID(), signUpPanel.getPWD());
-				if (check)
+				if (check) {
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "loginPanel");
-				else
+					signUpPanel.Clean();
+				} else
 					JOptionPane.showMessageDialog(null, "회원가입 오류입니다.");
 			}
 		});

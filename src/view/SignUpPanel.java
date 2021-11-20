@@ -54,7 +54,7 @@ public class SignUpPanel extends JPanel {
 		pwdBtn.setBounds(475, 287, 132, 30);
 		this.add(pwdBtn);
 		pwdBtn.setVisible(false);
-		
+
 		pwdBtn2 = new JPasswordField();
 		pwdBtn2.setColumns(10);
 		pwdBtn2.setBounds(475, 287, 132, 30);
@@ -71,13 +71,13 @@ public class SignUpPanel extends JPanel {
 		pwdReBtn.setBounds(475, 328, 132, 30);
 		this.add(pwdReBtn);
 		pwdReBtn.setVisible(false);
-		
+
 		pwdReBtn2 = new JPasswordField();
 		pwdReBtn2.setColumns(10);
 		pwdReBtn2.setBounds(475, 328, 132, 30);
 		this.add(pwdReBtn2);
 		pwdReBtn2.setVisible(true);
-		
+
 		signUpButton = new JButton("회원가입");
 		signUpButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -86,51 +86,51 @@ public class SignUpPanel extends JPanel {
 		signUpButton.setFont(new Font("굴림", Font.PLAIN, 22));
 		signUpButton.setBounds(411, 404, 153, 40);
 		this.add(signUpButton);
-		
+
 		goBackButton = new JButton("돌아가기");
 		goBackButton.setFont(new Font("굴림", Font.PLAIN, 22));
 		goBackButton.setBounds(816, 574, 145, 40);
 		add(goBackButton);
-		
+
 		JLabel lblName = new JLabel("NAME");
 		lblName.setFont(new Font("굴림", Font.PLAIN, 25));
 		lblName.setBounds(273, 201, 79, 30);
 		add(lblName);
-		
+
 		nameBtn = new JTextField();
 		nameBtn.setColumns(10);
 		nameBtn.setBounds(475, 204, 132, 30);
 		add(nameBtn);
-		
+
 		chckbxNewCheckBox = new JCheckBox("Show password");
 		chckbxNewCheckBox.setBounds(475, 364, 132, 23);
 		add(chckbxNewCheckBox);
 
 		setVisible(false);
 	}
-	
+
 	public JCheckBox getCheckBox() {
 		return chckbxNewCheckBox;
 	}
-	
+
 	public JTextField[] getVisibleTextField() {
-		JTextField[] arr = {pwdBtn,pwdReBtn};
+		JTextField[] arr = { pwdBtn, pwdReBtn };
 		return arr;
 	}
-	
+
 	public JPasswordField[] getUnVisibleTextField() {
-		JPasswordField[] arr = {pwdBtn2,pwdReBtn2};
+		JPasswordField[] arr = { pwdBtn2, pwdReBtn2 };
 		return arr;
 	}
-	
+
 	public JButton getSignUpBtn() {
 		return signUpButton;
 	}
 
-    public String getName() {
-        return nameBtn.getText();
-    }
-    
+	public String getName() {
+		return nameBtn.getText();
+	}
+
 	public String getID() {
 		return idBtn.getText();
 	}
@@ -141,5 +141,15 @@ public class SignUpPanel extends JPanel {
 
 	public JButton getGoBackButton() {
 		return goBackButton;
+	}
+
+	public void Clean() {
+		// 씬이 바뀔때 text에 저장된 값을 비워줌 약간 소멸자 느낌
+		idBtn.setText("");
+		nameBtn.setText("");
+		pwdBtn.setText("");
+		pwdBtn2.setText("");
+		pwdReBtn.setText("");
+		pwdReBtn2.setText("");
 	}
 }
