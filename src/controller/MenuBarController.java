@@ -54,7 +54,7 @@ public class MenuBarController {
 					String code = arr[i].getCode();
 					String capital = arr[i].getCapital();
 					String location = arr[i].getLocation();
-					String area = Integer.toString(arr[i].getArea());
+					String area = Double.toString(arr[i].getArea());
 
 					table.setValueAt(name, i, 0);
 					table.setValueAt(code, i, 1);

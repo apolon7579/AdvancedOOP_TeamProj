@@ -1,12 +1,12 @@
 package entity;
 
 public class Race implements ListItem {
-	private int id;
-	private int nationId;
+	private Integer id;
+	private Integer nationId;
 	private String name;
-	private double percentage;
+	private Double percentage;
 	
-	public Race(int id, int nationId, String name, double percentage) {
+	public Race(Integer id, Integer nationId, String name, Double percentage) {
 		super();
 		this.id = id;
 		this.nationId = nationId;
@@ -14,11 +14,11 @@ public class Race implements ListItem {
 		this.percentage = percentage;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return nationId;
 	}
 
@@ -26,7 +26,7 @@ public class Race implements ListItem {
 		return name;
 	}
 
-	public double getPercentage() {
+	public Double getPercentage() {
 		return percentage;
 	}
 }

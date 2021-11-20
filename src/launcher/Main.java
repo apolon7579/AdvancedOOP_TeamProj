@@ -1,7 +1,5 @@
 package launcher;
 
-import java.util.Arrays;
-
 import config.DependencyManager;
 
 public class Main {

@@ -73,7 +73,7 @@ public class MainRetrieveController {
 			String code = nationList.get(i).getCode();
 			String capital = nationList.get(i).getCapital();
 			String location = nationList.get(i).getLocation();
-			String area = Integer.toString(nationList.get(i).getArea());
+			String area = Double.toString(nationList.get(i).getArea());
 
 			table.setValueAt(name, i, 0);
 			table.setValueAt(code, i, 1);
@@ -130,7 +130,7 @@ public class MainRetrieveController {
 				raceValue.setText(getListString(nation.getRaceList()));
 				mediaValue.setText(getListString(nation.getMediaList()));
 				locationValue.setText(nation.getLocation());
-				areaValue.setText(Integer.toString(nation.getArea()));
+				areaValue.setText(Double.toString(nation.getArea()));
 				areaSourceValue.setText(nation.getAreaSource());
 				languageValue.setText(getListString(nation.getLanguageList()));
 				
@@ -165,7 +165,7 @@ public class MainRetrieveController {
 					String code = arr[i].getCode();
 					String capital = arr[i].getCapital();
 					String location = arr[i].getLocation();
-					String area = Integer.toString(arr[i].getArea());
+					String area = Double.toString(arr[i].getArea());
 					
 					table.setValueAt(name, i, 0);
 					table.setValueAt(code, i, 1);
@@ -208,7 +208,7 @@ public class MainRetrieveController {
 						String code = nationList.get(i).getCode();
 						String capital = nationList.get(i).getCapital();
 						String location = nationList.get(i).getLocation();
-						String area = Integer.toString(nationList.get(i).getArea());
+						String area = Double.toString(nationList.get(i).getArea());
 
 						table.setValueAt(name, i, 0);
 						table.setValueAt(code, i, 1);

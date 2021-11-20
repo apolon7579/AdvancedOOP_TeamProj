@@ -1,22 +1,22 @@
 package entity;
 
 public class Media implements ListItem {
-	private int id;
-	private int nationId;
+	private Integer id;
+	private Integer nationId;
 	private String name;
 	
-	public Media(int id, int nationId, String name) {
+	public Media(Integer id, Integer nationId, String name) {
 		super();
 		this.id = id;
 		this.nationId = nationId;
 		this.name = name;
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return nationId;
 	}
 

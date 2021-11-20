@@ -30,15 +30,15 @@ public class NationDaoImpl implements NationDao {
 			while (rs.next()) {
 				// id, name, code, capital, location, area, area_source, area_description,
 				// base_year
-				int id = rs.getInt("id");
+				Integer id = rs.getInt("id");
 				String name = rs.getString("name");
 				String code = rs.getString("code");
 				String capital = rs.getString("capital");
 				String location = rs.getString("location");
-				int area = rs.getInt("area");
+				Double area = rs.getDouble("area");
 				String area_source = rs.getString("area_source");
 				String area_location = rs.getString("area_description");
-				int base_year = rs.getInt("base_year");
+				Integer base_year = rs.getInt("base_year");
 
 				nation = new Nation(id, name, code, capital, location, area, area_source, area_location, base_year);
 				nationList.add(nation);
@@ -69,15 +69,15 @@ public class NationDaoImpl implements NationDao {
 			while (rs.next()) {
 				// id, name, code, capital, location, area, area_source, area_description,
 				// base_year
-				int id = rs.getInt("id");
+				Integer id = rs.getInt("id");
 				String name = rs.getString("name");
 				String code = rs.getString("code");
 				String capital = rs.getString("capital");
 				String location = rs.getString("location");
-				int area = rs.getInt("area");
+				Double area = rs.getDouble("area");
 				String area_source = rs.getString("area_source");
 				String area_location = rs.getString("area_description");
-				int base_year = rs.getInt("base_year");
+				Integer base_year = rs.getInt("base_year");
 
 				nation = new Nation(id, name, code, capital, location, area, area_source, area_location, base_year);
 				nationList.add(nation);
@@ -107,15 +107,15 @@ public class NationDaoImpl implements NationDao {
 			while (rs.next()) {
 				// id, name, code, capital, location, area, area_source, area_description,
 				// base_year
-				int id = rs.getInt("id");
+				Integer id = rs.getInt("id");
 				String name = rs.getString("name");
 				String code = rs.getString("code");
 				String capital = rs.getString("capital");
 				String location = rs.getString("location");
-				int area = rs.getInt("area");
+				Double area = rs.getDouble("area");
 				String area_source = rs.getString("area_source");
 				String area_location = rs.getString("area_description");
-				int base_year = rs.getInt("base_year");
+				Integer base_year = rs.getInt("base_year");
 
 				nation = new NationDto();
 				nation.setId(id);
@@ -154,7 +154,7 @@ public class NationDaoImpl implements NationDao {
 			ResultSet rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				nationList.add(new NationForGame(rs.getString("name"), rs.getString("code"), rs.getInt("area"),
+				nationList.add(new NationForGame(rs.getString("name"), rs.getString("code"), rs.getDouble("area"),
 						rs.getString("capital"), rs.getString("location"), rs.getString("city"),
 						rs.getString("language"), rs.getString("climate"), rs.getString("religion"),
 						rs.getString("race")));
@@ -184,15 +184,15 @@ public class NationDaoImpl implements NationDao {
 			while (rs.next()) {
 				// id, name, code, capital, location, area, area_source, area_description,
 				// base_year
-				int id = rs.getInt("id");
+				Integer id = rs.getInt("id");
 				String name = rs.getString("name");
 				String code = rs.getString("code");
 				String capital = rs.getString("capital");
 				String location = rs.getString("location");
-				int area = rs.getInt("area");
+				Double area = rs.getDouble("area");
 				String area_source = rs.getString("area_source");
 				String area_location = rs.getString("area_description");
-				int base_year = rs.getInt("base_year");
+				Integer base_year = rs.getInt("base_year");
 
 				nation = new Nation(id, name, code, capital, location, area, area_source, area_location, base_year);
 				nationList.add(nation);

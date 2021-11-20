@@ -1,30 +1,30 @@
 package entity;
 
 public class Climate implements ListItem{
-	private int id;
-	private int nationId;
+	private Integer id;
+	private Integer nationId;
 	private String name;
 	
-	public Climate(int id, int nationId, String name) {
+	public Climate(Integer id, Integer nationId, String name) {
 		super();
 		this.id = id;
 		this.nationId = nationId;
 		this.name = name;
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return nationId;
 	}
 
-	public void setNationId(int nationId) {
+	public void setNationId(Integer nationId) {
 		this.nationId = nationId;
 	}
 

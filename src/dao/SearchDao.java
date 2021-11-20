@@ -38,7 +38,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -58,7 +58,7 @@ public class SearchDao {
         return null;
     }
 
-    public Nation GetNationForID(int id)
+    public Nation GetNationForID(Integer id)
     {
         String sql = "SELECT * FROM NATION WHERE ID = " + id;
 
@@ -74,7 +74,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -107,7 +107,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -143,7 +143,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -181,7 +181,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -219,7 +219,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -257,7 +257,7 @@ public class SearchDao {
                     rs.getString("code"),
                     rs.getString("capital"),
                     rs.getString("location"),
-                    Integer.parseInt(rs.getString("area")),
+                    Double.parseDouble(rs.getString("area")),
                     rs.getString("area_source"),
                     rs.getString("area_description"),
                     Integer.parseInt(rs.getString("base_year").split("-")[0])
@@ -277,7 +277,7 @@ public class SearchDao {
         return null;
     }
     
-    public List<Language> GetLanguageForNationID(int nationId)
+    public List<Language> GetLanguageForNationID(Integer nationId)
     {
         String sql = "SELECT * FROM LANGUAGE WHERE nation_id = " + nationId;
 
@@ -309,7 +309,7 @@ public class SearchDao {
         return null;
     }
     
-    public List<Climate> GetClimateForNationID(int nationId)
+    public List<Climate> GetClimateForNationID(Integer nationId)
     {
         String sql = "SELECT * FROM CLIMATE WHERE nation_id = " + nationId;
 
@@ -374,7 +374,7 @@ public class SearchDao {
         return null;
     }
     
-    public List<Race> GetRaceForNationID(int nationId)
+    public List<Race> GetRaceForNationID(Integer nationId)
     {
         String sql = "SELECT * FROM Religion WHERE nation_id = " + nationId;
 

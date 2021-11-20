@@ -1,15 +1,15 @@
 package entity;
 
 public class City implements ListItem {
-	private int id;
-	private int nationId;
+	private Integer id;
+	private Integer nationId;
 	private String name;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return nationId;
 	}
 
@@ -17,7 +17,7 @@ public class City implements ListItem {
 		return name;
 	}
 
-	public City(int id, int nationId, String name) {
+	public City(Integer id, Integer nationId, String name) {
 		super();
 		this.id = id;
 		this.nationId = nationId;

@@ -11,39 +11,62 @@ import entity.Religion;
 import entity.User;
 
 public class NationDto {
-	private int id;
+	private Integer id;
 	private String name;
 	private String code;
 	private String capital;
+	private List<Climate> climateList;
 	private String location;
-	private int area;
+	private List<City> cityList;
+	private List<Religion> religionList;
+	private List<Race> raceList;
+	private List<Media> mediaList;
+	private Double area;
 	private String areaSource;
 	private String areaLocation;
-	private int baseYear;
-	private List<City> cityList;
-	private List<Climate> climateList;
 	private List<Language> languageList;
-	private List<Media> mediaList;
-	private List<Race> raceList;
-	private List<Religion> religionList;
+	private Integer baseYear;
 	private List<User> userList;
 	
+	public NationDto() {
+	}
+	public NationDto(Integer id, String name, String code, String capital, List<Climate> climateList, String location,
+			List<City> cityList, List<Religion> religionList, List<Race> raceList, List<Media> mediaList, Double area,
+			String areaSource, String areaLocation, List<Language> languageList, Integer baseYear, List<User> userList) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.code = code;
+		this.capital = capital;
+		this.climateList = climateList;
+		this.location = location;
+		this.cityList = cityList;
+		this.religionList = religionList;
+		this.raceList = raceList;
+		this.mediaList = mediaList;
+		this.area = area;
+		this.areaSource = areaSource;
+		this.areaLocation = areaLocation;
+		this.languageList = languageList;
+		this.baseYear = baseYear;
+		this.userList = userList;
+	}
 	public String getAreaLocation() {
 		return areaLocation;
 	}
 	public void setAreaLocation(String areaLocation) {
 		this.areaLocation = areaLocation;
 	}
-	public int getBaseYear() {
+	public Integer getBaseYear() {
 		return baseYear;
 	}
-	public void setBaseYear(int baseYear) {
+	public void setBaseYear(Integer baseYear) {
 		this.baseYear = baseYear;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -70,10 +93,10 @@ public class NationDto {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public int getArea() {
+	public Double getArea() {
 		return area;
 	}
-	public void setArea(int area) {
+	public void setArea(Double area) {
 		this.area = area;
 	}
 	public String getAreaSource() {
@@ -123,5 +146,13 @@ public class NationDto {
 	}
 	public void setUserList(List<User> userList) {
 		this.userList = userList;
+	}
+	@Override
+	public String toString() {
+		return "NationDto [id=" + id + ", name=" + name + ", code=" + code + ", capital=" + capital + ", climateList="
+				+ climateList + ", location=" + location + ", cityList=" + cityList + ", religionList=" + religionList
+				+ ", raceList=" + raceList + ", mediaList=" + mediaList + ", area=" + area + ", areaSource="
+				+ areaSource + ", areaLocation=" + areaLocation + ", languageList=" + languageList + ", baseYear="
+				+ baseYear + ", userList=" + userList + "]";
 	}
 }

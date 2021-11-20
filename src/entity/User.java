@@ -1,13 +1,13 @@
 package entity;
 
 public class User {
-	private int id;
+	private Integer id;
 	private String name;
 	private String userId;
 	private String password;
-	private int level;
+	private Integer level;
 	
-	public User(int id, String name, String userId, String password, int level) {
+	public User(Integer id, String name, String userId, String password, Integer level) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -16,7 +16,7 @@ public class User {
 		this.level = level;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -32,7 +32,7 @@ public class User {
 		return password;
 	}
 
-	public int getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
 }

@@ -1,16 +1,16 @@
 package entity;
 
 public class Religion implements ListItem {
-	private int id;
-	private int nationId;
+	private Integer id;
+	private Integer nationId;
 	private String name;
-	private double percentage;
+	private Double percentage;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return nationId;
 	}
 
@@ -18,11 +18,11 @@ public class Religion implements ListItem {
 		return name;
 	}
 
-	public double getPercentage() {
+	public Double getPercentage() {
 		return percentage;
 	}
 
-	public Religion(int id, int nationId, String name, double percentage) {
+	public Religion(Integer id, Integer nationId, String name, Double percentage) {
 		super();
 		this.id = id;
 		this.nationId = nationId;

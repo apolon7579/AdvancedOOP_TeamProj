@@ -3,7 +3,7 @@ package entity;
 public class NationForGame {
 	private String name;
 	private String code;
-	private int area;
+	private Double area;
 	private String capital;
 	private String location;
 	private String city;
@@ -12,7 +12,7 @@ public class NationForGame {
 	private String religion;
 	private String race;
 
-	public NationForGame(String name, String code, int area, String capital, String location, String city,
+	public NationForGame(String name, String code, Double area, String capital, String location, String city,
 			String language, String climate, String religion, String race) {
 		super();
 		this.name = name;
@@ -28,7 +28,7 @@ public class NationForGame {
 	}
 	
 
-	public int getArea() {
+	public Double getArea() {
 		return area;
 	}
 

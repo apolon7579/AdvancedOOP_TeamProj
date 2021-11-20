@@ -1,22 +1,22 @@
 package entity;
 
 public class Language implements ListItem{
-	private int id;
-	private int nationId;
+	private Integer id;
+	private Integer nationId;
 	private String name;
 	
-	public Language(int id, int nationId, String name) {
+	public Language(Integer id, Integer nationId, String name) {
 		super();
 		this.id = id;
 		this.nationId = nationId;
 		this.name = name;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public int getNationId() {
+	public Integer getNationId() {
 		return nationId;
 	}
 
