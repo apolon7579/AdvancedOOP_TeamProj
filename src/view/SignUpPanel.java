@@ -123,8 +123,6 @@ public class SignUpPanel extends JPanel {
 		return arr;
 	}
 	
-	
-	
 	public JButton getSignUpBtn() {
 		return signUpButton;
 	}
