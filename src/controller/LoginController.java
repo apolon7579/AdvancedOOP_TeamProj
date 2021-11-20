@@ -4,6 +4,8 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import service.UserService;
 import service.UserServiceImpl;
 import view.LoginPanel;
@@ -39,7 +41,7 @@ public class LoginController {
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 					mainFrame.setJMenuBar(true);
 				} else {
-					System.out.println("Login Fail!!");
+					JOptionPane.showMessageDialog(null, "계정을 찾을 수 없습니다.");
 				}
 			}
 		});
