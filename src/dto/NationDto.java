@@ -6,6 +6,7 @@ import entity.City;
 import entity.Climate;
 import entity.Language;
 import entity.Media;
+import entity.Nation;
 import entity.Race;
 import entity.Religion;
 import entity.User;
@@ -50,6 +51,9 @@ public class NationDto {
 		this.languageList = languageList;
 		this.baseYear = baseYear;
 		this.userList = userList;
+	}
+	public Nation getNation() {
+		return new Nation(id, name, code, capital, location, area, areaSource, areaLocation, baseYear);
 	}
 	public String getAreaLocation() {
 		return areaLocation;

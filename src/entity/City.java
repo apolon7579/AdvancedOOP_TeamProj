@@ -23,4 +23,16 @@ public class City implements ListItem {
 		this.nationId = nationId;
 		this.name = name;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNationId(Integer nationId) {
+		this.nationId = nationId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }

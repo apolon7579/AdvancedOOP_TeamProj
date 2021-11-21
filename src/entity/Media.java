@@ -24,4 +24,16 @@ public class Media implements ListItem {
 		return name;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNationId(Integer nationId) {
+		this.nationId = nationId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }

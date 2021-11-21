@@ -23,7 +23,7 @@ public class FileServiceImpl implements FileService {
 	ClimateDao climateDao = new ClimateDaoImpl();
 	CityDao cityDao = new CityDaoImpl();
 	MediaDao mediaDao = new MediaDaoImpl();
-	LanguageDao userDao = new LanguageDaoImpl();
+	LanguageDao languageDao = new LanguageDaoImpl();
 	
 	@Override
 	public int upload(String path) {
@@ -39,18 +39,35 @@ public class FileServiceImpl implements FileService {
 		 * 만약 Nation이 없으면 전부 새로 올리고 있으면 갱신(삭제하고 덮어쓰기)
 		 */
 		try{
+			int count = 0;
 			List<NationDto> list = CSVParsingService.readFile(path);
-			for(NationDto nation: list) {
-				//국가이름 기준으로 없는 경우 Nation, Climate, Language, City, Media를 업로드한다.
-				if(nationDao.retrieveNationByName(nation.getName()) == null) {
-					
+			
+			for(NationDto nationDto: list) {
+				//국가이름 기준으로 없는 경우 Nation을 업로드한다.
+				int newNationId = -1;
+				if(nationDao.retrieveNationByName(nationDto.getName()) == null) {
+					nationDao.insertByNation(nationDto.getNation());
+					newNationId = nationDao.retrieveNationByName(nationDto.getName()).getId();
 				}
+				//국가이름 기준으로 있는 경우 Nation을 갱신하고 Climate, Language, City, Media를 제거한다.
 				else {
-					
+					nationDao.updateByNation(nationDto.getNation());
+					newNationId = nationDao.retrieveNationByName(nationDto.getName()).getId();
+					climateDao.deleteByNationId(newNationId);
+					languageDao.deleteByNationId(newNationId);
+					cityDao.deleteByNationId(newNationId);
+					mediaDao.deleteByNationId(newNationId);
 				}
+				final int finalNewNAtionId = newNationId;
+				nationDto.getClimateList().forEach(c->{c.setNationId(finalNewNAtionId); climateDao.insertByClimate(c);});
+				nationDto.getLanguageList().forEach(c->{c.setNationId(finalNewNAtionId); languageDao.insertByLanguage(c);});
+				nationDto.getCityList().forEach(c->{c.setNationId(finalNewNAtionId); cityDao.insertByCity(c);});
+				nationDto.getMediaList().forEach(c->{c.setNationId(finalNewNAtionId); mediaDao.insertByMedia(c);});
+				
+				count++;
 			}
 			
-			return 0;
+			return count;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
