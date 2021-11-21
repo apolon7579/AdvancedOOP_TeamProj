@@ -8,6 +8,7 @@ import java.util.List;
 import entity.NationForGame;
 import service.NationService;
 import service.NationServiceImpl;
+import service.UpDownGame;
 import view.GamePanel;
 import view.GameRulePanel;
 import view.MainFrame;
@@ -38,22 +39,73 @@ public class GameController {
 		this.left = nationForGameList.get(index);
 		right = nationForGameList.get(index + 1);
 
-		panel.setUp(0, left.getArea(), left.getName(), right.getName());
+		panel.setResultPanelFalse();
+		panel.setUp(score, left.getArea(), left.getName(), right.getName());
+	}
+
+	public boolean getFlag() {
+		// 왼쪽이 오른쪽보다 크면 false반환
+		// 오른쪽이 왼쪽보다 크면 true반환
+		return (left.getArea() <= right.getArea());
+	}
+
+	public boolean isFinish() {
+		// 끝까지 도달
+		return (index == nationForGameList.size() - 1);
+	}
+
+	public void next() {
+		left = nationForGameList.get(++index);
+		right = nationForGameList.get(index + 1);
+		score++;
 	}
 
 	private void eventInit() {
 		panel.getBigBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				System.out.println("BIG??");
+				if (isFinish())
+					System.out.println("finish 결과창");
+				// 오른쪽이 더 크다고 생각
+				if (getFlag()) {
+					next();
+					panel.setUp(score, left.getArea(), left.getName(), right.getName());
+				} else
+					panel.setResultPanelTrue(score);
 			}
 		});
 		panel.getSmallBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				System.out.println("SMALL??");
+				if (isFinish())
+					System.out.println("finish 결과창");
+				// 왼쪽이 더 크다고 생각
+				if (!getFlag()) {
+					next();
+					panel.setUp(score, left.getArea(), left.getName(), right.getName());
+				} else
+					panel.setResultPanelTrue(score);
+			}
+		});
+
+		panel.getGoToMainBtn().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameInit();
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
+			}
+		});
+		panel.getRePlayButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameInit();
+			}
+		});
+		panel.getBackBtn().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameInit();
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "gameRulePanel");
 			}
 		});
 	}

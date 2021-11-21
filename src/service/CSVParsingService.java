@@ -16,10 +16,13 @@ import entity.Media;
 public class CSVParsingService {
 
 	public static void main(String[] args) {
+		// 상대경로로 변경해야댐
 		List<NationDto> list = CSVParsingService
 				.readFile("C:\\Users\\mjk49\\Desktop\\학교공부\\2-2\\고급객체지향프로그래밍\\조별과제 자료\\외교부_국가·지역별 일반정보_20201231.csv");
 		System.out.println(list.size());
-		for (NationDto n : list) { System.out.println(n); }
+		for (NationDto n : list) {
+			System.out.println(n);
+		}
 
 	}
 
@@ -55,35 +58,39 @@ public class CSVParsingService {
 
 					col[index++] = String.join(",", subList);
 				}
-				//System.out.println();
-				nationList.add(new NationDto(-1, col[0], col[1], col[2], climateParser(col[3]), col[4], cityParser(col[5]), null, null, mediaParser(col[8]),
-						((col[9].equals("")) ? null : Double.parseDouble(col[9])), col[10], col[11], languageParser(col[12]),
-						Integer.parseInt(col[13]), null));
+				// System.out.println();
+				nationList.add(new NationDto(-1, col[0], col[1], col[2], climateParser(col[3]), col[4],
+						cityParser(col[5]), null, null, mediaParser(col[8]),
+						((col[9].equals("")) ? null : Double.parseDouble(col[9])), col[10], col[11],
+						languageParser(col[12]), Integer.parseInt(col[13]), null));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return nationList;
 	}
-	
-	private static List<Climate> climateParser(String str){
+
+	private static List<Climate> climateParser(String str) {
 		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new Climate(-1, -1, s)).toList();
+		// return null;
+		return parsed.stream().map(s -> new Climate(-1, -1, s)).toList();
 	}
-	
-	private static List<Language> languageParser(String str){
+
+	private static List<Language> languageParser(String str) {
 		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new Language(-1, -1, s)).toList();
-		
+		// return null;
+		return parsed.stream().map(s -> new Language(-1, -1, s)).toList();
 	}
-	
-	private static List<City> cityParser(String str){
+
+	private static List<City> cityParser(String str) {
 		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new City(-1, -1, s)).toList();
+		// return null;
+		return parsed.stream().map(s -> new City(-1, -1, s)).toList();
 	}
-	
-	private static List<Media> mediaParser(String str){
+
+	private static List<Media> mediaParser(String str) {
 		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new Media(-1, -1, s)).toList();
+		// return null;
+		return parsed.stream().map(s -> new Media(-1, -1, s)).toList();
 	}
 }

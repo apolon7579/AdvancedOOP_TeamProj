@@ -34,12 +34,50 @@ public class GamePanel extends JPanel {
 	JLabel name2;
 	JButton bigBtn;
 	JButton smallBtn;
+	private JButton goToMainBtn;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_2;
+	private JButton rePlayBtn;
+	private JLabel lblResult;
+	private JButton btnNewButton;
+	private JPanel resultPanel;
+	// 가끔 사진이 없는 나라가 있음;;
+	// 캐나다 같은건 이미지가 너무 커서 이상하게 나옴;;
 
-	//가끔 사진이 없는 나라가 있음;;
-	
 	public GamePanel() {
 		setBackground(Color.DARK_GRAY);
 		setLayout(null);
+
+		resultPanel = new JPanel();
+		resultPanel.setBounds(148, 100, 701, 308);
+		add(resultPanel);
+		resultPanel.setLayout(null);
+		resultPanel.setVisible(false);
+
+		goToMainBtn = new JButton("메인으로");
+		goToMainBtn.setFont(new Font("굴림", Font.BOLD, 17));
+		goToMainBtn.setBounds(154, 210, 136, 43);
+		resultPanel.add(goToMainBtn);
+
+		lblNewLabel = new JLabel("점수: 0");
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 28));
+		lblNewLabel.setBounds(271, 82, 176, 37);
+		resultPanel.add(lblNewLabel);
+
+		lblNewLabel_2 = new JLabel("최고 점수: 0");
+		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 28));
+		lblNewLabel_2.setBounds(271, 149, 176, 37);
+		resultPanel.add(lblNewLabel_2);
+
+		rePlayBtn = new JButton("다시하기");
+		rePlayBtn.setFont(new Font("굴림", Font.BOLD, 17));
+		rePlayBtn.setBounds(362, 210, 136, 43);
+		resultPanel.add(rePlayBtn);
+
+		lblResult = new JLabel("Result");
+		lblResult.setFont(new Font("굴림", Font.BOLD, 37));
+		lblResult.setBounds(271, 10, 188, 43);
+		resultPanel.add(lblResult);
 
 		JLabel lblNewLabel2 = new JLabel("국가별 면적");
 		lblNewLabel2.setForeground(Color.WHITE);
@@ -106,6 +144,27 @@ public class GamePanel extends JPanel {
 		name2.setFont(new Font("굴림", Font.PLAIN, 24));
 		name2.setBounds(576, 383, 369, 37);
 		add(name2);
+
+		btnNewButton = new JButton("돌아가기");
+		btnNewButton.setBounds(873, 10, 97, 23);
+		add(btnNewButton);
+	}
+
+	public void setResultPanelTrue(int score) {
+		resultPanel.setVisible(true);
+		lblNewLabel.setText("점수: " + score + "점");
+		bigBtn.setEnabled(false);
+		smallBtn.setEnabled(false);
+	}
+
+	public void setResultPanelFalse() {
+		resultPanel.setVisible(false);
+		bigBtn.setEnabled(true);
+		smallBtn.setEnabled(true);
+	}
+
+	public JButton getBackBtn() {
+		return btnNewButton;
 	}
 
 	public JButton getBigBtn() {
@@ -114,6 +173,14 @@ public class GamePanel extends JPanel {
 
 	public JButton getSmallBtn() {
 		return smallBtn;
+	}
+
+	public JButton getGoToMainBtn() {
+		return goToMainBtn;
+	}
+
+	public JButton getRePlayButton() {
+		return rePlayBtn;
 	}
 
 	public void setUp(int score, double peopleNum, String info1, String info2) {
@@ -137,5 +204,4 @@ public class GamePanel extends JPanel {
 		name1.setText(info1);
 		name2.setText(info2);
 	}
-
 }
