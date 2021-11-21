@@ -1,11 +1,13 @@
 package config;
 
+import controller.GameRuleController;
 import controller.LoginController;
 import controller.MainNavigatorController;
 import controller.MainRetrieveController;
 import controller.MenuBarController;
 import controller.NationDataSlideController;
 import controller.SignUpController;
+import view.GameRulePanel;
 import view.MainFrame;
 import view.MenuBarPanel;
 
@@ -30,6 +32,7 @@ public class DependencyManager {
 		NationDataSlideController nationDataController = new NationDataSlideController(mainFrame);
 		MainNavigatorController mainNavigatorController = new MainNavigatorController(mainFrame);
 		MenuBarController menuBarController = new MenuBarController(mainFrame);
+		GameRuleController gameRuleController = new GameRuleController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 

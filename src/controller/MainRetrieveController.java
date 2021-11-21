@@ -2,10 +2,14 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Phaser;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,11 +19,14 @@ import entity.ListItem;
 import entity.Nation;
 import service.NationService;
 import service.NationServiceImpl;
+import service.WriteCSV;
 import view.MainFrame;
 import view.MainNavigatorPanel;
 import view.MainRetrievePanel;
 import view.NationDataSlidePanel;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 public class MainRetrieveController {
 
 	private MainRetrievePanel mainRetrievePanel;
@@ -66,7 +73,6 @@ public class MainRetrieveController {
 		table.getColumnModel().getColumn(2).setHeaderValue("수도");
 		table.getColumnModel().getColumn(3).setHeaderValue("위치");
 		table.getColumnModel().getColumn(4).setHeaderValue("면적");
-
 		for (int i = 0; i < nationList.size(); i++) {
 
 			String name = nationList.get(i).getName();
@@ -186,9 +192,9 @@ public class MainRetrieveController {
 				JComboBox box = mainRetrievePanel.getSearchComboBox();
 				String searchValue = mainRetrievePanel.getSearchField().getText();
 				String val = box.getSelectedItem().toString();
-
+				List<Nation> nationList = null;
 				if (val.equals("이름")) {
-					List<Nation> nationList = nationService.retrieveBySearchValue(searchValue, "name");
+				    nationList = nationService.retrieveBySearchValue(searchValue, "name");
 					JTable table = mainRetrievePanel.getTable();
 					DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 
@@ -217,21 +223,43 @@ public class MainRetrieveController {
 						table.setValueAt(area, i, 4);
 					}
 				}else if(val.equals("기후")) {
-					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "climate");
+					nationList = nationService.retrieveBySearchValueAndTable(searchValue, "climate");
 					initTableByNationList(nationList);
 				}else if(val.equals("종교")) {
-					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "religion");
+					nationList = nationService.retrieveBySearchValueAndTable(searchValue, "religion");
 					initTableByNationList(nationList);
 				}else if(val.equals("민족")) {
-					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "race");
+					nationList = nationService.retrieveBySearchValueAndTable(searchValue, "race");
 					initTableByNationList(nationList);
 				}else if(val.equals("언어")) {
-					List<Nation> nationList = nationService.retrieveBySearchValueAndTable(searchValue, "language");
+					nationList = nationService.retrieveBySearchValueAndTable(searchValue, "language");
 					initTableByNationList(nationList);
 				}
 			}
 
 		});
+        mainRetrievePanel.getCsvExportBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JTable table = mainRetrievePanel.getTable();
+                List<Nation> nations = new ArrayList<Nation>();
+                for(int i = 0; i < table.getRowCount(); i++)
+                {
+                    nations.add(new Nation(null, table.getValueAt(i, 0) == null ? null : table.getValueAt(i, 0).toString(),
+                            table.getValueAt(i, 1) == null ? null : table.getValueAt(i, 1).toString(),
+                            table.getValueAt(i, 2) == null ? null : table.getValueAt(i, 2).toString(),
+                            table.getValueAt(i, 3) == null ? null : table.getValueAt(i, 3).toString(),
+                            table.getValueAt(i, 4) == null ? null : Double.parseDouble(table.getValueAt(i, 4).toString()), null, null, null));
+                }
+                if(nations == null || nations.size() == 0)
+                    return;
+                WriteCSV writeCSV = new WriteCSV();
+                if(writeCSV.writeFile(nations, LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_")) + LocalTime.now().format(DateTimeFormatter.ofPattern("HH_mm_ss")), "./"))
+                    JOptionPane.showMessageDialog(null, "데이터 내보내기 성공");
+                else
+                    JOptionPane.showMessageDialog(null, "데이터 내보내기 실패");
+            }
+        });
 	}
 
 }
