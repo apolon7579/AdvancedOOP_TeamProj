@@ -23,6 +23,7 @@ public class MainFrame extends JFrame {
 	private GameRulePanel gameRulePanel;
 	private MenuBarPanel menuBarPanel;
 	private GamePanel gamePanel;
+	private HistogramPanel histogramPanel;
 
 	private CardLayout cardLayout;
 
@@ -56,6 +57,9 @@ public class MainFrame extends JFrame {
 
 		gamePanel = new GamePanel();
 		getContentPane().add("gamePanel", gamePanel);
+		
+		histogramPanel = new HistogramPanel();
+		getContentPane().add("histogramPanel", histogramPanel);
 	}
 
 	public void setJMenuBar(boolean b) {
@@ -99,5 +103,9 @@ public class MainFrame extends JFrame {
 
 	public GamePanel getGamePannel() {
 		return gamePanel;
+	}
+	
+	public HistogramPanel getHistogramPanel() {
+		return histogramPanel;
 	}
 }

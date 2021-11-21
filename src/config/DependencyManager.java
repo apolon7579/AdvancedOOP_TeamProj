@@ -2,15 +2,14 @@ package config;
 
 import controller.GameController;
 import controller.GameRuleController;
+import controller.HistogramPanelController;
 import controller.LoginController;
 import controller.MainNavigatorController;
 import controller.MainRetrieveController;
 import controller.MenuBarController;
 import controller.NationDataSlideController;
 import controller.SignUpController;
-import view.GameRulePanel;
 import view.MainFrame;
-import view.MenuBarPanel;
 
 public class DependencyManager {
 
@@ -35,6 +34,7 @@ public class DependencyManager {
 		MenuBarController menuBarController = new MenuBarController(mainFrame);
 		GameRuleController gameRuleController = new GameRuleController(mainFrame);
 		GameController gameController = new GameController(mainFrame);
+		HistogramPanelController histogramController = new HistogramPanelController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 

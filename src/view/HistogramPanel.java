@@ -13,6 +13,9 @@ public class HistogramPanel extends JPanel
 
     private JPanel barPanel;
     private JPanel labelPanel;
+    private JPanel buttonPanel;
+    
+    private JButton backBtn;
 
     private List<Bar> bars = new ArrayList<Bar>();
 
@@ -32,6 +35,13 @@ public class HistogramPanel extends JPanel
 
         add(barPanel, BorderLayout.CENTER);
         add(labelPanel, BorderLayout.PAGE_END);
+        
+        buttonPanel = new JPanel();
+        add(buttonPanel, BorderLayout.NORTH);
+        buttonPanel.setLayout(new GridLayout(0, 1, 0, 0));
+        
+        backBtn = new JButton("뒤로가기");
+        buttonPanel.add(backBtn);
     }
 
     public void addHistogramColumn(String label, int value, Color color)
@@ -130,21 +140,22 @@ public class HistogramPanel extends JPanel
             g.fillRect(x + width - shadow, y + shadow, shadow, height - shadow);
         }
     }
+    
+    public JButton getBackBtn() {
+    	return backBtn;
+    }
 
+    public List<Bar> getBarList(){
+    	return bars;
+    }
+    
     private static void createAndShowGUI()
     {
         HistogramPanel panel = new HistogramPanel();
-        panel.addHistogramColumn("A", 350, Color.RED);
-        panel.addHistogramColumn("B", 690, Color.YELLOW);
-        panel.addHistogramColumn("C", 510, Color.BLUE);
-        panel.addHistogramColumn("D", 570, Color.ORANGE);
-        panel.addHistogramColumn("E", 180, Color.MAGENTA);
-        panel.addHistogramColumn("F", 504, Color.CYAN);
-        panel.layoutHistogram();
 
         JFrame frame = new JFrame("Histogram Panel");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add( panel );
+        frame.getContentPane().add( panel );
         frame.setLocationByPlatform( true );
         frame.pack();
         frame.setVisible( true );
