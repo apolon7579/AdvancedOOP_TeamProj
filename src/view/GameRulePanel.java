@@ -21,7 +21,7 @@ public class GameRulePanel extends JPanel {
 		textField.setEnabled(false);
 		textField.setFont(new Font("굴림", Font.PLAIN, 20));
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setText("게임");
+		textField.setText("업 다운 게임");
 		textField.setBounds(224, 56, 347, 65);
 		textField.setHorizontalAlignment(JTextField.CENTER);
 		add(textField);

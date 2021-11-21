@@ -51,6 +51,7 @@ public class LoginController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "signUpPanel");
+				loginPanel.Clean();
 			}
 		});
 		

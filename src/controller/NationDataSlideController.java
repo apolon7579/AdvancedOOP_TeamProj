@@ -40,7 +40,7 @@ public class NationDataSlideController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Get Language graph");
+				System.out.println("Get 민족 graph");
 			}
 		});
 	}

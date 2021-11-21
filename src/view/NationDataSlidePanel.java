@@ -145,6 +145,11 @@ public class NationDataSlidePanel extends JPanel {
 		raceValue.setBackground(Color.GREEN);
 		panel_2.add(raceValue);
 
+		btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.setIcon(new ImageIcon("..\\image\\graph.png"));
+		btnNewButton_2.setPreferredSize(new Dimension(35,35));
+		panel_2.add(btnNewButton_2);
+		
 		mediaValue = new JLabel(
 				"신 문 Daily Graphic(일간지), Ghanaian Times(일간지), Ghanaian Voice(주간지) TV·라디오 Ghana Broadcasting Corporation(GBC)");
 		mediaValue.setPreferredSize(new Dimension(800, 35));
@@ -182,10 +187,7 @@ public class NationDataSlidePanel extends JPanel {
 		languageValue.setBackground(Color.GREEN);
 		panel_2.add(languageValue);
 
-		btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setIcon(new ImageIcon("..\\image\\graph.png"));
-		btnNewButton_2.setPreferredSize(new Dimension(35,35));
-		panel_2.add(btnNewButton_2);
+		
 		
 		nationCode = new JLabel("국가코드");
 		nationCode.setPreferredSize(new Dimension(90, 35));
