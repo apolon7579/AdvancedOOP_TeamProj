@@ -16,4 +16,7 @@ public interface NationDao {
 	NationDto retrieveNationByName(String nationName);
 
 	List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName);
+	
+	public boolean insertByNation(Nation nation);
+	public boolean updateByNation(Nation nation);
 }

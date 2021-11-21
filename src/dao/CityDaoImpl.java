@@ -40,4 +40,37 @@ public class CityDaoImpl implements CityDao{
 		return cityList;
 	}
 
+	@Override
+	public boolean insertByCity(City city) {
+		String query = "INSERT INTO city (nation_id, name) VALUES (?, ?)";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, city.getNationId());
+			psmt.setString(2, city.getName());
+			
+			int count = psmt.executeUpdate();
+			return count == 1;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public int deleteByNationId(int nationId) {
+		String query = "DELETE FROM city WHERE nation_id=?";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, nationId);
+			
+			int count = psmt.executeUpdate();
+			return count;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
 }

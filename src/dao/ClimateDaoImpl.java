@@ -42,4 +42,37 @@ public class ClimateDaoImpl implements ClimateDao
 		return climateList;
 	}
 
+	@Override
+	public boolean insertByClimate(Climate climate) {
+		String query = "INSERT INTO climate (nation_id, name) VALUES (?, ?)";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, climate.getNationId());
+			psmt.setString(2, climate.getName());
+			
+			int count = psmt.executeUpdate();
+			return count == 1;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public int deleteByNationId(int nationId) {
+		String query = "DELETE FROM climate WHERE nation_id=?";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, nationId);
+			
+			int count = psmt.executeUpdate();
+			return count;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
 }

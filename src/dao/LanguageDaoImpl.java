@@ -41,4 +41,37 @@ public class LanguageDaoImpl implements LanguageDao{
 		return null;
 	}
 
+	@Override
+	public boolean insertByLanguage(Language language) {
+		String query = "INSERT INTO language (nation_id, name) VALUES (?, ?)";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, language.getNationId());
+			psmt.setString(2, language.getName());
+			
+			int count = psmt.executeUpdate();
+			return count == 1;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public int deleteByNationId(int nationId) {
+		String query = "DELETE FROM language WHERE nation_id=?";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, nationId);
+			
+			int count = psmt.executeUpdate();
+			return count;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
 }

@@ -42,4 +42,37 @@ public class MediaDaoImpl implements MediaDao{
 		return mediaList;
 	}
 
+	@Override
+	public boolean insertByMedia(Media media) {
+		String query = "INSERT INTO media (nation_id, name) VALUES (?, ?)";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, media.getNationId());
+			psmt.setString(2, media.getName());
+			
+			int count = psmt.executeUpdate();
+			return count == 1;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public int deleteByNationId(int nationId) {
+		String query = "DELETE FROM media WHERE nation_id=?";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, nationId);
+			
+			int count = psmt.executeUpdate();
+			return count;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
 }

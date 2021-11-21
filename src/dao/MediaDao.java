@@ -7,5 +7,6 @@ import entity.Media;
 public interface MediaDao {
 
 	List<Media> retrieveMediaListByNationId(int id);
-
+	public boolean insertByMedia(Media media);
+	public int deleteByNationId(int nationId);
 }
