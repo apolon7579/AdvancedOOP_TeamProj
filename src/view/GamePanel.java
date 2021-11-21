@@ -3,6 +3,9 @@ package view;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,126 +14,128 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class GamePanel extends JPanel{
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.imageio.ImageIO;
+import javax.swing.Box;
+import javax.swing.Icon;
+
+public class GamePanel extends JPanel {
 
 	private JFrame frame;
-	private JLabel questionLabel;
 
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					GamePanel window = new GamePanel();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	JLabel peopleNum;
+	JLabel scoreNum;
+	JLabel picLabel;
+	JLabel picLabel2;
+	JLabel name1;
+	JLabel name2;
+	JButton bigBtn;
+	JButton smallBtn;
 
-	/**
-	 * Create the application.
-	 */
+	//가끔 사진이 없는 나라가 있음;;
+	
 	public GamePanel() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1280, 720);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(-12, 0, 1266, 683);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-		
-		ImageIcon new1= new ImageIcon("C://Users//jsk//Desktop//국기사진/가나.png");
-		ImageIcon new2= new ImageIcon("C://Users//jsk//Desktop//국기사진/가봉.png");
-		
-		
-//		Image num1=icon.getImage();
-//		Image new1=num1.getScaledInstance(500, 300, Image.SCALE_DEFAULT);
-//		ImageIcon icon2=new ImageIcon(new1);
-//		JLabel img1=new JLabel(icon2);
-//		sampleLabel.add(img1);
-
-		
-		questionLabel = new JLabel("무엇이 더 클까?");
-		questionLabel.setFont(new Font("HY엽서M", Font.BOLD, 20));
-		questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		questionLabel.setBounds(526, 21, 209, 34);
-		panel.add(questionLabel);
-		
-		JPanel samplepanel = new JPanel();
-		samplepanel.setBounds(38, 135, 580, 538);
-		panel.add(samplepanel);
-		samplepanel.setLayout(null);
-		
-		JLabel sampleLabel = new JLabel(new1);
-		
-		sampleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		sampleLabel.setBounds(80, 10, 368, 308);
-		samplepanel.add(sampleLabel);
-		
-		JLabel sizeLabel = new JLabel("면적(Km2):");
-		sizeLabel.setFont(new Font("함초롬돋움", Font.BOLD, 35));
-		sizeLabel.setBounds(39, 414, 511, 51);
-		samplepanel.add(sizeLabel);
-		
-		JLabel lblNewLabel = new JLabel("나라:");
-		lblNewLabel.setFont(new Font("함초롬돋움", Font.BOLD, 40));
-		lblNewLabel.setBounds(57, 328, 376, 47);
-		samplepanel.add(lblNewLabel);
-		
-		JPanel comparepanel = new JPanel();
-		comparepanel.setBounds(633, 135, 633, 538);
-		panel.add(comparepanel);
-		comparepanel.setLayout(null);
-		
-		JLabel compareLabel = new JLabel(new2);
-		//compareLabel.setSize(new2.getWidth(),new2.getHeight());
-		compareLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		compareLabel.setBounds(62, 10, 503, 334);
-		comparepanel.add(compareLabel);
-		
-		JButton bigButton = new JButton("더 크다");
-		bigButton.setFont(new Font("한컴 말랑말랑 Bold", Font.BOLD, 20));
-		bigButton.setBounds(70, 414, 227, 74);
-		comparepanel.add(bigButton);
-		
-		JButton smallButton = new JButton("더 작다");
-		smallButton.setFont(new Font("한컴 말랑말랑 Bold", Font.BOLD, 20));
-		smallButton.setBounds(340, 414, 227, 74);
-		comparepanel.add(smallButton);
-		
-		JLabel lblNewLabel_1 = new JLabel("나라:");
-		lblNewLabel_1.setFont(new Font("함초롬돋움", Font.BOLD, 40));
-		lblNewLabel_1.setBounds(110, 337, 481, 47);
-		comparepanel.add(lblNewLabel_1);
-		
-
-	}
-
-
-}
-class ImagePanel extends JPanel{
-	private Image img;
-	
-	public ImagePanel (Image img) {
-		this.img=img;
-		setSize(1000,300);
+		setBackground(Color.DARK_GRAY);
 		setLayout(null);
+
+		JLabel lblNewLabel2 = new JLabel("국가별 면적");
+		lblNewLabel2.setForeground(Color.WHITE);
+		lblNewLabel2.setFont(new Font("굴림", Font.BOLD, 50));
+		lblNewLabel2.setBounds(357, 10, 340, 58);
+		this.add(lblNewLabel2);
+
+		BufferedImage myPicture = null;
+		try {
+			myPicture = ImageIO.read(new File("..\\Image\\가나.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		picLabel = new JLabel(new ImageIcon(myPicture));
+		picLabel.setBounds(104, 136, 311, 236);
+		add(picLabel);
+
+		BufferedImage myPicture2 = null;
+		try {
+			myPicture2 = ImageIO.read(new File("..\\Image\\네팔.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		picLabel2 = new JLabel(new ImageIcon(myPicture2));
+		picLabel2.setBounds(607, 136, 311, 236);
+		add(picLabel2);
+
+		JLabel lblNewLabel_1 = new JLabel("VS");
+		lblNewLabel_1.setForeground(Color.PINK);
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 36));
+		lblNewLabel_1.setBounds(482, 195, 150, 109);
+		add(lblNewLabel_1);
+
+		peopleNum = new JLabel("면적: ");
+		peopleNum.setForeground(Color.WHITE);
+		peopleNum.setFont(new Font("굴림", Font.PLAIN, 24));
+		peopleNum.setBounds(163, 420, 369, 37);
+		add(peopleNum);
+
+		bigBtn = new JButton("크다");
+		bigBtn.setBounds(660, 430, 97, 23);
+		add(bigBtn);
+
+		smallBtn = new JButton("작다");
+		smallBtn.setBounds(769, 430, 97, 23);
+		add(smallBtn);
+
+		scoreNum = new JLabel("0점");
+		scoreNum.setForeground(Color.WHITE);
+		scoreNum.setFont(new Font("굴림", Font.PLAIN, 24));
+		scoreNum.setBounds(814, 10, 181, 37);
+		add(scoreNum);
+
+		name1 = new JLabel("나라이름");
+		name1.setHorizontalAlignment(SwingConstants.CENTER);
+		name1.setForeground(Color.WHITE);
+		name1.setFont(new Font("굴림", Font.PLAIN, 24));
+		name1.setBounds(114, 383, 288, 37);
+		add(name1);
+
+		name2 = new JLabel("나라이름");
+		name2.setHorizontalAlignment(SwingConstants.CENTER);
+		name2.setForeground(Color.WHITE);
+		name2.setFont(new Font("굴림", Font.PLAIN, 24));
+		name2.setBounds(576, 383, 369, 37);
+		add(name2);
 	}
-	
-	
+
+	public JButton getBigBtn() {
+		return bigBtn;
+	}
+
+	public JButton getSmallBtn() {
+		return smallBtn;
+	}
+
+	public void setUp(int score, double peopleNum, String info1, String info2) {
+		scoreNum.setText(score + "점");
+		this.peopleNum.setText("면적: " + peopleNum + "km²");
+		BufferedImage myPicture = null;
+		try {
+			myPicture = ImageIO.read(new File("..\\Image\\" + info1 + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		picLabel.setIcon(new ImageIcon(myPicture));
+
+		try {
+			myPicture = ImageIO.read(new File("..\\Image\\" + info2 + ".png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		picLabel2.setIcon(new ImageIcon(myPicture));
+
+		name1.setText(info1);
+		name2.setText(info2);
+	}
+
 }

@@ -1,5 +1,6 @@
 package config;
 
+import controller.GameController;
 import controller.GameRuleController;
 import controller.LoginController;
 import controller.MainNavigatorController;
@@ -33,6 +34,7 @@ public class DependencyManager {
 		MainNavigatorController mainNavigatorController = new MainNavigatorController(mainFrame);
 		MenuBarController menuBarController = new MenuBarController(mainFrame);
 		GameRuleController gameRuleController = new GameRuleController(mainFrame);
+		GameController gameController = new GameController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 
