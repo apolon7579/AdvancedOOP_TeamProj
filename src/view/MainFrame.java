@@ -17,7 +17,8 @@ public class MainFrame extends JFrame {
 	private MainNavigatorPanel mainNavigatorPanel;
 	private GameRulePanel gameRulePanel;
 	private MenuBarPanel menuBarPanel;
-
+	private GamePanel gamePanel;
+	
 	private CardLayout cardLayout;
 
 	public MainFrame() {
@@ -47,6 +48,9 @@ public class MainFrame extends JFrame {
 
 		menuBarPanel = new MenuBarPanel();
 		getContentPane().add(menuBarPanel);
+		
+		gamePanel = new GamePanel();
+		getContentPane().add("gamePanel",gamePanel);
 	}
 
 	public void setJMenuBar(boolean b) {
