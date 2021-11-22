@@ -8,4 +8,6 @@ public interface ReligionDao {
 
 	List<Religion> retrieveReligionListByNationId(int id);
 
+	void createReligion(Religion religion);
+
 }

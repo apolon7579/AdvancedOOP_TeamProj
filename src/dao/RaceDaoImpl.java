@@ -43,4 +43,21 @@ public class RaceDaoImpl implements RaceDao{
 		return raceList;
 	}
 
+	@Override
+	public void createRace(Race race) {
+		String query = "INSERT INTO race (nation_id, name, percentage) VALUES (?, ?, ?)";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, race.getNationId());
+			psmt.setString(2, race.getName());
+			psmt.setDouble(3, race.getPercentage());
+			
+			psmt.executeUpdate();
+			psmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }

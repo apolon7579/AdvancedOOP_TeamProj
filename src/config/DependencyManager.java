@@ -8,6 +8,7 @@ import controller.MainNavigatorController;
 import controller.MainRetrieveController;
 import controller.MenuBarController;
 import controller.NationDataSlideController;
+import controller.NationRegisterPanelController;
 import controller.SignUpController;
 import view.MainFrame;
 
@@ -35,6 +36,7 @@ public class DependencyManager {
 		GameRuleController gameRuleController = new GameRuleController(mainFrame);
 		GameController gameController = new GameController(mainFrame);
 		HistogramPanelController histogramController = new HistogramPanelController(mainFrame);
+		NationRegisterPanelController nationRegisterPanelController = new NationRegisterPanelController(mainFrame);
 		mainFrame.setVisible(true);
 	}
 

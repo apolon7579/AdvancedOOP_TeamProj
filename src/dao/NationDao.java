@@ -19,4 +19,6 @@ public interface NationDao {
 	
 	public boolean insertByNation(Nation nation);
 	public boolean updateByNation(Nation nation);
+
+	void createNation(Nation nation);
 }

@@ -77,5 +77,10 @@ public class NationServiceImpl implements NationService{
 		return nationDao.retrieveBySearchValueAndTable(searchValue, tableName);
 	}
 
+	@Override
+	public void registerNation(Nation nation) {
+		nationDao.createNation(nation);
+	}
+
 
 }

@@ -1,17 +1,8 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Container;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import controller.GameController;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
 
 public class MainFrame extends JFrame {
 
@@ -24,6 +15,7 @@ public class MainFrame extends JFrame {
 	private MenuBarPanel menuBarPanel;
 	private GamePanel gamePanel;
 	private HistogramPanel histogramPanel;
+	private NationRegisterPanel nationRegisterPanel;
 
 	private CardLayout cardLayout;
 
@@ -60,6 +52,9 @@ public class MainFrame extends JFrame {
 		
 		histogramPanel = new HistogramPanel();
 		getContentPane().add("histogramPanel", histogramPanel);
+		
+		nationRegisterPanel = new NationRegisterPanel();
+		getContentPane().add("nationRegisterPanel", nationRegisterPanel);
 	}
 
 	public void setJMenuBar(boolean b) {
@@ -91,6 +86,10 @@ public class MainFrame extends JFrame {
 
 	public MainNavigatorPanel getMainNevigatorPanel() {
 		return mainNavigatorPanel;
+	}
+
+	public NationRegisterPanel getNationRegisterPanel() {
+		return nationRegisterPanel;
 	}
 
 	public GameRulePanel getGameRulePannel() {

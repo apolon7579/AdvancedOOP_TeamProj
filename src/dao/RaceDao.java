@@ -8,4 +8,6 @@ public interface RaceDao {
 
 	List<Race> retrieveRaceListByNationId(int id);
 
+	void createRace(Race race);
+
 }

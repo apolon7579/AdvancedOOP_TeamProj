@@ -90,5 +90,14 @@ public class MainNavigatorController {
 			}
 		});
 
+		
+		mainNevigatorPanel.getNationRegisterBtn().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "nationRegisterPanel");
+			}
+			
+		});
 	}
 }

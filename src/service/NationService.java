@@ -16,4 +16,6 @@ public interface NationService {
 	NationDto retrieveNationByName(String nationName);
 	
 	List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName);
+
+	void registerNation(Nation nation);
 }

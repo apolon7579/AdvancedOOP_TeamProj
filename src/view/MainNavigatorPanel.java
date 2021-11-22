@@ -50,6 +50,7 @@ public class MainNavigatorPanel extends JPanel {
 	private JButton ExitButton;
 	private JButton GameButton;
 	private JButton SettingButton;
+	private JButton nationRegisterBtn;
 
 	private void initialize() {
 		this.setBounds(0, 0, 1030, 660);
@@ -80,6 +81,10 @@ public class MainNavigatorPanel extends JPanel {
 		NameLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		NameLabel.setBounds(401, 127, 152, 37);
 		this.add(NameLabel);
+		
+		nationRegisterBtn = new JButton("나라등록");
+		nationRegisterBtn.setBounds(51, 28, 92, 23);
+		add(nationRegisterBtn);
 
 		setVisible(false);
 	}
@@ -94,5 +99,9 @@ public class MainNavigatorPanel extends JPanel {
 	
 	public JButton getGameBtn() {
 		return GameButton;
+	}
+	
+	public JButton getNationRegisterBtn() {
+		return nationRegisterBtn;
 	}
 }

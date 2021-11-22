@@ -257,4 +257,28 @@ public class NationDaoImpl implements NationDao {
 		}
 	}
 
+	@Override
+	public void createNation(Nation nation) {
+		String query = "INSERT INTO NATION (NAME, CODE, CAPITAL, LOCATION, AREA, AREA_SOURCE, AREA_DESCRIPTION, BASE_YEAR) VALUE (?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		try {
+			PreparedStatement psmt = con.prepareStatement(query);
+			psmt.setString(1, nation.getName());
+			psmt.setString(2, nation.getCode());
+			psmt.setString(3, nation.getCapital());
+			psmt.setString(4, nation.getLocation());
+			psmt.setDouble(5, nation.getArea());
+			psmt.setString(6, nation.getAreaSource());
+			psmt.setString(7, nation.getAreaDescription());
+			psmt.setInt(8, nation.getBaseYear());
+			
+			psmt.executeUpdate();
+			
+			psmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }
