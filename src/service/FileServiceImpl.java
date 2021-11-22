@@ -1,9 +1,7 @@
 package service;
 
-import java.sql.Connection;
 import java.util.List;
 
-import config.ConnectionManager;
 import dao.CityDao;
 import dao.CityDaoImpl;
 import dao.ClimateDao;
@@ -17,13 +15,18 @@ import dao.NationDaoImpl;
 import dto.NationDto;
 
 public class FileServiceImpl implements FileService {
-	private final Connection con = ConnectionManager.getConnection();
 
 	NationDao nationDao = new NationDaoImpl();
 	ClimateDao climateDao = new ClimateDaoImpl();
 	CityDao cityDao = new CityDaoImpl();
 	MediaDao mediaDao = new MediaDaoImpl();
 	LanguageDao languageDao = new LanguageDaoImpl();
+	
+	public static void main(String[] args) {
+		FileService service = new FileServiceImpl();
+		System.out.println(service.upload("C:\\Users\\mjk49\\Downloads\\외교부_국가·지역별_일반정보_20201231.csv"));
+
+	}
 	
 	@Override
 	public int upload(String path) {
@@ -59,10 +62,18 @@ public class FileServiceImpl implements FileService {
 					mediaDao.deleteByNationId(newNationId);
 				}
 				final int finalNewNAtionId = newNationId;
-				nationDto.getClimateList().forEach(c->{c.setNationId(finalNewNAtionId); climateDao.insertByClimate(c);});
-				nationDto.getLanguageList().forEach(c->{c.setNationId(finalNewNAtionId); languageDao.insertByLanguage(c);});
-				nationDto.getCityList().forEach(c->{c.setNationId(finalNewNAtionId); cityDao.insertByCity(c);});
-				nationDto.getMediaList().forEach(c->{c.setNationId(finalNewNAtionId); mediaDao.insertByMedia(c);});
+				if(nationDto.getClimateList() != null) {
+					nationDto.getClimateList().forEach(c->{c.setNationId(finalNewNAtionId); climateDao.insertByClimate(c);});
+				}
+				if(nationDto.getLanguageList()!=null) {
+					nationDto.getLanguageList().forEach(c->{c.setNationId(finalNewNAtionId); languageDao.insertByLanguage(c);});
+				}
+				if(nationDto.getCityList()!= null) {
+					nationDto.getCityList().forEach(c->{c.setNationId(finalNewNAtionId); cityDao.insertByCity(c);});
+				}
+				if(nationDto.getMediaList()!= null) {
+					nationDto.getMediaList().forEach(c->{c.setNationId(finalNewNAtionId); mediaDao.insertByMedia(c);});
+				}
 				
 				count++;
 			}
@@ -78,11 +89,6 @@ public class FileServiceImpl implements FileService {
 	@Override
 	public int download(String path) {
 		return -1;
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

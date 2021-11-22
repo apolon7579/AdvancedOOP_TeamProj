@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class ReligionDaoImpl implements ReligionDao {
 		try (PreparedStatement psmt = con.prepareStatement(query)) {
 			psmt.setInt(1, religion.getNationId());
 			psmt.setString(2, religion.getName());
-			psmt.setDouble(3, religion.getPercentage());
+			psmt.setObject(3, religion.getPercentage(), Types.DOUBLE);
 
 			psmt.executeUpdate();
 			psmt.close();

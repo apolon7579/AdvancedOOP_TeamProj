@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class RaceDaoImpl implements RaceDao{
 			psmt.setInt(1, race.getNationId());
 			psmt.setString(2, race.getName());
 			psmt.setDouble(3, race.getPercentage());
+			psmt.setObject(3, race.getPercentage(), Types.DOUBLE);
 			
 			psmt.executeUpdate();
 			psmt.close();

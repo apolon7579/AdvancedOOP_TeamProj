@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,9 +144,9 @@ public class NationDaoImpl implements NationDao {
 	public List<NationForGame> retrieveAllNationForGame() {
 
 		String query = "select n.name, n.code, n.area, n.capital, n.location, c.name city, l.name language, cl.name climate, re.name religion, r.name race\n"
-				+ "from nation n\n" + "left outer join city c on n.id = c.id\n"
-				+ "left outer join climate cl on n.id = cl.id\n" + "left outer join language l  on n.id = l.id\n"
-				+ "left outer join race r on n.id = r.id\n" + "left outer join religion re on n.id = re.id";
+				+ "from nation n\n" + "left outer join city c on n.id = c.nation_id\n"
+				+ "left outer join climate cl on n.id = cl.nation_id\n" + "left outer join language l  on n.id = l.nation_id\n"
+				+ "left outer join race r on n.id = r.nation_id\n" + "left outer join religion re on n.id = re.nation_id";
 
 		List<NationForGame> nationList = new ArrayList<NationForGame>();
 
@@ -171,16 +172,16 @@ public class NationDaoImpl implements NationDao {
 
 	@Override
 	public List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName) {
-		
+
 		String query = "SELECT * FROM NATION WHERE ID IN (SELECT NATION_ID FROM " + tableName + " WHERE NAME LIKE ?)";
 		List<Nation> nationList = new ArrayList<Nation>();
 		Nation nation;
-		
+
 		try {
 			PreparedStatement psmt = con.prepareStatement(query);
 			psmt.setString(1, "%" + searchValue + "%");
 			ResultSet rs = psmt.executeQuery();
-			
+
 			while (rs.next()) {
 				// id, name, code, capital, location, area, area_source, area_description,
 				// base_year
@@ -197,13 +198,13 @@ public class NationDaoImpl implements NationDao {
 				nation = new Nation(id, name, code, capital, location, area, area_source, area_location, base_year);
 				nationList.add(nation);
 			}
-			
+
 			rs.close();
 			psmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return nationList;
 	}
 
@@ -211,21 +212,19 @@ public class NationDaoImpl implements NationDao {
 	public boolean insertByNation(Nation nation) {
 		String query = "INSERT INTO nation (name, code, capital, location, area, area_source, area_description, base_year) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-		try (PreparedStatement psmt = con.prepareStatement(query)){
-			
+		try (PreparedStatement psmt = con.prepareStatement(query)) {
+
 			psmt.setString(1, nation.getName());
 			psmt.setString(2, nation.getCode());
 			psmt.setString(3, nation.getCapital());
 			psmt.setString(4, nation.getLocation());
-			psmt.setDouble(5, nation.getArea());
+			psmt.setObject(5, nation.getArea(), Types.DOUBLE);
 			psmt.setString(6, nation.getAreaSource());
 			psmt.setString(7, nation.getAreaDescription());
-			psmt.setInt(8, nation.getBaseYear());
+			psmt.setObject(8, nation.getBaseYear(), Types.INTEGER);
 			
 			int count = psmt.executeUpdate();
-			psmt.close();
 			return count == 1;
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -234,23 +233,21 @@ public class NationDaoImpl implements NationDao {
 
 	@Override
 	public boolean updateByNation(Nation nation) {
-		String query = "UPDATE nation SET name = ?, code = ?, capital = ?, location=?, area=?, area_source=?, area_description=?, base_year=? WHERE id=?";
+		String query = "UPDATE nation SET code = ?, capital = ?, location=?, area=?, area_source=?, area_description=?, base_year=? WHERE name=?";
 
-		try (PreparedStatement psmt = con.prepareStatement(query)){
-			
-			psmt.setString(1, nation.getName());
-			psmt.setString(2, nation.getCode());
-			psmt.setString(3, nation.getCapital());
-			psmt.setString(4, nation.getLocation());
-			psmt.setDouble(5, nation.getArea());
-			psmt.setString(6, nation.getAreaSource());
-			psmt.setString(7, nation.getAreaDescription());
-			psmt.setInt(8, nation.getBaseYear());
-			psmt.setInt(9, nation.getId());
-			
+		try (PreparedStatement psmt = con.prepareStatement(query)) {
+
+			psmt.setString(1, nation.getCode());
+			psmt.setString(2, nation.getCapital());
+			psmt.setString(3, nation.getLocation());
+			psmt.setObject(4, nation.getArea(), Types.DOUBLE);
+			psmt.setString(5, nation.getAreaSource());
+			psmt.setString(6, nation.getAreaDescription());
+			psmt.setObject(7, nation.getBaseYear(), Types.INTEGER);
+			psmt.setString(8, nation.getName());
+
 			int count = psmt.executeUpdate();
 			return count == 1;
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -260,25 +257,25 @@ public class NationDaoImpl implements NationDao {
 	@Override
 	public void createNation(Nation nation) {
 		String query = "INSERT INTO NATION (NAME, CODE, CAPITAL, LOCATION, AREA, AREA_SOURCE, AREA_DESCRIPTION, BASE_YEAR) VALUE (?, ?, ?, ?, ?, ?, ?, ?)";
-		
+
 		try {
 			PreparedStatement psmt = con.prepareStatement(query);
 			psmt.setString(1, nation.getName());
 			psmt.setString(2, nation.getCode());
 			psmt.setString(3, nation.getCapital());
 			psmt.setString(4, nation.getLocation());
-			psmt.setDouble(5, nation.getArea());
+			psmt.setObject(5, nation.getArea(), Types.DOUBLE);
 			psmt.setString(6, nation.getAreaSource());
 			psmt.setString(7, nation.getAreaDescription());
-			psmt.setInt(8, nation.getBaseYear());
-			
+			psmt.setObject(8, nation.getBaseYear(), Types.INTEGER);
+
 			psmt.executeUpdate();
-			
+
 			psmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

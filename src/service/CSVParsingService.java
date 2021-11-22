@@ -15,14 +15,6 @@ import entity.Media;
 
 public class CSVParsingService {
 
-	public static void main(String[] args) {
-		List<NationDto> list = CSVParsingService
-				.readFile("C:\\Users\\mjk49\\Desktop\\학교공부\\2-2\\고급객체지향프로그래밍\\조별과제 자료\\외교부_국가·지역별 일반정보_20201231.csv");
-		System.out.println(list.size());
-		for (NationDto n : list) { System.out.println(n); }
-
-	}
-
 	public static List<NationDto> readFile(String path) {
 		List<NationDto> nationList = new LinkedList<>();
 		try (BufferedReader csv = new BufferedReader(new FileReader(path))) {
@@ -53,37 +45,58 @@ public class CSVParsingService {
 						subList.add(parsed.get(i));
 					}
 
-					col[index++] = String.join(",", subList);
+					String tmp = String.join(",", subList);
+					col[index++] = ((tmp.equals("")) ? null : tmp);
 				}
-				//System.out.println();
-				nationList.add(new NationDto(-1, col[0], col[1], col[2], climateParser(col[3]), col[4], cityParser(col[5]), null, null, mediaParser(col[8]),
-						((col[9].equals("")) ? null : Double.parseDouble(col[9])), col[10], col[11], languageParser(col[12]),
-						Integer.parseInt(col[13]), null));
+				// System.out.println();
+				if (col[0] == null) {
+					throw new Exception("국가 이름이 없는 국가가 존재합니다. 파일을 수정하고 다시 업로드 해주세요");
+				} else {
+					nationList.add(new NationDto(-1, col[0], col[1], col[2], climateParser(col[3]), col[4],
+							cityParser(col[5]), null, null, mediaParser(col[8]),
+							((col[9] == null) ? null : Double.parseDouble(col[9])), col[10], col[11],
+							languageParser(col[12]), ((col[13] == null) ? null : Integer.parseInt(col[13])), null));
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return nationList;
 	}
-	
-	private static List<Climate> climateParser(String str){
-		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new Climate(-1, -1, s)).toList();
+
+	private static List<Climate> climateParser(String str) {
+		if (str == null) {
+			return null;
+		} else {
+			List<String> parsed = Arrays.asList(str.split(", "));
+			return parsed.stream().map(s -> new Climate(-1, -1, s)).toList();
+		}
 	}
-	
-	private static List<Language> languageParser(String str){
-		List<String> parsed = Arrays.asList(str.split(", "));
-		return (parsed.stream().map(s->new Language(-1, -1, s))).toList();
-		
+
+	private static List<Language> languageParser(String str) {
+		if (str == null) {
+			return null;
+		} else {
+			List<String> parsed = Arrays.asList(str.split(", "));
+			return (parsed.stream().map(s -> new Language(-1, -1, s))).toList();
+		}
 	}
-	
-	private static List<City> cityParser(String str){
-		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new City(-1, -1, s)).toList();
+
+	private static List<City> cityParser(String str) {
+		if (str == null) {
+			return null;
+		} else {
+			List<String> parsed = Arrays.asList(str.split(", "));
+			return parsed.stream().map(s -> new City(-1, -1, s)).toList();
+		}
 	}
-	
-	private static List<Media> mediaParser(String str){
-		List<String> parsed = Arrays.asList(str.split(", "));
-		return parsed.stream().map(s->new Media(-1, -1, s)).toList();
+
+	private static List<Media> mediaParser(String str) {
+		if (str == null) {
+			return null;
+		} else {
+			List<String> parsed = Arrays.asList(str.split(", "));
+			return parsed.stream().map(s -> new Media(-1, -1, s)).toList();
+		}
 	}
 }
