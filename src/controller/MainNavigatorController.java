@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -112,9 +114,8 @@ public class MainNavigatorController {
 				fileChooser.setFileFilter(new FileNameExtensionFilter("csv", "CSV"));
 				fileChooser.setMultiSelectionEnabled(false);
 				if (fileChooser.showOpenDialog(mainNevigatorPanel) == JFileChooser.APPROVE_OPTION) {
-					FileService fileService = new FileServiceImpl();
 					try {
-						JOptionPane.showMessageDialog(null, "csv 업로드 중입니다.\n잠시만 기다려 주세요.");
+						FileService fileService = new FileServiceImpl();
 						fileService.upload(fileChooser.getSelectedFile().getPath());
 						JOptionPane.showMessageDialog(null, "업로드가 완료되었습니다.");
 					} catch (Exception e1) {
