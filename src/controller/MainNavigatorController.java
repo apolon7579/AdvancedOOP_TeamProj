@@ -4,10 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import entity.Nation;
+import service.FileService;
+import service.FileServiceImpl;
 import service.NationService;
 import service.NationServiceImpl;
 import view.GameRulePanel;
@@ -90,14 +95,35 @@ public class MainNavigatorController {
 			}
 		});
 
-		
 		mainNevigatorPanel.getNationRegisterBtn().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "nationRegisterPanel");
 			}
-			
+
+		});
+
+		mainNevigatorPanel.getCSVuploadButton().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileFilter(new FileNameExtensionFilter("csv", "CSV"));
+				fileChooser.setMultiSelectionEnabled(false);
+				if (fileChooser.showOpenDialog(mainNevigatorPanel) == JFileChooser.APPROVE_OPTION) {
+					FileService fileService = new FileServiceImpl();
+					try {
+						JOptionPane.showMessageDialog(null, "csv 업로드 중입니다.\n잠시만 기다려 주세요.");
+						fileService.upload(fileChooser.getSelectedFile().getPath());
+						JOptionPane.showMessageDialog(null, "업로드가 완료되었습니다.");
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, "업로드에 실패했습니다.\n에러내용: " + e1.getMessage(), "파일 업로드 에러",
+								JOptionPane.ERROR_MESSAGE);
+					}
+
+				}
+			}
 		});
 	}
 }

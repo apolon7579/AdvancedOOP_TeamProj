@@ -15,52 +15,49 @@ import entity.Media;
 
 public class CSVParsingService {
 
-	public static List<NationDto> readFile(String path) {
+	public static List<NationDto> readFile(String path) throws Exception{
 		List<NationDto> nationList = new LinkedList<>();
-		try (BufferedReader csv = new BufferedReader(new FileReader(path))) {
-			if (csv.readLine().split(",").length != 14) {
-				throw new Exception("칼럼이 14개여야 합니다.");
-			}
-
-			String line = null;
-			List<String> parsed = new ArrayList<>();
-			while ((line = csv.readLine()) != null) {
-				parsed = Arrays.asList(line.split(","));
-				String[] col = new String[14];
-				int index = 0;
-
-				for (int i = 0; i < parsed.size(); i++) {
-					ArrayList<String> subList = new ArrayList<>();
-					if (parsed.get(i).contains("\"")) {
-						subList.add(parsed.get(i++).replace("\"", ""));
-						for (; i < parsed.size(); i++) {
-							if (!parsed.get(i).contains("\"")) {
-								subList.add(parsed.get(i));
-							} else {
-								break;
-							}
-						}
-						subList.add(parsed.get(i).replace("\"", ""));
-					} else {
-						subList.add(parsed.get(i));
-					}
-
-					String tmp = String.join(",", subList);
-					col[index++] = ((tmp.equals("")) ? null : tmp);
-				}
-				// System.out.println();
-				if (col[0] == null) {
-					throw new Exception("국가 이름이 없는 국가가 존재합니다. 파일을 수정하고 다시 업로드 해주세요");
-				} else {
-					nationList.add(new NationDto(-1, col[0], col[1], col[2], climateParser(col[3]), col[4],
-							cityParser(col[5]), null, null, mediaParser(col[8]),
-							((col[9] == null) ? null : Double.parseDouble(col[9])), col[10], col[11],
-							languageParser(col[12]), ((col[13] == null) ? null : Integer.parseInt(col[13])), null));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		BufferedReader csv = new BufferedReader(new FileReader(path));
+		if (csv.readLine().split(",").length != 14) {
+			throw new Exception("칼럼이 14개여야 합니다.");
 		}
+
+		String line = null;
+		List<String> parsed = new ArrayList<>();
+		while ((line = csv.readLine()) != null) {
+			parsed = Arrays.asList(line.split(","));
+			String[] col = new String[14];
+			int index = 0;
+
+			for (int i = 0; i < parsed.size(); i++) {
+				ArrayList<String> subList = new ArrayList<>();
+				if (parsed.get(i).contains("\"")) {
+					subList.add(parsed.get(i++).replace("\"", ""));
+					for (; i < parsed.size(); i++) {
+						if (!parsed.get(i).contains("\"")) {
+							subList.add(parsed.get(i));
+						} else {
+							break;
+						}
+					}
+					subList.add(parsed.get(i).replace("\"", ""));
+				} else {
+					subList.add(parsed.get(i));
+				}
+
+				String tmp = String.join(",", subList);
+				col[index++] = ((tmp.equals("")) ? null : tmp);
+			}
+			if (col[0] == null) {
+				throw new Exception("국가 이름이 없는 국가가 존재합니다. 파일을 수정하고 다시 업로드 해주세요");
+			} else {
+				nationList.add(new NationDto(-1, col[0], col[1], col[2], climateParser(col[3]), col[4],
+						cityParser(col[5]), null, null, mediaParser(col[8]),
+						((col[9] == null) ? null : Double.parseDouble(col[9])), col[10], col[11],
+						languageParser(col[12]), ((col[13] == null) ? null : Integer.parseInt(col[13])), null));
+			}
+		}
+		csv.close();
 		return nationList;
 	}
 

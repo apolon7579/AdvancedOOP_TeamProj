@@ -1,19 +1,15 @@
 package view;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.Font;
-import java.awt.Color;
-import javax.swing.SwingConstants;
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class MainNavigatorPanel extends JPanel {
 
@@ -51,6 +47,7 @@ public class MainNavigatorPanel extends JPanel {
 	private JButton GameButton;
 	private JButton SettingButton;
 	private JButton nationRegisterBtn;
+	private JButton CSVuploadButton;
 
 	private void initialize() {
 		this.setBounds(0, 0, 1030, 660);
@@ -83,9 +80,14 @@ public class MainNavigatorPanel extends JPanel {
 		this.add(NameLabel);
 		
 		nationRegisterBtn = new JButton("나라등록");
-		nationRegisterBtn.setBounds(51, 28, 92, 23);
+		nationRegisterBtn.setBounds(51, 28, 100, 23);
 		add(nationRegisterBtn);
-
+		
+		CSVuploadButton = new JButton("CSV 업로드");
+		CSVuploadButton.setBounds(51, 60, 100, 23);
+		this.add(CSVuploadButton);
+		
+		
 		setVisible(false);
 	}
 
@@ -104,4 +106,10 @@ public class MainNavigatorPanel extends JPanel {
 	public JButton getNationRegisterBtn() {
 		return nationRegisterBtn;
 	}
+
+	public JButton getCSVuploadButton() {
+		return CSVuploadButton;
+	}
+
+	
 }
