@@ -189,17 +189,19 @@ public class GamePanel extends JPanel {
 		BufferedImage myPicture = null;
 		try {
 			myPicture = ImageIO.read(new File("..\\Image\\" + info1 + ".png"));
+			picLabel.setIcon(new ImageIcon(myPicture));
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("파일을 찾을수 없습니다" + info1);
+			// e.printStackTrace();
 		}
-		picLabel.setIcon(new ImageIcon(myPicture));
 
 		try {
 			myPicture = ImageIO.read(new File("..\\Image\\" + info2 + ".png"));
+			picLabel2.setIcon(new ImageIcon(myPicture));
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("파일을 찾을수 없습니다" + info2);
+			// e.printStackTrace();
 		}
-		picLabel2.setIcon(new ImageIcon(myPicture));
 
 		name1.setText(info1);
 		name2.setText(info2);

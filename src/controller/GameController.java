@@ -51,7 +51,7 @@ public class GameController {
 
 	public boolean isFinish() {
 		// 끝까지 도달
-		return (index == nationForGameList.size() - 1);
+		return (index == 227 - 1);
 	}
 
 	public void next() {
