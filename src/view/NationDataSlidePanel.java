@@ -49,7 +49,7 @@ public class NationDataSlidePanel extends JPanel {
 	public NationDataSlidePanel() {
 		setLayout(null);
 		setBounds(0, 0, 1030, 660);
-		setBackground(Color.PINK);
+		setBackground(Color.LIGHT_GRAY);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -63,7 +63,7 @@ public class NationDataSlidePanel extends JPanel {
 		JPanel panel_1 = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
 		flowLayout.setVgap(40);
-		panel_1.setBackground(Color.MAGENTA);
+		panel_1.setBackground(Color.LIGHT_GRAY);
 		panel_1.setPreferredSize(new Dimension(100, 0));
 		panel.add(panel_1, BorderLayout.WEST);
 
@@ -72,7 +72,7 @@ public class NationDataSlidePanel extends JPanel {
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		flowLayout_1.setHgap(10);
 		flowLayout_1.setVgap(40);
-		panel_2.setBackground(Color.ORANGE);
+		panel_2.setBackground(Color.WHITE);
 		panel_2.setPreferredSize(new Dimension(750, 1000));
 		panel.add(panel_2, BorderLayout.CENTER);
 
@@ -82,7 +82,7 @@ public class NationDataSlidePanel extends JPanel {
 		nationCodeValue.setHorizontalAlignment(SwingConstants.CENTER);
 		nationCodeValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		nationCodeValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		nationCodeValue.setBackground(Color.GREEN);
+		nationCodeValue.setBackground(Color.WHITE);
 		panel_2.add(nationCodeValue);
 
 		capitalValue = new JLabel("아크라(Accra, 234만명)(＇19, EIU)");
@@ -91,7 +91,7 @@ public class NationDataSlidePanel extends JPanel {
 		capitalValue.setHorizontalAlignment(SwingConstants.CENTER);
 		capitalValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		capitalValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		capitalValue.setBackground(Color.GREEN);
+		capitalValue.setBackground(Color.WHITE);
 		panel_2.add(capitalValue);
 
 		climateValue = new JLabel("열대성, 남부고온다습, 북부고온건조, 연평균 27℃");
@@ -100,7 +100,7 @@ public class NationDataSlidePanel extends JPanel {
 		climateValue.setHorizontalAlignment(SwingConstants.CENTER);
 		climateValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		climateValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		climateValue.setBackground(Color.GREEN);
+		climateValue.setBackground(Color.WHITE);
 		panel_2.add(climateValue);
 
 		locationValue = new JLabel("서부 아프리카 대서양의 기니만 연안");
@@ -109,7 +109,7 @@ public class NationDataSlidePanel extends JPanel {
 		locationValue.setHorizontalAlignment(SwingConstants.CENTER);
 		locationValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		locationValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		locationValue.setBackground(Color.GREEN);
+		locationValue.setBackground(Color.WHITE);
 		panel_2.add(locationValue);
 
 		cityValue = new JLabel(
@@ -119,7 +119,7 @@ public class NationDataSlidePanel extends JPanel {
 		cityValue.setHorizontalAlignment(SwingConstants.CENTER);
 		cityValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		cityValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		cityValue.setBackground(Color.GREEN);
+		cityValue.setBackground(Color.WHITE);
 		panel_2.add(cityValue);
 
 		religionValue = new JLabel("기독교(71%), 이슬람교(17.6%)");
@@ -128,7 +128,7 @@ public class NationDataSlidePanel extends JPanel {
 		religionValue.setHorizontalAlignment(SwingConstants.CENTER);
 		religionValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		religionValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		religionValue.setBackground(Color.GREEN);
+		religionValue.setBackground(Color.WHITE);
 		panel_2.add(religionValue);
 		
 		btnNewButton_1 = new JButton("New button");
@@ -142,7 +142,7 @@ public class NationDataSlidePanel extends JPanel {
 		raceValue.setHorizontalAlignment(SwingConstants.CENTER);
 		raceValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		raceValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		raceValue.setBackground(Color.GREEN);
+		raceValue.setBackground(Color.WHITE);
 		panel_2.add(raceValue);
 
 		btnNewButton_2 = new JButton("New button");
@@ -157,7 +157,7 @@ public class NationDataSlidePanel extends JPanel {
 		mediaValue.setHorizontalAlignment(SwingConstants.CENTER);
 		mediaValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		mediaValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		mediaValue.setBackground(Color.GREEN);
+		mediaValue.setBackground(Color.WHITE);
 		panel_2.add(mediaValue);
 
 		areaValue = new JLabel("227540");
@@ -166,7 +166,7 @@ public class NationDataSlidePanel extends JPanel {
 		areaValue.setHorizontalAlignment(SwingConstants.CENTER);
 		areaValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		areaValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		areaValue.setBackground(Color.GREEN);
+		areaValue.setBackground(Color.WHITE);
 		panel_2.add(areaValue);
 
 		areaSourceValue = new JLabel("('19) World Bank (최근 수정일 : 2020.12.16.)");
@@ -175,7 +175,7 @@ public class NationDataSlidePanel extends JPanel {
 		areaSourceValue.setHorizontalAlignment(SwingConstants.CENTER);
 		areaSourceValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		areaSourceValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		areaSourceValue.setBackground(Color.GREEN);
+		areaSourceValue.setBackground(Color.WHITE);
 		panel_2.add(areaSourceValue);
 
 		languageValue = new JLabel("영어 공용어, 70%, Twi어 , Ewe어");
@@ -184,7 +184,7 @@ public class NationDataSlidePanel extends JPanel {
 		languageValue.setHorizontalAlignment(SwingConstants.CENTER);
 		languageValue.setFont(new Font("굴림", Font.PLAIN, 18));
 		languageValue.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		languageValue.setBackground(Color.GREEN);
+		languageValue.setBackground(Color.WHITE);
 		panel_2.add(languageValue);
 
 		
@@ -195,7 +195,7 @@ public class NationDataSlidePanel extends JPanel {
 		nationCode.setHorizontalAlignment(SwingConstants.CENTER);
 		nationCode.setFont(new Font("굴림", Font.PLAIN, 20));
 		nationCode.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		nationCode.setBackground(Color.GREEN);
+		nationCode.setBackground(Color.WHITE);
 		panel_1.add(nationCode);
 
 		capital = new JLabel("수도");
@@ -204,7 +204,7 @@ public class NationDataSlidePanel extends JPanel {
 		capital.setHorizontalAlignment(SwingConstants.CENTER);
 		capital.setFont(new Font("굴림", Font.PLAIN, 20));
 		capital.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		capital.setBackground(Color.GREEN);
+		capital.setBackground(Color.WHITE);
 		panel_1.add(capital);
 
 		climate = new JLabel("기후");
@@ -213,7 +213,7 @@ public class NationDataSlidePanel extends JPanel {
 		climate.setHorizontalAlignment(SwingConstants.CENTER);
 		climate.setFont(new Font("굴림", Font.PLAIN, 20));
 		climate.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		climate.setBackground(Color.GREEN);
+		climate.setBackground(Color.WHITE);
 		panel_1.add(climate);
 
 		locationHead = new JLabel("위치");
@@ -222,7 +222,7 @@ public class NationDataSlidePanel extends JPanel {
 		locationHead.setHorizontalAlignment(SwingConstants.CENTER);
 		locationHead.setFont(new Font("굴림", Font.PLAIN, 20));
 		locationHead.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		locationHead.setBackground(Color.GREEN);
+		locationHead.setBackground(Color.WHITE);
 		panel_1.add(locationHead);
 
 		city = new JLabel("주요도시");
@@ -231,7 +231,7 @@ public class NationDataSlidePanel extends JPanel {
 		city.setHorizontalAlignment(SwingConstants.CENTER);
 		city.setFont(new Font("굴림", Font.PLAIN, 20));
 		city.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		city.setBackground(Color.GREEN);
+		city.setBackground(Color.WHITE);
 		panel_1.add(city);
 
 		religion = new JLabel("종교");
@@ -240,7 +240,7 @@ public class NationDataSlidePanel extends JPanel {
 		religion.setHorizontalAlignment(SwingConstants.CENTER);
 		religion.setFont(new Font("굴림", Font.PLAIN, 20));
 		religion.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		religion.setBackground(Color.GREEN);
+		religion.setBackground(Color.WHITE);
 		panel_1.add(religion);
 
 		race = new JLabel("주요민족");
@@ -249,7 +249,7 @@ public class NationDataSlidePanel extends JPanel {
 		race.setHorizontalAlignment(SwingConstants.CENTER);
 		race.setFont(new Font("굴림", Font.PLAIN, 20));
 		race.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		race.setBackground(Color.GREEN);
+		race.setBackground(Color.WHITE);
 		panel_1.add(race);
 
 		media = new JLabel("언론");
@@ -258,7 +258,7 @@ public class NationDataSlidePanel extends JPanel {
 		media.setHorizontalAlignment(SwingConstants.CENTER);
 		media.setFont(new Font("굴림", Font.PLAIN, 20));
 		media.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		media.setBackground(Color.GREEN);
+		media.setBackground(Color.WHITE);
 		panel_1.add(media);
 
 		area = new JLabel("면적");
@@ -267,7 +267,7 @@ public class NationDataSlidePanel extends JPanel {
 		area.setHorizontalAlignment(SwingConstants.CENTER);
 		area.setFont(new Font("굴림", Font.PLAIN, 20));
 		area.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		area.setBackground(Color.GREEN);
+		area.setBackground(Color.WHITE);
 		panel_1.add(area);
 
 		areaSource = new JLabel("면적출처");
@@ -276,7 +276,7 @@ public class NationDataSlidePanel extends JPanel {
 		areaSource.setHorizontalAlignment(SwingConstants.CENTER);
 		areaSource.setFont(new Font("굴림", Font.PLAIN, 20));
 		areaSource.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		areaSource.setBackground(Color.GREEN);
+		areaSource.setBackground(Color.WHITE);
 		panel_1.add(areaSource);
 
 		language = new JLabel("언어");
@@ -285,7 +285,7 @@ public class NationDataSlidePanel extends JPanel {
 		language.setHorizontalAlignment(SwingConstants.CENTER);
 		language.setFont(new Font("굴림", Font.PLAIN, 20));
 		language.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		language.setBackground(Color.GREEN);
+		language.setBackground(Color.WHITE);
 		panel_1.add(language);
 
 		btnNewButton = new JButton("뒤로가기");

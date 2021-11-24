@@ -66,7 +66,8 @@ public class CSVParsingService {
 			return null;
 		} else {
 			List<String> parsed = Arrays.asList(str.split(", "));
-			return parsed.stream().map(s -> new Climate(-1, -1, s)).toList();
+			return null;
+			//return parsed.stream().map(s -> new Climate(-1, -1, s)).toList();
 		}
 	}
 
@@ -75,7 +76,8 @@ public class CSVParsingService {
 			return null;
 		} else {
 			List<String> parsed = Arrays.asList(str.split(", "));
-			return (parsed.stream().map(s -> new Language(-1, -1, s))).toList();
+			return null;
+			//return (parsed.stream().map(s -> new Language(-1, -1, s))).toList();
 		}
 	}
 
@@ -84,7 +86,8 @@ public class CSVParsingService {
 			return null;
 		} else {
 			List<String> parsed = Arrays.asList(str.split(", "));
-			return parsed.stream().map(s -> new City(-1, -1, s)).toList();
+			return null;
+			//return parsed.stream().map(s -> new City(-1, -1, s)).toList();
 		}
 	}
 
@@ -93,7 +96,8 @@ public class CSVParsingService {
 			return null;
 		} else {
 			List<String> parsed = Arrays.asList(str.split(", "));
-			return parsed.stream().map(s -> new Media(-1, -1, s)).toList();
+			return null;
+			//return parsed.stream().map(s -> new Media(-1, -1, s)).toList();
 		}
 	}
 }
