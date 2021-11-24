@@ -143,10 +143,14 @@ public class NationDaoImpl implements NationDao {
 	@Override
 	public List<NationForGame> retrieveAllNationForGame() {
 
-		String query = "select n.name, n.code, n.area, n.capital, n.location, c.name city, l.name language, cl.name climate, re.name religion, r.name race\n"
-				+ "from nation n\n" + "left outer join city c on n.id = c.nation_id\n"
-				+ "left outer join climate cl on n.id = cl.nation_id\n" + "left outer join language l  on n.id = l.nation_id\n"
-				+ "left outer join race r on n.id = r.nation_id\n" + "left outer join religion re on n.id = re.nation_id";
+		String query = "select n.name, n.code, n.area, n.capital, n.location, GROUP_CONCAT(DISTINCT c.name SEPARATOR ', ') city, GROUP_CONCAT(DISTINCT l.name SEPARATOR ', ') language, GROUP_CONCAT(DISTINCT cl.name SEPARATOR ', ') climate, GROUP_CONCAT(DISTINCT re.name SEPARATOR ', ') religion, GROUP_CONCAT(DISTINCT r.name SEPARATOR ', ') race\r\n"
+				+ "	from nation n\r\n"
+				+ "    left outer join city c on n.id = c.nation_id\r\n"
+				+ "    left outer join climate cl on n.id = cl.nation_id\r\n"
+				+ "    left outer join language l  on n.id = l.nation_id\r\n"
+				+ "    left outer join race r on n.id = r.nation_id\r\n"
+				+ "    left outer join religion re on n.id = re.nation_id\r\n"
+				+ "    GROUP BY n.name";
 
 		List<NationForGame> nationList = new ArrayList<NationForGame>();
 
