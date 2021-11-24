@@ -66,7 +66,7 @@ public class GamePanel extends JPanel {
 
 		lblNewLabel_2 = new JLabel("최고 점수: 0");
 		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 28));
-		lblNewLabel_2.setBounds(271, 149, 176, 37);
+		lblNewLabel_2.setBounds(271, 150, 203, 37);
 		resultPanel.add(lblNewLabel_2);
 
 		rePlayBtn = new JButton("다시하기");
@@ -152,7 +152,8 @@ public class GamePanel extends JPanel {
 
 	public void setResultPanelTrue(int score) {
 		resultPanel.setVisible(true);
-		lblNewLabel.setText("점수: " + score + "점");
+		lblNewLabel.setText("점수: " + scoreNum.getText());
+		lblNewLabel_2.setText("최고 점수: " + score + "점");
 		bigBtn.setEnabled(false);
 		smallBtn.setEnabled(false);
 	}

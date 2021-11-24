@@ -15,7 +15,7 @@ public class GameRuleController {
 		this.mainFrame = mainFrame;
 		eventInit();
 	}
-
+	
 	private void eventInit() {
 		panel.getBackBtn().addActionListener(new ActionListener() {
 			@Override
