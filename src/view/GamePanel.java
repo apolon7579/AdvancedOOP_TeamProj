@@ -87,7 +87,7 @@ public class GamePanel extends JPanel {
 
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(new File(".\\Image\\가나.png"));
+			myPicture = ImageIO.read(new File("..\\Image\\가나.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -97,7 +97,7 @@ public class GamePanel extends JPanel {
 
 		BufferedImage myPicture2 = null;
 		try {
-			myPicture2 = ImageIO.read(new File(".\\Image\\네팔.png"));
+			myPicture2 = ImageIO.read(new File("..\\Image\\네팔.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -189,7 +189,7 @@ public class GamePanel extends JPanel {
 		this.peopleNum.setText("면적: " + peopleNum + "km²");
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(new File(".\\Image\\" + info1 + ".png"));
+			myPicture = ImageIO.read(new File("..\\Image\\" + info1 + ".png"));
 			picLabel.setIcon(new ImageIcon(myPicture));
 		} catch (IOException e) {
 			System.out.println("파일을 찾을수 없습니다" + info1);
@@ -197,7 +197,7 @@ public class GamePanel extends JPanel {
 		}
 
 		try {
-			myPicture = ImageIO.read(new File(".\\Image\\" + info2 + ".png"));
+			myPicture = ImageIO.read(new File("..\\Image\\" + info2 + ".png"));
 			picLabel2.setIcon(new ImageIcon(myPicture));
 		} catch (IOException e) {
 			System.out.println("파일을 찾을수 없습니다" + info2);

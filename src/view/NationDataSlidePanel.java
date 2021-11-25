@@ -293,7 +293,7 @@ public class NationDataSlidePanel extends JPanel {
 		this.add(btnNewButton);
 
 		pageTitle = new JLabel("가나");
-		pageTitle.setBounds(465, 10, 100, 32);
+		pageTitle.setBounds(392, 10, 255, 32);
 		pageTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		pageTitle.setOpaque(true);
 		pageTitle.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));

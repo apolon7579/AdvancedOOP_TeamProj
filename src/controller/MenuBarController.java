@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import entity.Nation;
 import service.NationService;
 import service.NationServiceImpl;
+import view.HowToUseFrame;
 import view.MainFrame;
 import view.MainRetrievePanel;
 import view.MenuBarPanel;
@@ -118,7 +119,7 @@ public class MenuBarController {
 		panel.getHelpMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Show how to use dialog");
+				HowToUseFrame f = new HowToUseFrame();
 			}
 		});
 		panel.getDevelopersMenuItem().addActionListener(new ActionListener() {
