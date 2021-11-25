@@ -87,7 +87,7 @@ public class GamePanel extends JPanel {
 
 		BufferedImage myPicture = null;
 		try {
-			myPicture = ImageIO.read(new File("..\\Image\\가나.png"));
+			myPicture = ImageIO.read(new File(".\\Image\\가나.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -97,7 +97,7 @@ public class GamePanel extends JPanel {
 
 		BufferedImage myPicture2 = null;
 		try {
-			myPicture2 = ImageIO.read(new File("..\\Image\\네팔.png"));
+			myPicture2 = ImageIO.read(new File(".\\Image\\네팔.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

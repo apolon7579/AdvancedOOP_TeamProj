@@ -16,6 +16,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JEditorPane;
 import javax.swing.JCheckBox;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
 
 public class LoginPanel extends JPanel {
 
@@ -32,31 +35,31 @@ public class LoginPanel extends JPanel {
 		setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("\uC640! \uB098\uB77C\uC704\uD0A4");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 50));
-		lblNewLabel.setBounds(332, 45, 400, 219);
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 50));
+		lblNewLabel.setBounds(347, 10, 400, 219);
 		this.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("ID");
-		lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 22));
-		lblNewLabel_1.setBounds(388, 295, 18, 26);
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 22));
+		lblNewLabel_1.setBounds(357, 206, 270, 26);
 		this.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("PASSWORD");
-		lblNewLabel_2.setFont(new Font("굴림", Font.PLAIN, 22));
-		lblNewLabel_2.setBounds(302, 341, 111, 26);
+		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 22));
+		lblNewLabel_2.setBounds(357, 284, 270, 26);
 		this.add(lblNewLabel_2);
 
 		txtId = new JTextField();
 		txtId.setText("");
 		txtId.setFont(new Font("굴림", Font.PLAIN, 22));
-		txtId.setBounds(425, 288, 155, 35);
+		txtId.setBounds(357, 239, 270, 35);
 		this.add(txtId);
 		txtId.setColumns(10);
 
 		txtPswdVisible = new JTextField();
 		txtPswdVisible.setText("");
 		txtPswdVisible.setFont(new Font("굴림", Font.PLAIN, 22));
-		txtPswdVisible.setBounds(425, 337, 155, 35);
+		txtPswdVisible.setBounds(357, 320, 270, 35);
 		this.add(txtPswdVisible);
 		txtPswdVisible.setColumns(10);
 		txtPswdVisible.setVisible(false);
@@ -64,24 +67,31 @@ public class LoginPanel extends JPanel {
 		txtPswdUnVisible = new JPasswordField();
 		txtPswdUnVisible.setText("");
 		txtPswdUnVisible.setFont(new Font("굴림", Font.PLAIN, 22));
-		txtPswdUnVisible.setBounds(425, 337, 155, 35);
+		txtPswdUnVisible.setBounds(357, 320, 270, 35);
 		this.add(txtPswdUnVisible);
 		txtPswdUnVisible.setColumns(10);
 		txtPswdUnVisible.setVisible(true);
 
 		signInBtn = new JButton("Sign in");
-		signInBtn.setFont(new Font("굴림", Font.PLAIN, 22));
-		signInBtn.setBounds(425, 404, 150, 35);
+		signInBtn.setBackground(UIManager.getColor("Button.light"));
+		signInBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
+		signInBtn.setBounds(357, 405, 270, 35);
 		this.add(signInBtn);
 
-		signUpBtn = new JButton("Sigin up");
-		signUpBtn.setFont(new Font("굴림", Font.PLAIN, 22));
-		signUpBtn.setBounds(425, 448, 150, 35);
+		signUpBtn = new JButton("Sign up");
+		signUpBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
+		signUpBtn.setBounds(357, 448, 270, 35);
 		this.add(signUpBtn);
 		
 		chckbxNewCheckBox = new JCheckBox("Show password");
-		chckbxNewCheckBox.setBounds(425, 375, 155, 23);
+		chckbxNewCheckBox.setBounds(357, 361, 155, 23);
 		add(chckbxNewCheckBox);
+		
+		JLabel lblNewLabel_3 = new JLabel("와! 나라위키");
+		lblNewLabel_3.setForeground(Color.LIGHT_GRAY);
+		lblNewLabel_3.setFont(new Font("맑은 고딕", Font.BOLD, 50));
+		lblNewLabel_3.setBounds(353, 16, 400, 219);
+		add(lblNewLabel_3);
 	}
 
 	public JButton getSignInBtn() {
