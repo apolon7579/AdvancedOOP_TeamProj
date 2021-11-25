@@ -27,7 +27,7 @@ public class HowToUseFrame extends JFrame {
 		try {
 			myPicture = new BufferedImage[6];
 			for (int i = 0; i < 6; i++) {
-				myPicture[i] = ImageIO.read(new File("..\\Image\\how\\" + (i + 1) + ".png"));
+				myPicture[i] = ImageIO.read(new File(".\\Image\\how\\" + (i + 1) + ".png"));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

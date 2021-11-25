@@ -21,7 +21,7 @@ public class DevelopersFrame extends JFrame {
 		BufferedImage myPicture = null;
 		try {
 			for (int i = 0; i < 6; i++) {
-				myPicture = ImageIO.read(new File("..\\Image\\how\\secret.png"));
+				myPicture = ImageIO.read(new File(".\\Image\\how\\secret.png"));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
