@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import entity.Nation;
 import service.NationService;
 import service.NationServiceImpl;
+import view.DevelopersFrame;
 import view.HowToUseFrame;
 import view.MainFrame;
 import view.MainRetrievePanel;
@@ -125,7 +126,7 @@ public class MenuBarController {
 		panel.getDevelopersMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Show developers");
+				DevelopersFrame f = new DevelopersFrame();
 			}
 		});
 	}
