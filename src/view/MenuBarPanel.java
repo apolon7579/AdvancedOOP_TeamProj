@@ -55,8 +55,8 @@ public class MenuBarPanel extends JPanel {
 
 		menuBar.add(fileMenu);
 		menuBar.add(editMenu);
-		menuBar.add(helpMenu);
 		menuBar.add(csvMenu);
+		menuBar.add(helpMenu);
 	}
 
 	private void setHelpMenu() {
