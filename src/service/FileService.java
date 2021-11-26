@@ -1,6 +1,8 @@
 package service;
 
+import java.nio.file.Path;
+
 public interface FileService {
-	public int upload(String path) throws Exception;
-	public int download(String path);
+	public int upload(Path path) throws Exception;
+	public int download(Path path);
 }

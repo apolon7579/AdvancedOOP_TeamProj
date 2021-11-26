@@ -6,6 +6,14 @@ public class Religion implements ListItem {
 	private String name;
 	private Double percentage;
 	
+	public Religion(Integer id, Integer nationId, String name, Double percentage) {
+		super();
+		this.id = id;
+		this.nationId = nationId;
+		this.name = name;
+		this.percentage = percentage;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -22,11 +30,21 @@ public class Religion implements ListItem {
 		return percentage;
 	}
 
-	public Religion(Integer id, Integer nationId, String name, Double percentage) {
-		super();
+	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public void setNationId(Integer nationId) {
 		this.nationId = nationId;
+	}
+
+	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setPercentage(Double percentage) {
 		this.percentage = percentage;
 	}
+
+	
 }

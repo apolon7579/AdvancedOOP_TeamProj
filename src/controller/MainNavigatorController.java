@@ -1,14 +1,13 @@
-package controller;
+					package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Path;
 import java.util.List;
 
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -119,7 +118,7 @@ public class MainNavigatorController {
 				if (fileChooser.showOpenDialog(mainNevigatorPanel) == JFileChooser.APPROVE_OPTION) {
 					try {
 						FileService fileService = new FileServiceImpl();
-						fileService.upload(fileChooser.getSelectedFile().getPath());
+						fileService.upload(Path.of(fileChooser.getSelectedFile().getPath()));
 						JOptionPane.showMessageDialog(null, "업로드가 완료되었습니다.");
 					} catch (Exception e1) {
 						JOptionPane.showMessageDialog(null, "업로드에 실패했습니다.\n에러내용: " + e1.getMessage(), "파일 업로드 에러",

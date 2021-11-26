@@ -61,5 +61,39 @@ public class RaceDaoImpl implements RaceDao{
 		}
 		
 	}
+	
+	@Override
+	public int deleteByNationId(int nationId) {
+		String query = "DELETE FROM race WHERE nation_id=?";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, nationId);
+			
+			int count = psmt.executeUpdate();
+			return count;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
+	@Override
+	public boolean insertByRace(Race race) {
+		String query = "INSERT INTO race (nation_id, name, percentage) VALUES (?, ?, ?)";
+
+		try (PreparedStatement psmt = con.prepareStatement(query)){
+			psmt.setInt(1, race.getNationId());
+			psmt.setString(2, race.getName());
+			psmt.setObject(3, race.getPercentage(), Types.DOUBLE);
+			
+			int count = psmt.executeUpdate();
+			return count == 1;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }

@@ -29,4 +29,22 @@ public class Race implements ListItem {
 	public Double getPercentage() {
 		return percentage;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setNationId(Integer nationId) {
+		this.nationId = nationId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPercentage(Double percentage) {
+		this.percentage = percentage;
+	}
+
+
 }

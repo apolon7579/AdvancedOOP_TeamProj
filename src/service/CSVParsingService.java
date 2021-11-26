@@ -2,6 +2,7 @@ package service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -17,9 +18,9 @@ import entity.Religion;
 
 public class CSVParsingService {
 
-	public static List<NationDto> readFile(String path) throws Exception {
+	public static List<NationDto> readFile(Path path) throws Exception {
 		List<NationDto> nationList = new LinkedList<>();
-		BufferedReader csv = new BufferedReader(new FileReader(path));
+		BufferedReader csv = new BufferedReader(new FileReader(path.toString()));
 		if (csv.readLine().split(",").length != 14) {
 			throw new Exception("칼럼이 14개인 공공데이터 형식이 아닙니다.");
 		}
@@ -72,7 +73,6 @@ public class CSVParsingService {
 		for (int i = 0; i < parsed.size(); i++) {
 			ArrayList<String> subList = new ArrayList<>();
 			if (parsed.get(i).contains("(")) {
-				subList.add(parsed.get(i++));
 				for (; i < parsed.size(); i++) {
 					if (!parsed.get(i).contains(")")) {
 						subList.add(parsed.get(i));
@@ -100,19 +100,21 @@ public class CSVParsingService {
 			if (!parsed.get(i).contains("%")) {
 				raceList.add(new Race(-1, -1, parsed.get(i), null));
 			} else {
-
 				StringBuilder builder = new StringBuilder();
-				StringBuilder reversed = new StringBuilder(parsed.get(i)).reverse();
-				int index = reversed.indexOf("%");
-				for (; index < reversed.length(); index++) {
-					char ch = reversed.charAt(index);
-					if ('0' <= ch && ch <= '9' || ch == '.') {
-						builder.insert(0, ch);
-					}else {
+				int index = (parsed.get(i).indexOf("%") - 1);
+				for (; index >= 0; index--) {
+					char ch = parsed.get(i).charAt(index);
+					if (('0' <= ch && ch <= '9') || ch == '.') {
+						builder.append(ch);
+					} else {
 						break;
 					}
 				}
-				raceList.add(new Race(-1, -1, parsed.get(i), Double.parseDouble(builder.toString())));
+				try {
+					raceList.add(new Race(-1, -1, parsed.get(i), Double.parseDouble(builder.reverse().toString())));
+				} catch (Exception e) {
+					raceList.add(new Race(-1, -1, parsed.get(i), null));
+				}
 			}
 		}
 		return raceList;
@@ -128,19 +130,21 @@ public class CSVParsingService {
 			if (!parsed.get(i).contains("%")) {
 				religionList.add(new Religion(-1, -1, parsed.get(i), null));
 			} else {
-
 				StringBuilder builder = new StringBuilder();
-				StringBuilder reversed = new StringBuilder(parsed.get(i)).reverse();
-				int index = reversed.indexOf("%");
-				for (; index < reversed.length(); index++) {
-					char ch = reversed.charAt(index);
-					if ('0' <= ch && ch <= '9' || ch == '.') {
-						builder.insert(0, ch);
-					}else {
+				int index = (parsed.get(i).indexOf("%") - 1);
+				for (; index >= 0; index--) {
+					char ch = parsed.get(i).charAt(index);
+					if (('0' <= ch && ch <= '9') || ch == '.') {
+						builder.append(ch);
+					} else {
 						break;
 					}
 				}
-				religionList.add(new Religion(-1, -1, parsed.get(i), Double.parseDouble(builder.toString())));
+				try {
+					religionList.add(new Religion(-1, -1, parsed.get(i), Double.parseDouble(builder.reverse().toString())));
+				} catch (Exception e) {
+					religionList.add(new Religion(-1, -1, parsed.get(i), null));
+				}
 			}
 		}
 		return religionList;
