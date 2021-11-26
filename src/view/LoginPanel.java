@@ -72,14 +72,14 @@ public class LoginPanel extends JPanel {
 		txtPswdUnVisible.setColumns(10);
 		txtPswdUnVisible.setVisible(true);
 
-		signInBtn = new JButton("Sign in");
+		signInBtn = new JButton("로그인");
 		signInBtn.setBackground(UIManager.getColor("Button.light"));
-		signInBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
+		signInBtn.setFont(new Font("맑은 고딕", Font.BOLD, 22));
 		signInBtn.setBounds(357, 405, 270, 35);
 		this.add(signInBtn);
 
-		signUpBtn = new JButton("Sign up");
-		signUpBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 22));
+		signUpBtn = new JButton("회원가입");
+		signUpBtn.setFont(new Font("맑은 고딕", Font.BOLD, 22));
 		signUpBtn.setBounds(357, 448, 270, 35);
 		this.add(signUpBtn);
 		

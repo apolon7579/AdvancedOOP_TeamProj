@@ -44,22 +44,22 @@ public class MainRetrievePanel extends JPanel{
 		
 		goBackBtn = new JButton("돌아가기");
 		goBackBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		goBackBtn.setBounds(93, 574, 97, 23);
+		goBackBtn.setBounds(93, 526, 97, 23);
 		add(goBackBtn);
 		
 		csvExportBtn = new JButton("csv 내보내기");
 		csvExportBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		csvExportBtn.setBounds(781, 574, 114, 23);
+		csvExportBtn.setBounds(781, 526, 114, 23);
 		add(csvExportBtn);
 		
 		retrieveAllBtn = new JButton("전체조회");
 		retrieveAllBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		retrieveAllBtn.setBounds(543, 574, 97, 23);
+		retrieveAllBtn.setBounds(543, 526, 97, 23);
 		add(retrieveAllBtn);
 				
 		detailBtn = new JButton("상세조회");
 		detailBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		detailBtn.setBounds(663, 574, 97, 23);
+		detailBtn.setBounds(663, 526, 97, 23);
 		add(detailBtn);
 		
 		JScrollPane scrollPane = new JScrollPane();
