@@ -9,8 +9,7 @@ import entity.NationForGame;
 public class UpDownGame{
 	private NationService nationService = new NationServiceImpl();
 	private List<NationForGame> nationForGameList;
-	private int index = 0;
-	private int score = 0;
+	private int index = 0; //인덱스와 스코어는 동일하다
 	NationForGame left;
 	NationForGame right;
 
@@ -18,17 +17,12 @@ public class UpDownGame{
 		nationForGameList = nationService.retrieveAllNationForGame();
 		Collections.shuffle(nationForGameList);
 		index = 0;
-		score = 0;
 		this.left = nationForGameList.get(index);
 		right = nationForGameList.get(index + 1);
 	}
 
 	public int getIndex() {
 		return index;
-	}
-
-	public int getScore() {
-		return score;
 	}
 
 	public NationForGame getLeft() {

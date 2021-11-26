@@ -17,6 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import service.UserService;
+import service.UserServiceImpl;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -24,7 +28,8 @@ public class GameRulePanel extends JPanel {
 
 	private JButton backBtn;
 	private JButton btnNewButton;
-
+	private static String loginUserName;
+	UserService userService = new UserServiceImpl();
 	JLabel localRecordLabel;
 
 	public GameRulePanel() {
@@ -75,7 +80,7 @@ public class GameRulePanel extends JPanel {
 		localRecordLabel.setBackground(Color.LIGHT_GRAY);
 		this.add(localRecordLabel);
 
-		JLabel serverRecordLabel = new JLabel("서버 최고 기록 : 0(임시)");
+		JLabel serverRecordLabel = new JLabel("서버 최고 기록 : " + userService.retrieveTopLevel());
 		serverRecordLabel.setPreferredSize(new Dimension(800, 35));
 		serverRecordLabel.setOpaque(true);
 		serverRecordLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -90,6 +95,10 @@ public class GameRulePanel extends JPanel {
 		add(backBtn);
 	}
 
+	public static void setUserName(String userName) {
+		loginUserName = userName;
+	}
+	
 	public JButton getBackBtn() {
 		return backBtn;
 	}

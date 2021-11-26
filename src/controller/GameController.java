@@ -15,11 +15,14 @@ import entity.NationForGame;
 import service.NationService;
 import service.NationServiceImpl;
 import service.UpDownGame;
+import service.UserService;
+import service.UserServiceImpl;
 import view.GamePanel;
 import view.GameRulePanel;
 import view.MainFrame;
 
 public class GameController {
+	
 	private GamePanel panel;
 	private GameRulePanel rulePanel;
 	private MainFrame mainFrame;
@@ -31,7 +34,8 @@ public class GameController {
 	private int best_score;
 	NationForGame left;
 	NationForGame right;
-
+	UserService userService = new UserServiceImpl();
+	
 	public GameController(MainFrame mainFrame) {
 		panel = mainFrame.getGamePannel();
 		rulePanel = mainFrame.getGameRulePannel();
@@ -40,6 +44,8 @@ public class GameController {
 		gameInit();
 		eventInit();
 	}
+	
+
 
 	public void scoreInit() {
 		best_score = 0;

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import service.UserService;
 import service.UserServiceImpl;
+import view.GameRulePanel;
 import view.LoginPanel;
 import view.MainFrame;
 import view.MainNavigatorPanel;
@@ -38,6 +39,7 @@ public class LoginController {
 				boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
 
 				if (check) {
+					GameRulePanel.setUserName(loginPanel.getID());
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 					mainFrame.setJMenuBar(true);
 					loginPanel.Clean();
