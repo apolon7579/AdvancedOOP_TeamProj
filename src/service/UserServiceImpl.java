@@ -42,6 +42,19 @@ public class UserServiceImpl implements UserService {
 		return userDao.deleteByUserId(userId);
 	}
 
+	@Override
+	public Long retrieveLevelByUserId(String id) {
+		return userDao.retrieveLevelByUserId(id);
+	}
 
+	@Override
+	public Long retrieveTopLevel() {
+		return userDao.retrieveTopLevel();
+	}
+
+	@Override
+	public boolean updateLevelByUserAndLevel(User user, Long newLevel) {
+		return userDao.updateLevelByUserAndLevel(user, newLevel);
+	}
 
 }

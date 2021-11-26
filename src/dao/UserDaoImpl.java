@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 
 import config.ConnectionManager;
 import entity.User;
@@ -82,4 +83,69 @@ public class UserDaoImpl implements UserDao {
 			return false;
 		}
 	}
+
+	@Override
+	public Long retrieveLevelByUserId(String id) {
+		Long level = null;
+		try {
+			PreparedStatement psmt = con.prepareStatement("SELECT * FROM user WHERE user_id = ?");
+			psmt.setString(1, id);
+			ResultSet resultSet = psmt.executeQuery();
+
+			if (resultSet != null) {
+				resultSet.next();
+				level = resultSet.getLong("level");
+			}
+
+			resultSet.close();
+			psmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return level;
+	}
+
+	@Override
+	public Long retrieveTopLevel() {
+		Long level = null;
+		try {
+			PreparedStatement psmt = con.prepareStatement("select max(user.level) level from user;");
+			ResultSet resultSet = psmt.executeQuery();
+
+			if (resultSet != null) {
+				resultSet.next();
+				level = resultSet.getLong("level");
+			}
+
+			resultSet.close();
+			psmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return level;
+	}
+
+	@Override
+	public boolean updateLevelByUserAndLevel(User user, Long newLevel) {
+		String query = "UPDATE user SET level=? WHERE user_id=?";
+
+		if (user.getLevel() < newLevel) {
+			try (PreparedStatement psmt = con.prepareStatement(query)) {
+
+				psmt.setLong(1, newLevel);
+				psmt.setString(2, user.getUserId());
+
+				int count = psmt.executeUpdate();
+				return count == 1;
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
 }
