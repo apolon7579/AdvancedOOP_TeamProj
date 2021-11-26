@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import java.awt.Font;
 
 public class MainRetrievePanel extends JPanel{
 	private JTextField searchField;
@@ -36,23 +37,28 @@ public class MainRetrievePanel extends JPanel{
 		searchField.setColumns(10);
 		
 		searchBtn = new JButton("검색");
+		searchBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		searchBtn.setBounds(798, 49, 97, 23);
 		add(searchBtn);
 				
 		
 		goBackBtn = new JButton("돌아가기");
+		goBackBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		goBackBtn.setBounds(93, 574, 97, 23);
 		add(goBackBtn);
 		
 		csvExportBtn = new JButton("csv 내보내기");
+		csvExportBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		csvExportBtn.setBounds(781, 574, 114, 23);
 		add(csvExportBtn);
 		
 		retrieveAllBtn = new JButton("전체조회");
+		retrieveAllBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		retrieveAllBtn.setBounds(543, 574, 97, 23);
 		add(retrieveAllBtn);
 				
 		detailBtn = new JButton("상세조회");
+		detailBtn.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		detailBtn.setBounds(663, 574, 97, 23);
 		add(detailBtn);
 		

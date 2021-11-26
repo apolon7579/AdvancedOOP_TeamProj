@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.Color;
 
 public class MainNavigatorPanel extends JPanel {
 
@@ -48,44 +49,57 @@ public class MainNavigatorPanel extends JPanel {
 	private JButton SettingButton;
 	private JButton nationRegisterBtn;
 	private JButton CSVuploadButton;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
 
 	private void initialize() {
 		this.setBounds(0, 0, 1030, 660);
 		this.setLayout(null);
 
 		SearchButton = new JButton("검색");
+		SearchButton.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		SearchButton.setBounds(368, 218, 230, 80);
 		this.add(SearchButton);
 
 		GameButton = new JButton("\uAC8C\uC784");
+		GameButton.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		GameButton.setBounds(368, 334, 230, 80);
 		this.add(GameButton);
 
 		ExitButton = new JButton("\uC885\uB8CC");
+		ExitButton.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		ExitButton.setBounds(368, 451, 230, 80);
 		this.add(ExitButton);
 
 		SettingButton = new JButton("\uC124\uC815");
+		SettingButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
 		SettingButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		SettingButton.setBounds(898, 28, 68, 23);
 		this.add(SettingButton);
-
-		JLabel NameLabel = new JLabel("\uB098\uB77C\uC704\uD0A4");
-		NameLabel.setFont(new Font("굴림", Font.PLAIN, 30));
-		NameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		NameLabel.setBounds(401, 127, 152, 37);
-		this.add(NameLabel);
 		
 		nationRegisterBtn = new JButton("나라등록");
-		nationRegisterBtn.setBounds(51, 28, 100, 23);
+		nationRegisterBtn.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+		nationRegisterBtn.setBounds(51, 28, 129, 35);
 		add(nationRegisterBtn);
 		
 		CSVuploadButton = new JButton("CSV 업로드");
-		CSVuploadButton.setBounds(51, 60, 100, 23);
+		CSVuploadButton.setFont(new Font("맑은 고딕", Font.BOLD, 17));
+		CSVuploadButton.setBounds(51, 74, 129, 35);
 		this.add(CSVuploadButton);
+		
+		lblNewLabel = new JLabel("와! 나라위키");
+		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 50));
+		lblNewLabel.setBounds(347, 10, 400, 219);
+		add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("와! 나라위키");
+		lblNewLabel_1.setForeground(Color.LIGHT_GRAY);
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 50));
+		lblNewLabel_1.setBounds(353, 16, 400, 219);
+		add(lblNewLabel_1);
 		
 		
 		setVisible(false);
