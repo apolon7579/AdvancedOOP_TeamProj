@@ -45,13 +45,16 @@ public class GameController {
 
 	public void gameInit() {
 		nationForGameList = nationService.retrieveAllNationForGame();
-		Collections.shuffle(nationForGameList);
-		index = 0;
-		score = 0;
-		this.left = nationForGameList.get(index);
-		right = nationForGameList.get(index + 1);
-		panel.setResultPanelFalse();
-		panel.setUp(score, left.getArea(), left.getName(), right.getName());
+		if(nationForGameList.size() != 0) {
+			Collections.shuffle(nationForGameList);
+			this.left = nationForGameList.get(index);
+			right = nationForGameList.get(index + 1);
+			System.out.println("ddd");
+			index = 0;
+			score = 0;
+			panel.setResultPanelFalse();
+			panel.setUp(score, left.getArea(), left.getName(), right.getName());
+		}
 	}
 
 	public boolean getFlag() {

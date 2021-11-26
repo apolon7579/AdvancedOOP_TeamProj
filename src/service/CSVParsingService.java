@@ -1,7 +1,8 @@
 package service;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +21,7 @@ public class CSVParsingService {
 
 	public static List<NationDto> readFile(Path path) throws Exception {
 		List<NationDto> nationList = new LinkedList<>();
-		BufferedReader csv = new BufferedReader(new FileReader(path.toString()));
+		BufferedReader csv = new BufferedReader(new InputStreamReader(new FileInputStream(path.toString()), "UTF-8"));
 		if (csv.readLine().split(",").length != 14) {
 			throw new Exception("칼럼이 14개인 공공데이터 형식이 아닙니다.");
 		}

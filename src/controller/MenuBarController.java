@@ -2,12 +2,18 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Path;
 import java.util.List;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 import entity.Nation;
+import service.FileService;
+import service.FileServiceImpl;
 import service.NationService;
 import service.NationServiceImpl;
 import view.DevelopersFrame;
@@ -115,6 +121,49 @@ public class MenuBarController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Change Language Eng");
+			}
+		});
+		
+		panel.getCsvUpLoadMenuItem().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileFilter(new FileNameExtensionFilter("csv", "CSV"));
+				fileChooser.setMultiSelectionEnabled(false);
+				if (fileChooser.showOpenDialog(mainFrame) == JFileChooser.APPROVE_OPTION) {
+					try {
+						FileService fileService = new FileServiceImpl();
+						fileService.upload(Path.of(fileChooser.getSelectedFile().getPath()));
+						JOptionPane.showMessageDialog(null, "업로드가 완료되었습니다.");
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, "업로드에 실패했습니다.\n에러내용: " + e1.getMessage(), "파일 업로드 에러",
+								JOptionPane.ERROR_MESSAGE);
+					}
+
+				}
+			}
+		});
+		
+		panel.getCsvDownLoadMenuItem().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				fileChooser.setMultiSelectionEnabled(false);
+				if (fileChooser.showSaveDialog(mainFrame) == JFileChooser.APPROVE_OPTION) {
+					try {
+						FileService fileService = new FileServiceImpl();
+						fileService.download(Path.of(fileChooser.getSelectedFile().getPath()));
+						JOptionPane.showMessageDialog(null, "다운로드가 완료되었습니다.");
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, "다운로드에 실패했습니다.\n에러내용: " + e1.getMessage(), "파일 다운로드 에러",
+								JOptionPane.ERROR_MESSAGE);
+					}
+
+				}
+				
 			}
 		});
 		panel.getHelpMenuItem().addActionListener(new ActionListener() {

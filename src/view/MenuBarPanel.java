@@ -26,9 +26,14 @@ public class MenuBarPanel extends JPanel {
 	private JMenuItem resolutionItem_1;
 	private JMenuItem resolutionItem_2;
 	private JMenuItem resolutionItem_3;
+	
 	private JMenu languageMenu;
 	private JMenuItem languageMenuItem_1;
 	private JMenuItem languageMenuItem_2;
+	
+	private JMenu csvMenu;
+	private JMenuItem csvUpLoadMenuItem;
+	private JMenuItem csvDownLoadMenuItem;
 
 	private JMenuItem helpItem;
 	private JMenuItem developerItem;
@@ -41,14 +46,17 @@ public class MenuBarPanel extends JPanel {
 		fileMenu = new JMenu("File");
 		editMenu = new JMenu("Edit");
 		helpMenu = new JMenu("Help");
+		csvMenu = new JMenu("CSV");
 
 		setFileMenu();
 		setEditMenu();
 		setHelpMenu();
+		setcsvMenu();
 
 		menuBar.add(fileMenu);
 		menuBar.add(editMenu);
 		menuBar.add(helpMenu);
+		menuBar.add(csvMenu);
 	}
 
 	private void setHelpMenu() {
@@ -91,6 +99,13 @@ public class MenuBarPanel extends JPanel {
 
 		editMenu.add(resolutionMenu);
 		editMenu.add(languageMenu);
+	}
+	
+	private void setcsvMenu() {
+		csvUpLoadMenuItem = new JMenuItem("upload");
+		csvDownLoadMenuItem = new JMenuItem("download");
+		csvMenu.add(csvUpLoadMenuItem);
+		csvMenu.add(csvDownLoadMenuItem);
 	}
 
 	// TODO..
@@ -136,5 +151,13 @@ public class MenuBarPanel extends JPanel {
 
 	public JMenuItem getDevelopersMenuItem() {
 		return developerItem;
+	}
+
+	public JMenuItem getCsvUpLoadMenuItem() {
+		return csvUpLoadMenuItem;
+	}
+
+	public JMenuItem getCsvDownLoadMenuItem() {
+		return csvDownLoadMenuItem;
 	}
 }
