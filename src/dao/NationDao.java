@@ -14,6 +14,7 @@ public interface NationDao {
 	List<Nation> retrieveNationsBySearchValue(String searchValue, String field);
 
 	NationDto retrieveNationByName(String nationName);
+	List<String> retrieveSerializableStringAllNation();
 
 	List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName);
 	

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import config.ConnectionManager;
@@ -139,18 +140,139 @@ public class NationDaoImpl implements NationDao {
 
 		return nation;
 	}
+	
+	@Override
+	public List<String> retrieveSerializableStringAllNation() {
+		String query = "select n.name, n.code,  n.capital, GROUP_CONCAT(DISTINCT cl.name SEPARATOR ', ') climate, n.location, GROUP_CONCAT(DISTINCT c.name SEPARATOR ', ') city, GROUP_CONCAT(DISTINCT re.name SEPARATOR ', ') religion, GROUP_CONCAT(DISTINCT r.name SEPARATOR ', ') race, GROUP_CONCAT(DISTINCT m.name SEPARATOR ', ') media, n.area, n.area_source, n.area_description, GROUP_CONCAT(DISTINCT l.name SEPARATOR ', ') language, n.base_year\n"
+				+ "from nation n\n" 
+				+ "left join city c on n.id = c.nation_id\n"
+				+ "left join climate cl on n.id = cl.nation_id\n"
+				+ "left join language l  on n.id = l.nation_id\n"
+				+ "left join race r on n.id = r.nation_id\n"
+				+ "left join media m on n.id = m.nation_id\n"
+				+ "left join religion re on n.id = re.nation_id\n"
+				+ "group by n.name\n"
+				+ "order by n.name";
+		
+		List<String> list = new LinkedList<>();
+
+		try (PreparedStatement psmt = con.prepareStatement(query)) {
+			ResultSet rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				StringBuilder builder = new StringBuilder();
+				if (rs.getString("name") != null)
+					if(rs.getString("name").contains(","))
+						builder.append("\"").append(rs.getString("name")).append("\"");
+					else 
+						builder.append(rs.getString("name"));
+				builder.append(",");
+				
+				if (rs.getString("code") != null)
+					if(rs.getString("code").contains(","))
+						builder.append("\"").append(rs.getString("code")).append("\"");
+					else 
+						builder.append(rs.getString("code"));
+				builder.append(",");
+				
+				if (rs.getString("capital") != null)
+					if(rs.getString("capital").contains(","))
+						builder.append("\"").append(rs.getString("capital")).append("\"");
+					else 
+						builder.append(rs.getString("capital"));
+				builder.append(",");
+				
+				if (rs.getString("climate") != null)
+					if(rs.getString("climate").contains(","))
+						builder.append("\"").append(rs.getString("climate")).append("\"");
+					else 
+						builder.append(rs.getString("climate"));
+				builder.append(",");
+				
+				if (rs.getString("location") != null)
+					if(rs.getString("location").contains(","))
+						builder.append("\"").append(rs.getString("location")).append("\"");
+					else 
+						builder.append(rs.getString("location"));
+				builder.append(",");
+				
+				if (rs.getString("city") != null)
+					if(rs.getString("city").contains(","))
+						builder.append("\"").append(rs.getString("city")).append("\"");
+					else 
+						builder.append(rs.getString("city"));
+				builder.append(",");
+				
+				if (rs.getString("religion") != null)
+					if(rs.getString("religion").contains(","))
+						builder.append("\"").append(rs.getString("religion")).append("\"");
+					else 
+						builder.append(rs.getString("religion"));
+				builder.append(",");
+				
+				if (rs.getString("race") != null)
+					if(rs.getString("race").contains(","))
+						builder.append("\"").append(rs.getString("race")).append("\"");
+					else 
+						builder.append(rs.getString("race"));
+				builder.append(",");
+				
+				if (rs.getString("media") != null)
+					if(rs.getString("media").contains(","))
+						builder.append("\"").append(rs.getString("media")).append("\"");
+					else 
+						builder.append(rs.getString("media"));
+				builder.append(",");
+				
+				if (rs.getObject("area", Double.class) != null)
+					builder.append(rs.getObject("area", Double.class));
+				builder.append(",");
+				
+				if (rs.getString("area_source") != null)
+					if(rs.getString("area_source").contains(","))
+						builder.append("\"").append(rs.getString("area_source")).append("\"");
+					else 
+						builder.append(rs.getString("area_source"));
+				builder.append(",");
+				
+				if (rs.getString("area_description") != null)
+					if(rs.getString("area_description").contains(","))
+						builder.append("\"").append(rs.getString("area_description")).append("\"");
+					else 
+						builder.append(rs.getString("area_description"));
+				builder.append(",");
+				
+				if (rs.getString("language") != null)
+					if(rs.getString("language").contains(","))
+						builder.append("\"").append(rs.getString("language")).append("\"");
+					else 
+						builder.append(rs.getString("language"));
+				builder.append(",");
+				
+				if (rs.getObject("base_year", Integer.class) != null)
+					builder.append(rs.getObject("base_year", Integer.class));
+				builder.append("\n");
+				
+				list.add(builder.toString());
+			}
+
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 	@Override
 	public List<NationForGame> retrieveAllNationForGame() {
 
 		String query = "select n.name, n.code, n.area, n.capital, n.location, GROUP_CONCAT(DISTINCT c.name SEPARATOR ', ') city, GROUP_CONCAT(DISTINCT l.name SEPARATOR ', ') language, GROUP_CONCAT(DISTINCT cl.name SEPARATOR ', ') climate, GROUP_CONCAT(DISTINCT re.name SEPARATOR ', ') religion, GROUP_CONCAT(DISTINCT r.name SEPARATOR ', ') race\r\n"
-				+ "	from nation n\r\n"
-				+ "    left outer join city c on n.id = c.nation_id\r\n"
+				+ "	from nation n\r\n" + "    left outer join city c on n.id = c.nation_id\r\n"
 				+ "    left outer join climate cl on n.id = cl.nation_id\r\n"
 				+ "    left outer join language l  on n.id = l.nation_id\r\n"
 				+ "    left outer join race r on n.id = r.nation_id\r\n"
-				+ "    left outer join religion re on n.id = re.nation_id\r\n"
-				+ "    GROUP BY n.name";
+				+ "    left outer join religion re on n.id = re.nation_id\r\n" + "    GROUP BY n.name";
 
 		List<NationForGame> nationList = new ArrayList<NationForGame>();
 
@@ -226,7 +348,7 @@ public class NationDaoImpl implements NationDao {
 			psmt.setString(6, nation.getAreaSource());
 			psmt.setString(7, nation.getAreaDescription());
 			psmt.setObject(8, nation.getBaseYear(), Types.INTEGER);
-			
+
 			int count = psmt.executeUpdate();
 			return count == 1;
 		} catch (SQLException e) {

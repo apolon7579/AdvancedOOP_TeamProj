@@ -1,5 +1,6 @@
 package dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import entity.City;
@@ -28,6 +29,7 @@ public class NationDto {
 	private List<Language> languageList;
 	private Integer baseYear;
 	private List<User> userList;
+	
 	
 	public NationDto() {
 	}
@@ -158,5 +160,161 @@ public class NationDto {
 				+ ", raceList=" + raceList + ", mediaList=" + mediaList + ", area=" + area + ", areaSource="
 				+ areaSource + ", areaLocation=" + areaLocation + ", languageList=" + languageList + ", baseYear="
 				+ baseYear + ", userList=" + userList + "]";
+	}
+	@Deprecated
+	public String toCSVString() {
+		List<String> list = new ArrayList<>();
+		StringBuilder builder = new StringBuilder();
+		builder.append(((name == null) ? "" : name));
+		builder.append(",");
+		
+		builder.append(((code == null) ? "" : code));
+		builder.append(",");
+		
+		builder.append(((capital == null) ? "" : capital));
+		builder.append(",");
+		
+		if(climateList != null) {
+			for (Climate c: climateList) {
+				list.add(c.getName());
+			}
+			if(list.size() == 1) {
+				if(list.get(0).contains(",")) {
+					builder.append("\"");
+					builder.append(list.get(0));
+					builder.append("\"");
+				}else {
+					builder.append(list.get(0));
+				}
+			}else {
+				builder.append("\"");
+				builder.append(String.join(", ", list));
+				builder.append("\"");
+			}
+		}
+		builder.append(",");
+		
+		builder.append(((location == null) ? "" : location));
+		builder.append(",");
+		
+		if(cityList != null) {
+			list.clear();
+			for (City c: cityList) {
+				list.add(c.getName());
+			}
+			if(list.size() == 1) {
+				if(list.get(0).contains(",")) {
+					builder.append("\"");
+					builder.append(list.get(0));
+					builder.append("\"");
+				}else {
+					builder.append(list.get(0));
+				}
+			}else {
+				builder.append("\"");
+				builder.append(String.join(", ", list));
+				builder.append("\"");
+			}
+		}
+		builder.append(",");
+		
+		if(religionList != null) {
+			list.clear();
+			for (Religion c: religionList) {
+				list.add(c.getName());
+			}
+			if(list.size() == 1) {
+				if(list.get(0).contains(",")) {
+					builder.append("\"");
+					builder.append(list.get(0));
+					builder.append("\"");
+				}else {
+					builder.append(list.get(0));
+				}
+			}else {
+				builder.append("\"");
+				builder.append(String.join(", ", list));
+				builder.append("\"");
+			}
+		}
+		builder.append(",");
+		
+		if(raceList != null) {
+			list.clear();
+			for (Race c: raceList) {
+				list.add(c.getName());
+			}
+			if(list.size() == 1) {
+				if(list.get(0).contains(",")) {
+					builder.append("\"");
+					builder.append(list.get(0));
+					builder.append("\"");
+				}else {
+					builder.append(list.get(0));
+				}
+			}else {
+				builder.append("\"");
+				builder.append(String.join(", ", list));
+				builder.append("\"");
+			}
+		}
+		builder.append(",");
+		
+		if(mediaList != null) {
+			list.clear();
+			for (Media c: mediaList) {
+				list.add(c.getName());
+			}
+			if(list.size() == 1) {
+				if(list.get(0).contains(",")) {
+					builder.append("\"");
+					builder.append(list.get(0));
+					builder.append("\"");
+				}else {
+					builder.append(list.get(0));
+				}
+			}else {
+				builder.append("\"");
+				builder.append(String.join(", ", list));
+				builder.append("\"");
+			}
+		}
+		builder.append(",");
+		
+		builder.append(((area == null) ? "" : area));
+		builder.append(",");
+		
+		builder.append(((areaSource == null) ? "" : areaSource));
+		builder.append(",");
+		
+		builder.append(((areaLocation == null) ? "" : areaLocation));
+		builder.append(",");
+		
+		if(languageList == null) {
+		}else {
+			list.clear();
+			for (Language c: languageList) {
+				list.add(c.getName());
+			}
+			if(list.size() == 1) {
+				if(list.get(0).contains(",")) {
+					builder.append("\"");
+					builder.append(list.get(0));
+					builder.append("\"");
+				}else {
+					builder.append(list.get(0));
+				}
+			}else {
+				builder.append("\"");
+				builder.append(String.join(", ", list));
+				builder.append("\"");
+			}
+		}
+		builder.append(",");
+		
+		builder.append(((baseYear == null) ? "" : baseYear));
+		builder.append("\n");
+		
+		return builder.toString();
 	}
 }
