@@ -90,7 +90,7 @@ public class SignUpPanel extends JPanel {
 
 		goBackButton = new JButton("돌아가기");
 		goBackButton.setFont(new Font("나눔고딕", Font.BOLD, 22));
-		goBackButton.setBounds(418, 489, 155, 40);
+		goBackButton.setBounds(418, 489, 153, 40);
 		add(goBackButton);
 
 		JLabel lblName = new JLabel("NAME");

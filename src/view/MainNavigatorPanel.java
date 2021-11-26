@@ -46,7 +46,6 @@ public class MainNavigatorPanel extends JPanel {
 	 */
 	private JButton ExitButton;
 	private JButton GameButton;
-	private JButton SettingButton;
 	private JButton nationRegisterBtn;
 	private JButton CSVuploadButton;
 	private JLabel lblNewLabel;
@@ -70,15 +69,6 @@ public class MainNavigatorPanel extends JPanel {
 		ExitButton.setFont(new Font("맑은 고딕", Font.BOLD, 30));
 		ExitButton.setBounds(368, 451, 230, 80);
 		this.add(ExitButton);
-
-		SettingButton = new JButton("\uC124\uC815");
-		SettingButton.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
-		SettingButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		SettingButton.setBounds(898, 28, 68, 23);
-		this.add(SettingButton);
 		
 		nationRegisterBtn = new JButton("나라등록");
 		nationRegisterBtn.setFont(new Font("맑은 고딕", Font.BOLD, 17));
