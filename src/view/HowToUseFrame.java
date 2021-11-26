@@ -19,15 +19,15 @@ public class HowToUseFrame extends JFrame {
 	private JLabel picLabel;
 	BufferedImage[] myPicture = null;
 	int index = 0;
+
 	public HowToUseFrame() {
 		setSize(930, 560);
 		setLocationRelativeTo(null);
 		setVisible(true);
-
 		try {
 			myPicture = new BufferedImage[6];
 			for (int i = 0; i < 6; i++) {
-				myPicture[i] = ImageIO.read(new File(".\\Image\\how\\" + (i + 1) + ".png"));
+				myPicture[i] = ImageIO.read(new File(".\\Image\\how\\" + i + ".png"));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -41,10 +41,11 @@ public class HowToUseFrame extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(index > 5)
-					System.exit(0);
+				if (index > 5) {
+					setVisible(false);
+					return;
+				}
 				picLabel.setIcon(new ImageIcon(myPicture[index++]));
-				System.out.println("qwe");
 			}
 		});
 	}
