@@ -92,8 +92,10 @@ public class FileServiceImpl implements FileService {
 	}
 
 	@Override
-	public int download(Path path) {
-		return -1;
+	public int download(Path path) throws Exception {
+		List<String> list = nationDao.retrieveSerializableStringAllNation();
+		CSVSerializeService.writeFile(path, list);
+		return list.size();
 	}
 
 }

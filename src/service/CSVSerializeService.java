@@ -6,6 +6,7 @@ import java.io.OutputStreamWriter;
 import java.nio.file.Path;
 import java.util.List;
 
+//csv 파일로 만들기 위한 클래스
 public class CSVSerializeService {
 
 	public static void writeFile(Path path, List<String> serializesNationList) throws Exception {

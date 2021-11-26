@@ -128,5 +128,26 @@ public class MainNavigatorController {
 				}
 			}
 		});
+		
+		mainNevigatorPanel.getCSVdownloadButton().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				fileChooser.setMultiSelectionEnabled(false);
+				if (fileChooser.showSaveDialog(mainNevigatorPanel) == JFileChooser.APPROVE_OPTION) {
+					try {
+						FileService fileService = new FileServiceImpl();
+						fileService.download(Path.of(fileChooser.getSelectedFile().getPath()));
+						JOptionPane.showMessageDialog(null, "다운로드가 완료되었습니다.");
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, "다운로드에 실패했습니다.\n에러내용: " + e1.getMessage(), "파일 다운로드 에러",
+								JOptionPane.ERROR_MESSAGE);
+					}
+
+				}
+			}
+		});
 	}
 }

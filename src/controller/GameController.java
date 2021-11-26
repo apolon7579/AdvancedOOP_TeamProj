@@ -77,7 +77,7 @@ public class GameController {
 			public void actionPerformed(ActionEvent e) {
 				if (isFinish()) {
 					end();
-					panel.setResultPanelTrue("마지막 문제, " + score + "점",
+					panel.setResultPanelTrue("마지막!!! " + score + "점입니다.",
 							"개인기록: " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId())
 									+ ", 서버기록: " + userService.retrieveTopLevel());
 				}
@@ -98,7 +98,7 @@ public class GameController {
 			public void actionPerformed(ActionEvent e) {
 				if (isFinish()) {
 					end();
-					panel.setResultPanelTrue("마지막 문제, " + score + "점",
+					panel.setResultPanelTrue("마지막!!! " + score + "점입니다.",
 							"개인기록: " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId())
 									+ ", 서버기록: " + userService.retrieveTopLevel());
 				}

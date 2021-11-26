@@ -48,6 +48,7 @@ public class MainNavigatorPanel extends JPanel {
 	private JButton GameButton;
 	private JButton nationRegisterBtn;
 	private JButton CSVuploadButton;
+	private JButton CSVdownloadButton;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 
@@ -79,6 +80,11 @@ public class MainNavigatorPanel extends JPanel {
 		CSVuploadButton.setFont(new Font("맑은 고딕", Font.BOLD, 17));
 		CSVuploadButton.setBounds(51, 74, 129, 35);
 		this.add(CSVuploadButton);
+		
+		CSVdownloadButton = new JButton("CSV 다운로드");
+		CSVdownloadButton.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		CSVdownloadButton.setBounds(51, 120, 129, 35);
+		this.add(CSVdownloadButton);
 		
 		lblNewLabel = new JLabel("와! 나라위키");
 		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 50));
@@ -114,6 +120,9 @@ public class MainNavigatorPanel extends JPanel {
 	public JButton getCSVuploadButton() {
 		return CSVuploadButton;
 	}
-
+	
+	public JButton getCSVdownloadButton() {
+		return CSVdownloadButton;
+	}
 	
 }

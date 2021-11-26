@@ -72,13 +72,13 @@ public class GamePanel extends JPanel {
 		resultPanel.add(goToMainBtn);
 
 		lblNewLabel = new JLabel("점수: 0");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 28));
-		lblNewLabel.setBounds(271, 82, 176, 37);
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		lblNewLabel.setBounds(265, 82, 180, 37);
 		resultPanel.add(lblNewLabel);
 
 		lblNewLabel_2 = new JLabel("최고 점수: 0");
-		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 28));
-		lblNewLabel_2.setBounds(271, 150, 203, 37);
+		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 20));
+		lblNewLabel_2.setBounds(220, 150, 255, 37);
 		resultPanel.add(lblNewLabel_2);
 
 		rePlayBtn = new JButton("다시하기");
@@ -88,7 +88,7 @@ public class GamePanel extends JPanel {
 
 		lblResult = new JLabel("Result");
 		lblResult.setFont(new Font("굴림", Font.BOLD, 37));
-		lblResult.setBounds(271, 10, 188, 43);
+		lblResult.setBounds(283, 10, 188, 43);
 		resultPanel.add(lblResult);
 
 		JLabel lblNewLabel2 = new JLabel("국가별 면적");
