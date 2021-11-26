@@ -43,18 +43,25 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Long retrieveLevelByUserId(String id) {
+	public Integer retrieveLevelByUserId(String id) {
 		return userDao.retrieveLevelByUserId(id);
 	}
 
 	@Override
-	public Long retrieveTopLevel() {
+	public Integer retrieveTopLevel() {
 		return userDao.retrieveTopLevel();
 	}
 
 	@Override
-	public boolean updateLevelByUserAndLevel(User user, Long newLevel) {
+	public boolean updateLevelByUserAndLevel(User user, Integer newLevel) {
 		return userDao.updateLevelByUserAndLevel(user, newLevel);
 	}
+
+	@Override
+	public User retrievebyUserId(String USerId) {
+		return userDao.retrieveByUserId(USerId);
+	}
+
+
 
 }

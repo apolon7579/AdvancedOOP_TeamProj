@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,11 +7,10 @@ import javax.swing.JOptionPane;
 
 import service.UserService;
 import service.UserServiceImpl;
-import view.GameRulePanel;
+import view.GamePanel;
 import view.LoginPanel;
 import view.MainFrame;
 import view.MainNavigatorPanel;
-import view.MainRetrievePanel;
 import view.SignUpPanel;
 
 public class LoginController {
@@ -39,7 +37,7 @@ public class LoginController {
 				boolean check = userService.loginByUserIdAndPassword(loginPanel.getID(), loginPanel.getPWD());
 
 				if (check) {
-					GameRulePanel.setUserName(loginPanel.getID());
+					GamePanel.setLoginedUser(userService.retrievebyUserId(loginPanel.getID()));
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainNavigatorPanel");
 					mainFrame.setJMenuBar(true);
 					loginPanel.Clean();

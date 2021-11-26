@@ -28,9 +28,10 @@ public class GameRulePanel extends JPanel {
 
 	private JButton backBtn;
 	private JButton btnNewButton;
-	private static String loginUserName;
+
 	UserService userService = new UserServiceImpl();
-	JLabel localRecordLabel;
+	JLabel myBestRecordLabel;
+	JLabel serverRecordLabel;
 
 	public GameRulePanel() {
 		setLayout(null);
@@ -59,28 +60,17 @@ public class GameRulePanel extends JPanel {
 		ruleLabel.setBackground(Color.LIGHT_GRAY);
 		this.add(ruleLabel);
 
-		int score = 0;
-		try {
-			File rd = new File("..\\score.txt");
-			BufferedReader inFile = new BufferedReader(new FileReader(rd));
-			score = Integer.parseInt(inFile.readLine());
-			inFile.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("그딴 파일 없슴;;");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		localRecordLabel = new JLabel("개인 최고 기록 : " + score);
-		localRecordLabel.setBounds(70, 194, 907, 57);
-		localRecordLabel.setPreferredSize(new Dimension(800, 35));
-		localRecordLabel.setOpaque(true);
-		localRecordLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		localRecordLabel.setFont(new Font("굴림", Font.PLAIN, 18));
-		localRecordLabel.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
-		localRecordLabel.setBackground(Color.LIGHT_GRAY);
-		this.add(localRecordLabel);
+		myBestRecordLabel = new JLabel("10");
+		myBestRecordLabel.setBounds(70, 194, 907, 57);
+		myBestRecordLabel.setPreferredSize(new Dimension(800, 35));
+		myBestRecordLabel.setOpaque(true);
+		myBestRecordLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		myBestRecordLabel.setFont(new Font("굴림", Font.PLAIN, 18));
+		myBestRecordLabel.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.black));
+		myBestRecordLabel.setBackground(Color.LIGHT_GRAY);
+		this.add(myBestRecordLabel);
 
-		JLabel serverRecordLabel = new JLabel("서버 최고 기록 : " + userService.retrieveTopLevel());
+		serverRecordLabel = new JLabel("서버 최고 기록 : " + userService.retrieveTopLevel());
 		serverRecordLabel.setPreferredSize(new Dimension(800, 35));
 		serverRecordLabel.setOpaque(true);
 		serverRecordLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -95,19 +85,16 @@ public class GameRulePanel extends JPanel {
 		add(backBtn);
 	}
 
-	public static void setUserName(String userName) {
-		loginUserName = userName;
+	public void clicked() {
+		myBestRecordLabel.setText("개인 최고 기록 : " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId()));
+		serverRecordLabel.setText("서버 최고 기록 : " + userService.retrieveTopLevel());
 	}
-	
+
 	public JButton getBackBtn() {
 		return backBtn;
 	}
 
 	public JButton getStartBtn() {
 		return btnNewButton;
-	}
-
-	public void setBestScore(int best_score) {
-		localRecordLabel.setText("개인 최고 기록 : " + best_score);
 	}
 }

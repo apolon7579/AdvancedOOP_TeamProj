@@ -28,10 +28,9 @@ public class GameRuleController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "gamePanel");
 			}
 		});
 	}
-
 }

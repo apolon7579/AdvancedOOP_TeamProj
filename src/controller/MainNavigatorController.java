@@ -93,6 +93,9 @@ public class MainNavigatorController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 게임판넬 true
+				
+				
+				mainFrame.getGameRulePannel().clicked();
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "gameRulePanel");
 			}
 		});

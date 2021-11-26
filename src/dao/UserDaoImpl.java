@@ -62,6 +62,34 @@ public class UserDaoImpl implements UserDao {
 
 		return user;
 	}
+	
+	@Override
+	public User retrieveByUserId(String id) {
+		User user = null;
+
+		try {
+			PreparedStatement psmt = con.prepareStatement("SELECT * FROM user WHERE user_id = ?");
+			psmt.setString(1, id);
+			ResultSet resultSet = psmt.executeQuery();
+
+			if (resultSet != null) {
+				resultSet.next();
+				int primaryId = resultSet.getInt("id");
+				String name = resultSet.getString("name");
+				String user_id = resultSet.getString("user_id");
+				String password2 = resultSet.getString("password");
+				int level = resultSet.getInt("level");
+				user = new User(primaryId, name, user_id, password2, level);
+			}
+
+			resultSet.close();
+			psmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return user;
+	}
 
 	@Override
 	public boolean updateByUserIdAndUser(String id, User newUser) {
@@ -85,8 +113,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public Long retrieveLevelByUserId(String id) {
-		Long level = null;
+	public Integer retrieveLevelByUserId(String id) {
+		Integer level = null;
 		try {
 			PreparedStatement psmt = con.prepareStatement("SELECT * FROM user WHERE user_id = ?");
 			psmt.setString(1, id);
@@ -94,7 +122,7 @@ public class UserDaoImpl implements UserDao {
 
 			if (resultSet != null) {
 				resultSet.next();
-				level = resultSet.getLong("level");
+				level = resultSet.getObject("level", Integer.class);
 			}
 
 			resultSet.close();
@@ -107,15 +135,15 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public Long retrieveTopLevel() {
-		Long level = null;
+	public Integer retrieveTopLevel() {
+		Integer level = null;
 		try {
 			PreparedStatement psmt = con.prepareStatement("select max(user.level) level from user;");
 			ResultSet resultSet = psmt.executeQuery();
 
 			if (resultSet != null) {
 				resultSet.next();
-				level = resultSet.getLong("level");
+				level = resultSet.getObject("level", Integer.class);
 			}
 
 			resultSet.close();
@@ -128,7 +156,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean updateLevelByUserAndLevel(User user, Long newLevel) {
+	public boolean updateLevelByUserAndLevel(User user, Integer newLevel) {
 		String query = "UPDATE user SET level=? WHERE user_id=?";
 
 		if (user.getLevel() < newLevel) {
@@ -147,5 +175,7 @@ public class UserDaoImpl implements UserDao {
 			return false;
 		}
 	}
+
+	
 	
 }

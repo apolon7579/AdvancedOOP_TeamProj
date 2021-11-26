@@ -22,7 +22,7 @@ import view.GameRulePanel;
 import view.MainFrame;
 
 public class GameController {
-	
+
 	private GamePanel panel;
 	private GameRulePanel rulePanel;
 	private MainFrame mainFrame;
@@ -31,58 +31,16 @@ public class GameController {
 	private List<NationForGame> nationForGameList;
 	private int index;
 	private int score;
-	private int best_score;
 	NationForGame left;
 	NationForGame right;
 	UserService userService = new UserServiceImpl();
-	
+
 	public GameController(MainFrame mainFrame) {
 		panel = mainFrame.getGamePannel();
 		rulePanel = mainFrame.getGameRulePannel();
 		this.mainFrame = mainFrame;
-		scoreInit();
 		gameInit();
 		eventInit();
-	}
-	
-
-
-	public void scoreInit() {
-		best_score = 0;
-		try {
-			File rd = new File("..\\score.txt");
-			BufferedReader inFile = new BufferedReader(new FileReader(rd));
-			best_score = Integer.parseInt(inFile.readLine());
-			inFile.close();
-		} catch (FileNotFoundException e) {
-			try {
-				System.out.println("score.txt파일이 없어 새로 만들고 0으로 했슴다");
-				FileWriter fw = new FileWriter("..\\score.txt");
-				fw.write("0");
-				fw.close();
-			} catch (IOException e2) {
-				e2.printStackTrace();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public int setScore() {
-		if (best_score < score) {
-			best_score = score;
-			FileWriter fw;
-			try {
-				fw = new FileWriter("..\\score.txt");
-				fw.write(Integer.toString(best_score));
-				fw.close();
-				
-				rulePanel.setBestScore(best_score);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return best_score;
 	}
 
 	public void gameInit() {
@@ -104,7 +62,7 @@ public class GameController {
 
 	public boolean isFinish() {
 		// 끝까지 도달
-		return (index == 227 - 1);
+		return (index == (nationForGameList.size() - 1));
 	}
 
 	public void next() {
@@ -117,27 +75,43 @@ public class GameController {
 		panel.getBigBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isFinish())
-					System.out.println("finish 결과창");
+				if (isFinish()) {
+					end();
+					panel.setResultPanelTrue("마지막 문제, " + score + "점",
+							"개인기록: " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId())
+									+ ", 서버기록: " + userService.retrieveTopLevel());
+				}
 				// 오른쪽이 더 크다고 생각
-				if (getFlag()) {
+				else if (getFlag()) {
 					next();
 					panel.setUp(score, left.getArea(), left.getName(), right.getName());
-				} else
-					panel.setResultPanelTrue(setScore());
+				} else {
+					end();
+					panel.setResultPanelTrue("이번점수: " + score,
+							"개인기록: " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId())
+									+ ", 서버기록: " + userService.retrieveTopLevel());
+				}
 			}
 		});
 		panel.getSmallBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (isFinish())
-					System.out.println("finish 결과창");
+				if (isFinish()) {
+					end();
+					panel.setResultPanelTrue("마지막 문제, " + score + "점",
+							"개인기록: " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId())
+									+ ", 서버기록: " + userService.retrieveTopLevel());
+				}
 				// 왼쪽이 더 크다고 생각
-				if (!getFlag()) {
+				else if (!getFlag()) {
 					next();
 					panel.setUp(score, left.getArea(), left.getName(), right.getName());
-				} else
-					panel.setResultPanelTrue(setScore());
+				} else {
+					end();
+					panel.setResultPanelTrue("이번점수: " + score,
+							"개인기록: " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId())
+									+ ", 서버기록: " + userService.retrieveTopLevel());
+				}
 			}
 		});
 
@@ -161,6 +135,10 @@ public class GameController {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "gameRulePanel");
 			}
 		});
+	}
+
+	private void end() {
+		userService.updateLevelByUserAndLevel(GamePanel.getLoginedUser(), score);
 	}
 
 }

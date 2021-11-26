@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import entity.User;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -41,8 +43,18 @@ public class GamePanel extends JPanel {
 	private JLabel lblResult;
 	private JButton btnNewButton;
 	private JPanel resultPanel;
+	private static User loginedUser;
 	// 가끔 사진이 없는 나라가 있음;;
 	// 캐나다 같은건 이미지가 너무 커서 이상하게 나옴;;
+	
+	public static User getLoginedUser() {
+		return loginedUser;
+	}
+
+	public static void setLoginedUser(User loginedUser) {
+		GamePanel.loginedUser = loginedUser;
+	}
+	
 
 	public GamePanel() {
 		setBackground(Color.DARK_GRAY);
@@ -150,10 +162,10 @@ public class GamePanel extends JPanel {
 		add(btnNewButton);
 	}
 
-	public void setResultPanelTrue(int score) {
+	public void setResultPanelTrue(String desc1, String desc2) {
 		resultPanel.setVisible(true);
-		lblNewLabel.setText("점수: " + scoreNum.getText());
-		lblNewLabel_2.setText("최고 점수: " + score + "점");
+		lblNewLabel.setText(desc1);
+		lblNewLabel_2.setText(desc2);
 		bigBtn.setEnabled(false);
 		smallBtn.setEnabled(false);
 	}
@@ -207,4 +219,6 @@ public class GamePanel extends JPanel {
 		name1.setText(info1);
 		name2.setText(info2);
 	}
+
+	
 }
