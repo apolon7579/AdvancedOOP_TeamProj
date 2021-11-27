@@ -133,7 +133,7 @@ public class NationDataSlidePanel extends JPanel {
 		panel_2.add(religionValue);
 		
 		btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setIcon(new ImageIcon("..\\image\\graph.png"));
+		btnNewButton_1.setIcon(new ImageIcon(getClass().getResource("/graph.png")));
 		btnNewButton_1.setPreferredSize(new Dimension(35,35));
 		panel_2.add(btnNewButton_1);
 
@@ -147,7 +147,7 @@ public class NationDataSlidePanel extends JPanel {
 		panel_2.add(raceValue);
 
 		btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setIcon(new ImageIcon("..\\image\\graph.png"));
+		btnNewButton_2.setIcon(new ImageIcon(getClass().getResource("/graph.png")));
 		btnNewButton_2.setPreferredSize(new Dimension(35,35));
 		panel_2.add(btnNewButton_2);
 		
