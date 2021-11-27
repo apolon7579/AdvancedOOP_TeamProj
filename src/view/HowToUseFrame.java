@@ -3,6 +3,7 @@ package view;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -17,20 +18,16 @@ import java.awt.event.ActionListener;
 public class HowToUseFrame extends JFrame {
 
 	private JLabel picLabel;
-	BufferedImage[] myPicture = null;
+	URL[] myPicture = null;
 	int index = 0;
 
 	public HowToUseFrame() {
 		setSize(930, 560);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		try {
-			myPicture = new BufferedImage[6];
-			for (int i = 0; i < 6; i++) {
-				myPicture[i] = ImageIO.read(new File(".\\Image\\how\\" + i + ".png"));
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		myPicture = new URL[6];
+		for (int i = 0; i < 6; i++) {
+			myPicture[i] = getClass().getResource("/how/" + i + ".png");
 		}
 		picLabel = new JLabel(new ImageIcon(myPicture[index++]));
 		picLabel.setHorizontalAlignment(SwingConstants.LEFT);

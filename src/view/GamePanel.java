@@ -97,23 +97,11 @@ public class GamePanel extends JPanel {
 		lblNewLabel2.setBounds(357, 10, 340, 58);
 		this.add(lblNewLabel2);
 
-		BufferedImage myPicture = null;
-		try {
-			myPicture = ImageIO.read(new File(".\\Image\\가나.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		picLabel = new JLabel(new ImageIcon(myPicture));
+		picLabel = new JLabel(new ImageIcon(getClass().getResource("/가나.png")));
 		picLabel.setBounds(104, 136, 311, 236);
 		add(picLabel);
-
-		BufferedImage myPicture2 = null;
-		try {
-			myPicture2 = ImageIO.read(new File(".\\Image\\네팔.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		picLabel2 = new JLabel(new ImageIcon(myPicture2));
+		
+		picLabel2 = new JLabel(new ImageIcon(getClass().getResource("/네팔.png")));
 		picLabel2.setBounds(607, 136, 311, 236);
 		add(picLabel2);
 
@@ -199,22 +187,10 @@ public class GamePanel extends JPanel {
 	public void setUp(int score, double peopleNum, String info1, String info2) {
 		scoreNum.setText(score + "점");
 		this.peopleNum.setText("면적: " + peopleNum + "km²");
-		BufferedImage myPicture = null;
-		try {
-			myPicture = ImageIO.read(new File(".\\Image\\" + info1 + ".png"));
-			picLabel.setIcon(new ImageIcon(myPicture));
-		} catch (IOException e) {
-			System.out.println("파일을 찾을수 없습니다" + info1);
-			// e.printStackTrace();
-		}
+		
+		picLabel.setIcon(new ImageIcon(getClass().getResource("/" + info1 + ".png")));
 
-		try {
-			myPicture = ImageIO.read(new File(".\\Image\\" + info2 + ".png"));
-			picLabel2.setIcon(new ImageIcon(myPicture));
-		} catch (IOException e) {
-			System.out.println("파일을 찾을수 없습니다" + info2);
-			// e.printStackTrace();
-		}
+		picLabel2.setIcon(new ImageIcon(getClass().getResource("/" + info2 + ".png")));
 
 		name1.setText(info1);
 		name2.setText(info2);

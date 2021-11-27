@@ -18,16 +18,7 @@ public class DevelopersFrame extends JFrame {
 		setSize(760, 550);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		BufferedImage myPicture = null;
-		try {
-			for (int i = 0; i < 6; i++) {
-				myPicture = ImageIO.read(new File(".\\Image\\how\\secret.png"));
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+		JLabel picLabel = new JLabel(new ImageIcon(getClass().getResource("/how/secret.png")));
 		picLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		getContentPane().add(picLabel);
 	}
