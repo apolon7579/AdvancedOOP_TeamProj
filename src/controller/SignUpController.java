@@ -53,6 +53,7 @@ public class SignUpController {
 				UserService userService = new UserServiceImpl();
 				boolean check = userService.registrationByNameAndUserIdAndPassword(signUpPanel.getName(),
 						signUpPanel.getID(), signUpPanel.getPWD());
+				
 				if (check) {
 					mainFrame.getCardLayout().show(mainFrame.getContentPane(), "loginPanel");
 					signUpPanel.Clean();

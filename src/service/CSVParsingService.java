@@ -25,6 +25,7 @@ public class CSVParsingService {
 		if (csv.readLine().split(",").length != 14) {
 			throw new Exception("칼럼이 14개인 공공데이터 형식이 아닙니다.");
 		}
+		
 
 		String line = null;
 		List<String> parsed = new ArrayList<>();
