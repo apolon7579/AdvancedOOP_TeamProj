@@ -19,7 +19,7 @@ public class CityDaoImpl implements CityDao{
 	@Override
 	public List<City> retrieveCityListByNationId(int nationId) {
 		
-		String query = "SELECT * FROM LANGUAGE WHERE NATION_ID = ?";
+		String query = "SELECT * FROM CITY WHERE NATION_ID = ?";
 		City city = null;
 		List<City> cityList = new ArrayList<City>();
 		
