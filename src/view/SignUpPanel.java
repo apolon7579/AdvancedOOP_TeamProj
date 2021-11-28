@@ -149,7 +149,7 @@ public class SignUpPanel extends JPanel {
 	}
 
 	public String getPWD() {
-		return pwdReBtn.getText();
+		return pwdReBtn2.getText();
 	}
 
 	public JButton getGoBackButton() {
