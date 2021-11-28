@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 
+//세팅화면
 public class SettingPanel{
 
 	private JFrame frame;
@@ -38,6 +39,7 @@ public class SettingPanel{
 	/**
 	 * Create the application.
 	 */
+	//초기화
 	public SettingPanel() {
 		initialize();
 		
@@ -46,6 +48,7 @@ public class SettingPanel{
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	//생성자에서 초기화되는 로직
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1280, 720);

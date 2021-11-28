@@ -10,10 +10,12 @@ import java.util.List;
 import config.ConnectionManager;
 import entity.City;
 
+//city dao 구현체
 public class CityDaoImpl implements CityDao{
 
 	private Connection con = ConnectionManager.getConnection();
 	
+	//국가번호로 도시 조회
 	@Override
 	public List<City> retrieveCityListByNationId(int nationId) {
 		
@@ -40,6 +42,7 @@ public class CityDaoImpl implements CityDao{
 		return cityList;
 	}
 
+	//도시 추가
 	@Override
 	public boolean insertByCity(City city) {
 		String query = "INSERT INTO city (nation_id, name) VALUES (?, ?)";
@@ -57,6 +60,7 @@ public class CityDaoImpl implements CityDao{
 		}
 	}
 
+	//국가번호로 도시 삭제
 	@Override
 	public int deleteByNationId(int nationId) {
 		String query = "DELETE FROM city WHERE nation_id=?";

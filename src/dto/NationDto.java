@@ -12,6 +12,7 @@ import entity.Race;
 import entity.Religion;
 import entity.User;
 
+//Nation의 모든 정보를 조합한 객체
 public class NationDto {
 	private Integer id;
 	private String name;
@@ -161,6 +162,7 @@ public class NationDto {
 				+ areaSource + ", areaLocation=" + areaLocation + ", languageList=" + languageList + ", baseYear="
 				+ baseYear + ", userList=" + userList + "]";
 	}
+	//csv 내보내기를 위한 메서드
 	@Deprecated
 	public String toCSVString() {
 		List<String> list = new ArrayList<>();

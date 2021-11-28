@@ -17,6 +17,7 @@ import view.MainFrame;
 import view.MainRetrievePanel;
 import view.NationDataSlidePanel;
 
+//국가조회버튼
 public class NationDataSlideController {
 
 	private MainFrame mainFrame;
@@ -26,6 +27,7 @@ public class NationDataSlideController {
 	
 	private NationService nationService;
 
+	//초기화
 	public NationDataSlideController(MainFrame mainFrame) {
 		
 		this.mainFrame = mainFrame;
@@ -37,7 +39,9 @@ public class NationDataSlideController {
 		eventInit();
 	}
 
+	//버튼 액션 리스너 초기화
 	private void eventInit() {
+		//뒤로가기 버튼
 		panel.getBackBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

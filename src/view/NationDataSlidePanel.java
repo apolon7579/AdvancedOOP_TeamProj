@@ -16,8 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 
-//이름 변경 해도 OK
-
+//국가 조회 화면
 public class NationDataSlidePanel extends JPanel {
 
 	private JButton btnNewButton;
@@ -47,6 +46,7 @@ public class NationDataSlidePanel extends JPanel {
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
 	
+	//초기화
 	public NationDataSlidePanel() {
 		setLayout(null);
 		setBounds(0, 0, 1030, 660);

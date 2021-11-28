@@ -12,10 +12,12 @@ import config.ConnectionManager;
 import entity.Climate;
 import entity.Race;
 
+//race dao 구현체
 public class RaceDaoImpl implements RaceDao{
 	
 	private Connection con = ConnectionManager.getConnection();
 
+	//국가 번호로 인종 조회
 	@Override
 	public List<Race> retrieveRaceListByNationId(int nationId) {
 
@@ -44,6 +46,7 @@ public class RaceDaoImpl implements RaceDao{
 		return raceList;
 	}
 
+	//인종 생성
 	@Override
 	public void createRace(Race race) {
 		String query = "INSERT INTO race (nation_id, name, percentage) VALUES (?, ?, ?)";
@@ -62,6 +65,7 @@ public class RaceDaoImpl implements RaceDao{
 		
 	}
 	
+	//국가 번호로 인종 삭제
 	@Override
 	public int deleteByNationId(int nationId) {
 		String query = "DELETE FROM race WHERE nation_id=?";
@@ -78,6 +82,7 @@ public class RaceDaoImpl implements RaceDao{
 		}
 	}
 
+	//인종 삽입
 	@Override
 	public boolean insertByRace(Race race) {
 		String query = "INSERT INTO race (nation_id, name, percentage) VALUES (?, ?, ?)";

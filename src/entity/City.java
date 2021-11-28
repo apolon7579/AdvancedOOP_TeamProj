@@ -1,5 +1,6 @@
 package entity;
 
+//도시 객체
 public class City implements ListItem {
 	private Integer id;
 	private Integer nationId;

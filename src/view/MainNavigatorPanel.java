@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Color;
 
+//메인 화면
 public class MainNavigatorPanel extends JPanel {
 
 	// private JFrame frame;
@@ -37,6 +38,7 @@ public class MainNavigatorPanel extends JPanel {
 	/**
 	 * Create the application.
 	 */
+	//초기화
 	public MainNavigatorPanel() {
 		initialize();
 	}
@@ -52,6 +54,7 @@ public class MainNavigatorPanel extends JPanel {
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 
+	//생성자에서 초기화되는 로직
 	private void initialize() {
 		this.setBounds(0, 0, 1030, 660);
 		this.setLayout(null);

@@ -20,6 +20,7 @@ import java.awt.Color;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 
+//로그인 패널
 public class LoginPanel extends JPanel {
 
 	private JTextField txtId;
@@ -30,6 +31,8 @@ public class LoginPanel extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JCheckBox chckbxNewCheckBox;
+	
+	//초기화
 	public LoginPanel() {
 		setBounds(0, 0, 1030, 660);
 		setLayout(null);
@@ -122,8 +125,8 @@ public class LoginPanel extends JPanel {
 		return txtPswdUnVisible;
 	}
 	
+	//씬이 바뀔때 text에 저장된 값을 비워줌
 	public void Clean() {
-		//씬이 바뀔때 text에 저장된 값을 비워줌 약간 소멸자 느낌
 		txtId.setText("");
 		txtPswdUnVisible.setText("");
 		txtPswdVisible.setText("");

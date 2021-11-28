@@ -26,6 +26,7 @@ import entity.NationForGame;
 import entity.Race;
 import entity.Religion;
 
+//nation service 구현체
 public class NationServiceImpl implements NationService{
 
 	private NationDao nationDao = new NationDaoImpl();
@@ -36,21 +37,25 @@ public class NationServiceImpl implements NationService{
 	private RaceDao raceDao = new RaceDaoImpl();
 	private ReligionDao religionDao = new ReligionDaoImpl();
 	
+	//모든 국가 조회
 	@Override
 	public List<Nation> retrieveAllNation() {
 		return nationDao.retrieveAllNation();
 	}
 	
+	//게임을 위한 국가 조회
 	@Override
 	public List<NationForGame> retrieveAllNationForGame() {
 		return nationDao.retrieveAllNationForGame();
 	}
 
+	//검색값으로 국가 조회
 	@Override
 	public List<Nation> retrieveBySearchValue(String searchValue, String columnName) {
 		return nationDao.retrieveNationsBySearchValue(searchValue, columnName);
 	}
 
+	//이름으로 국가 상세 조회
 	@Override
 	public NationDto retrieveNationByName(String nationName) {
 		
@@ -72,11 +77,13 @@ public class NationServiceImpl implements NationService{
 		return nation;
 	}
 
+	//검색값과 테이블로 국가 조회
 	@Override
 	public List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName) {
 		return nationDao.retrieveBySearchValueAndTable(searchValue, tableName);
 	}
 
+	//국가 등록
 	@Override
 	public void registerNation(Nation nation) {
 		nationDao.createNation(nation);

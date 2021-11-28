@@ -27,6 +27,7 @@ import view.NationDataSlidePanel;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+//메인조회창  컨트롤러
 public class MainRetrieveController {
 
 	private MainRetrievePanel mainRetrievePanel;
@@ -35,6 +36,7 @@ public class MainRetrieveController {
 	private NationService nationService;
 	private MainFrame mainFrame;
 
+	//초기화
 	public MainRetrieveController(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		mainRetrievePanel = mainFrame.getMainRetrievePanel();
@@ -44,6 +46,7 @@ public class MainRetrieveController {
 		eventInit();
 	}
 	
+	//제네릭 객체의 리스트를 받는 메서드
 	private <T> String getListString(List<T> list) {
 		
 		List<ListItem> tmpList = (List<ListItem>) list;
@@ -60,6 +63,7 @@ public class MainRetrieveController {
 		return tmp;
 	}
 
+	//국가리스트로 테이블 초기화
 	private void initTableByNationList(List<Nation> nationList) {
 		JTable table = mainRetrievePanel.getTable();
 		DefaultTableModel dtm = (DefaultTableModel) table.getModel();
@@ -89,6 +93,7 @@ public class MainRetrieveController {
 		}
 	}
 	
+	//버튼 액션리스너 초기화
 	private void eventInit() {
 
 		// 뒤로가기 버튼
@@ -184,7 +189,6 @@ public class MainRetrieveController {
 		});
 		
 		//검색하기 버튼
-
 		mainRetrievePanel.getSearchBtn().addActionListener(new ActionListener() {
 
 			@Override
@@ -238,6 +242,8 @@ public class MainRetrieveController {
 			}
 
 		});
+		
+		//csv 내보내기 버튼
         mainRetrievePanel.getCsvExportBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

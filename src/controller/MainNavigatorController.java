@@ -21,6 +21,7 @@ import view.MainFrame;
 import view.MainNavigatorPanel;
 import view.MainRetrievePanel;
 
+//메인화면 컨트롤러
 public class MainNavigatorController {
 
 	private MainFrame mainFrame;
@@ -30,6 +31,7 @@ public class MainNavigatorController {
 
 	private NationService nationService;
 
+	//초기화
 	public MainNavigatorController(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
@@ -41,6 +43,7 @@ public class MainNavigatorController {
 		eventInit();
 	}
 
+	//버튼 액션 리스너 초기화
 	public void eventInit() {
 		mainNevigatorPanel.getExitBtn().addActionListener(new ActionListener() {
 			@Override
@@ -88,17 +91,17 @@ public class MainNavigatorController {
 			}
 		});
 
+		//게임버튼
 		mainNevigatorPanel.getGameBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// 게임판넬 true
-				
-				
 				mainFrame.getGameRulePannel().clicked();
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "gameRulePanel");
 			}
 		});
 
+		//국가등록버튼
 		mainNevigatorPanel.getNationRegisterBtn().addActionListener(new ActionListener() {
 
 			@Override
@@ -108,6 +111,7 @@ public class MainNavigatorController {
 
 		});
 
+		//csv업로드버튼
 		mainNevigatorPanel.getCSVuploadButton().addActionListener(new ActionListener() {
 
 			@Override
@@ -128,7 +132,8 @@ public class MainNavigatorController {
 				}
 			}
 		});
-		
+
+		//csv다운로드버튼
 		mainNevigatorPanel.getCSVdownloadButton().addActionListener(new ActionListener() {
 
 			@Override

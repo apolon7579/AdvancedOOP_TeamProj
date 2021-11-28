@@ -1,5 +1,6 @@
 package entity;
 
+//국가 객체
 public class Nation {
 	private Integer id;
 	private String name;

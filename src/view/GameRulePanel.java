@@ -24,6 +24,7 @@ import service.UserServiceImpl;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+//게임 룰 화면
 public class GameRulePanel extends JPanel {
 
 	private JButton backBtn;
@@ -32,7 +33,8 @@ public class GameRulePanel extends JPanel {
 	UserService userService = new UserServiceImpl();
 	JLabel myBestRecordLabel;
 	JLabel serverRecordLabel;
-
+	
+	//조기화
 	public GameRulePanel() {
 		setLayout(null);
 
@@ -85,6 +87,7 @@ public class GameRulePanel extends JPanel {
 		add(backBtn);
 	}
 
+	//게임에 진입할 때마다 화면에 보이는 최고점수를 갱신
 	public void clicked() {
 		myBestRecordLabel.setText("개인 최고 기록 : " + userService.retrieveLevelByUserId(GamePanel.getLoginedUser().getUserId()));
 		serverRecordLabel.setText("서버 최고 기록 : " + userService.retrieveTopLevel());

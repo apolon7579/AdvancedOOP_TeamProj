@@ -1,5 +1,6 @@
 package entity;
 
+//언어 객체
 public class Language implements ListItem{
 	private Integer id;
 	private Integer nationId;

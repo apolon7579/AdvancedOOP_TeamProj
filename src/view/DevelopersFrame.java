@@ -11,8 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+//개발자 프레임
 public class DevelopersFrame extends JFrame {
 
+	//초기화
 	public DevelopersFrame() {
 		getContentPane().setBackground(Color.WHITE);
 		setSize(760, 550);

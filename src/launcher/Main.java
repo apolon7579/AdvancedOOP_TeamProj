@@ -2,6 +2,7 @@ package launcher;
 
 import config.DependencyManager;
 
+//프로그램 실행 클래스
 public class Main {
 
 	public static void main(String[] args) {

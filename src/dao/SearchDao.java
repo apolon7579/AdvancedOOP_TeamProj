@@ -14,8 +14,11 @@ import entity.Nation;
 import entity.Race;
 import entity.Religion;
 
+//검색용 dao
 public class SearchDao {
     Connection con = ConnectionManager.getConnection();
+    
+    //모든 국가 조회
     public List<Nation> GetAllNation()
     {
         String sql = "SELECT * FROM NATION";
@@ -58,6 +61,7 @@ public class SearchDao {
         return null;
     }
 
+    //id로 국가 조회
     public Nation GetNationForID(Integer id)
     {
         String sql = "SELECT * FROM NATION WHERE ID = " + id;
@@ -91,6 +95,7 @@ public class SearchDao {
         return null;
     }
 
+    //이름으로 국가 조회
     public Nation GetNationForName(String name)
     {
         String sql = "SELECT * FROM NATION WHERE NAME = \"" + name + "\"";
@@ -125,6 +130,7 @@ public class SearchDao {
         return null;
     }
 
+    //언어로 국가조회
     public List<Nation> getNationForLanguageName(String name)
     {
         String sql = "select * from nation where nation.id in (select language.nation_id from language where language.name = \"" + name + "\")";
@@ -163,6 +169,7 @@ public class SearchDao {
         return null;
     }
     
+    //종교로 국가 조회
     public List<Nation> getNationForReligionName(String name)
     {
         String sql = "select * from nation where nation.id in (select religion.nation_id from religion where religion.name = \"" + name+ "\")";
@@ -201,6 +208,7 @@ public class SearchDao {
         return null;
     }
 
+    //기후로 국가 조회
     public List<Nation> getNationForClimateName(String name)
     {
         String sql = "select * from nation where nation.id in (select climate.nation_id from climate where climate.name = \"" + name + "\")";
@@ -239,6 +247,7 @@ public class SearchDao {
         return null;
     }
 
+    //인종으로 국가 조회
     public List<Nation> getNationForRaceName(String name)
     {
         String sql = "select * from nation where nation.id in (select race.nation_id from race where race.name = \"" + name + "\")";
@@ -277,6 +286,7 @@ public class SearchDao {
         return null;
     }
     
+    //국가 번호로언어 조회
     public List<Language> GetLanguageForNationID(Integer nationId)
     {
         String sql = "SELECT * FROM LANGUAGE WHERE nation_id = " + nationId;
@@ -309,6 +319,7 @@ public class SearchDao {
         return null;
     }
     
+	//국가 번호로 기후 조회
     public List<Climate> GetClimateForNationID(Integer nationId)
     {
         String sql = "SELECT * FROM CLIMATE WHERE nation_id = " + nationId;
@@ -341,6 +352,7 @@ public class SearchDao {
         return null;
     }
     
+	//국가 번호로 종교 조회
     public List<Religion> GetReligionForNationID(int nationId)
     {
         String sql = "SELECT * FROM Religion WHERE nation_id = " + nationId;
@@ -374,6 +386,7 @@ public class SearchDao {
         return null;
     }
     
+	//국가 번호로 인종 조회
     public List<Race> GetRaceForNationID(Integer nationId)
     {
         String sql = "SELECT * FROM Religion WHERE nation_id = " + nationId;

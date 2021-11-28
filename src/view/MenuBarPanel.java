@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+//메뉴바 패널
 public class MenuBarPanel extends JPanel {
 
 	public JMenuBar menuBar;
@@ -38,6 +39,7 @@ public class MenuBarPanel extends JPanel {
 	private JMenuItem helpItem;
 	private JMenuItem developerItem;
 
+	//초기화
 	public MenuBarPanel() {
 		setPreferredSize(new Dimension(100, 1));
 		setBackground(Color.LIGHT_GRAY);
@@ -59,6 +61,7 @@ public class MenuBarPanel extends JPanel {
 		menuBar.add(helpMenu);
 	}
 
+	//HelpMenu 초기화
 	private void setHelpMenu() {
 		helpItem = new JMenuItem("How to use");
 		developerItem = new JMenuItem("Developers");
@@ -66,6 +69,7 @@ public class MenuBarPanel extends JPanel {
 		helpMenu.add(developerItem);
 	}
 
+	//FileMenu 초기화
 	private void setFileMenu() {
 		openMenu = new JMenu("Open");
 		searchItem = new JMenuItem("Search");
@@ -81,6 +85,7 @@ public class MenuBarPanel extends JPanel {
 		fileMenu.add(exitItem);
 	}
 
+	//editMenu 초기화
 	private void setEditMenu() {
 		resolutionMenu = new JMenu("Resolution");
 		resolutionItem_1 = new JMenuItem("300x300");
@@ -101,6 +106,7 @@ public class MenuBarPanel extends JPanel {
 		editMenu.add(languageMenu);
 	}
 	
+	//csvMenu 초기화
 	private void setcsvMenu() {
 		csvUpLoadMenuItem = new JMenuItem("upload");
 		csvDownLoadMenuItem = new JMenuItem("download");

@@ -1,5 +1,6 @@
 package entity;
 
+//매체 객체
 public class Media implements ListItem {
 	private Integer id;
 	private Integer nationId;

@@ -11,10 +11,12 @@ import java.util.List;
 import config.ConnectionManager;
 import entity.Religion;
 
+//religion dao 구현체
 public class ReligionDaoImpl implements ReligionDao {
 
 	private Connection con = ConnectionManager.getConnection();
 
+	//국가 번호로 종교 조회
 	@Override
 	public List<Religion> retrieveReligionListByNationId(int nationId) {
 
@@ -43,6 +45,7 @@ public class ReligionDaoImpl implements ReligionDao {
 		return religionList;
 	}
 
+	//종교 생성
 	@Override
 	public void createReligion(Religion religion) {
 		String query = "INSERT INTO religion (nation_id, name, percentage) VALUES (?, ?, ?)";
@@ -59,6 +62,7 @@ public class ReligionDaoImpl implements ReligionDao {
 		}
 	}
 
+	//국가 번호로 종교 삭제
 	@Override
 	public int deleteByNationId(int nationId) {
 		String query = "DELETE FROM religion WHERE nation_id=?";
@@ -75,6 +79,7 @@ public class ReligionDaoImpl implements ReligionDao {
 		}
 	}
 
+	//종교 삽입
 	@Override
 	public boolean insertByReligion(Religion religion) {
 		String query = "INSERT INTO religion (nation_id, name, percentage) VALUES (?, ?, ?)";

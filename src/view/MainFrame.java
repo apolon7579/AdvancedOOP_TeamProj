@@ -4,6 +4,7 @@ import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 
+//root 프레임
 public class MainFrame extends JFrame {
 
 	private SignUpPanel signUpPanel;
@@ -19,6 +20,7 @@ public class MainFrame extends JFrame {
 
 	private CardLayout cardLayout;
 
+	//초기화
 	public MainFrame() {
 		setSize(1030, 660);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

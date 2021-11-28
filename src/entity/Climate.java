@@ -1,5 +1,6 @@
 package entity;
 
+//기후 객체
 public class Climate implements ListItem{
 	private Integer id;
 	private Integer nationId;

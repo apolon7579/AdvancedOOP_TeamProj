@@ -13,6 +13,7 @@ import view.MainFrame;
 import view.MainNavigatorPanel;
 import view.SignUpPanel;
 
+//로그인 컨트롤러
 public class LoginController {
 
 	private MainFrame mainFrame;
@@ -21,7 +22,7 @@ public class LoginController {
 	private MainNavigatorPanel mainNavigatorPanel;
 	private UserService userService = new UserServiceImpl();
 
-	// LoginPanel의 이베
+	// LoginPanel의 초기화
 	public LoginController(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		this.loginPanel = mainFrame.getLoginPanel();
@@ -30,7 +31,9 @@ public class LoginController {
 		eventInit();
 	}
 
+	//버튼 액션 리스너 초기화
 	public void eventInit() {
+		//로그인버튼
 		loginPanel.getSignInBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -47,6 +50,7 @@ public class LoginController {
 			}
 		});
 
+		//회원가입버튼
 		loginPanel.getSignUpBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -54,7 +58,8 @@ public class LoginController {
 				loginPanel.Clean();
 			}
 		});
-		
+	
+		//비밀번호 보이기 체크박스
 		loginPanel.getCheckBox().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

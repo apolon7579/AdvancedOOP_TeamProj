@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 
+//HistogramPanel
 public class HistogramPanel extends JPanel
 {
     private int histogramHeight = 200;
@@ -19,6 +20,7 @@ public class HistogramPanel extends JPanel
 
     private List<Bar> bars = new ArrayList<Bar>();
 
+    //초기화
     public HistogramPanel()
     {
         setBorder( new EmptyBorder(10, 10, 10, 10) );
@@ -44,12 +46,14 @@ public class HistogramPanel extends JPanel
         buttonPanel.add(backBtn);
     }
 
+    //바 추가
     public void addHistogramColumn(String label, int value, Color color)
     {
         Bar bar = new Bar(label, value, color);
         bars.add( bar );
     }
 
+    //레이아웃 세팅
     public void layoutHistogram()
     {
         barPanel.removeAll();
@@ -78,6 +82,7 @@ public class HistogramPanel extends JPanel
         }
     }
 
+    //bar를 지정하는 내부 클래스
     private class Bar
     {
         private String label;
@@ -107,6 +112,7 @@ public class HistogramPanel extends JPanel
         }
     }
 
+    //ColorIcon를 지정하는 내부 클래스
     private class ColorIcon implements Icon
     {
         private int shadow = 3;
@@ -149,6 +155,7 @@ public class HistogramPanel extends JPanel
     	return bars;
     }
     
+    //테스트용 코드
     private static void createAndShowGUI()
     {
         HistogramPanel panel = new HistogramPanel();
@@ -160,7 +167,8 @@ public class HistogramPanel extends JPanel
         frame.pack();
         frame.setVisible( true );
     }
-
+    
+    //테스트용 코드
     public static void main(String[] args)
     {
         EventQueue.invokeLater(new Runnable()

@@ -12,6 +12,7 @@ import controller.NationRegisterPanelController;
 import controller.SignUpController;
 import view.MainFrame;
 
+//의존성 관리를 담당하는 클래스
 public class DependencyManager {
 
 	private static DependencyManager manager = new DependencyManager();

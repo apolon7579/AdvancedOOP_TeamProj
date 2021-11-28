@@ -14,10 +14,12 @@ import dto.NationDto;
 import entity.Nation;
 import entity.NationForGame;
 
+//nation dao 구현체
 public class NationDaoImpl implements NationDao {
 
 	private Connection con = ConnectionManager.getConnection();
 
+	//모든 국가 조회
 	@Override
 	public List<Nation> retrieveAllNation() {
 
@@ -56,6 +58,7 @@ public class NationDaoImpl implements NationDao {
 		return nationList;
 	}
 
+	//검색값에 의한 국가 조회
 	@Override
 	public List<Nation> retrieveNationsBySearchValue(String searchValue, String field) {
 
@@ -95,6 +98,7 @@ public class NationDaoImpl implements NationDao {
 		return nationList;
 	}
 
+	//이름으로 국가 상세 조회
 	@Override
 	public NationDto retrieveNationByName(String nationName) {
 
@@ -141,6 +145,7 @@ public class NationDaoImpl implements NationDao {
 		return nation;
 	}
 	
+	//직렬화를 위한 국가 조회
 	@Override
 	public List<String> retrieveSerializableStringAllNation() {
 		String query = "select n.name, n.code,  n.capital, GROUP_CONCAT(DISTINCT cl.name SEPARATOR ', ') climate, n.location, GROUP_CONCAT(DISTINCT c.name SEPARATOR ', ') city, GROUP_CONCAT(DISTINCT re.name SEPARATOR ', ') religion, GROUP_CONCAT(DISTINCT r.name SEPARATOR ', ') race, GROUP_CONCAT(DISTINCT m.name SEPARATOR ', ') media, n.area, n.area_source, n.area_description, GROUP_CONCAT(DISTINCT l.name SEPARATOR ', ') language, n.base_year\n"
@@ -264,6 +269,7 @@ public class NationDaoImpl implements NationDao {
 		return list;
 	}
 
+	//게임을 위한 국가 조회
 	@Override
 	public List<NationForGame> retrieveAllNationForGame() {
 
@@ -296,6 +302,7 @@ public class NationDaoImpl implements NationDao {
 		return nationList;
 	}
 
+	//검색값과 테이블로 국가 조회
 	@Override
 	public List<Nation> retrieveBySearchValueAndTable(String searchValue, String tableName) {
 
@@ -334,6 +341,7 @@ public class NationDaoImpl implements NationDao {
 		return nationList;
 	}
 
+	//국가 삽입
 	@Override
 	public boolean insertByNation(Nation nation) {
 		String query = "INSERT INTO nation (name, code, capital, location, area, area_source, area_description, base_year) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -357,6 +365,7 @@ public class NationDaoImpl implements NationDao {
 		}
 	}
 
+	//국가 갱신
 	@Override
 	public boolean updateByNation(Nation nation) {
 		String query = "UPDATE nation SET code = ?, capital = ?, location=?, area=?, area_source=?, area_description=?, base_year=? WHERE name=?";
@@ -380,6 +389,7 @@ public class NationDaoImpl implements NationDao {
 		}
 	}
 
+	//국가 생성
 	@Override
 	public void createNation(Nation nation) {
 		String query = "INSERT INTO NATION (NAME, CODE, CAPITAL, LOCATION, AREA, AREA_SOURCE, AREA_DESCRIPTION, BASE_YEAR) VALUE (?, ?, ?, ?, ?, ?, ?, ?)";

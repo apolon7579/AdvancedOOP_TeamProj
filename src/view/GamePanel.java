@@ -1,11 +1,7 @@
 package view;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,14 +12,7 @@ import javax.swing.SwingConstants;
 
 import entity.User;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-
-import javax.imageio.ImageIO;
-import javax.swing.Box;
-import javax.swing.Icon;
-
+//게임 패널
 public class GamePanel extends JPanel {
 
 	private JFrame frame;
@@ -44,18 +33,18 @@ public class GamePanel extends JPanel {
 	private JButton btnNewButton;
 	private JPanel resultPanel;
 	private static User loginedUser;
-	// 가끔 사진이 없는 나라가 있음;;
-	// 캐나다 같은건 이미지가 너무 커서 이상하게 나옴;;
-	
+
+	//현재 로그인 유저 반환
 	public static User getLoginedUser() {
 		return loginedUser;
 	}
 
+	//현제 로그인 유저 세팅
 	public static void setLoginedUser(User loginedUser) {
 		GamePanel.loginedUser = loginedUser;
 	}
 	
-
+	//초기화
 	public GamePanel() {
 		setBackground(Color.DARK_GRAY);
 		setLayout(null);
@@ -150,6 +139,7 @@ public class GamePanel extends JPanel {
 		add(btnNewButton);
 	}
 
+	//맞힌 경우 보이는 화면
 	public void setResultPanelTrue(String desc1, String desc2) {
 		resultPanel.setVisible(true);
 		lblNewLabel.setText(desc1);
@@ -158,6 +148,7 @@ public class GamePanel extends JPanel {
 		smallBtn.setEnabled(false);
 	}
 
+	//틀린 경우 보이는 화면
 	public void setResultPanelFalse() {
 		resultPanel.setVisible(false);
 		bigBtn.setEnabled(true);
@@ -184,6 +175,7 @@ public class GamePanel extends JPanel {
 		return rePlayBtn;
 	}
 
+	//게임 진행화면 세팅
 	public void setUp(int score, double peopleNum, String info1, String info2) {
 		scoreNum.setText(score + "점");
 		this.peopleNum.setText("면적: " + peopleNum + "km²");

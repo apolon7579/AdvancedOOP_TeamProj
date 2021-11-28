@@ -22,6 +22,7 @@ import view.MainFrame;
 import view.MainRetrievePanel;
 import view.MenuBarPanel;
 
+//메뉴바 컨트롤러
 public class MenuBarController {
 	private MenuBarPanel panel;
 	private MainFrame mainFrame;
@@ -29,6 +30,7 @@ public class MenuBarController {
 	private MainRetrievePanel mainRetrievePanel;
 	private NationService nationService;
 
+	//초기화
 	public MenuBarController(MainFrame mainFrame) {
 		panel = mainFrame.getMenuBarPanel();
 		this.mainFrame = mainFrame;
@@ -37,7 +39,9 @@ public class MenuBarController {
 		eventInit();
 	}
 
+	//버튼 액션리스너 초기화
 	private void eventInit() {
+		//search버튼
 		panel.getSearchMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -74,12 +78,15 @@ public class MenuBarController {
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "mainRetrievePanel");
 			}
 		});
+		//game버튼
 		panel.getGameMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				mainFrame.getGameRulePannel().clicked();
 				mainFrame.getCardLayout().show(mainFrame.getContentPane(), "gameRulePanel");
 			}
 		});
+		//login버튼
 		panel.getLoginMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -87,36 +94,42 @@ public class MenuBarController {
 				mainFrame.setJMenuBar(false);
 			}
 		});
+		//exit버튼
 		panel.getExitMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
+		//해상도버튼1
 		panel.getResolution_1MenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Change Resolution 1");
 			}
 		});
+		//해상도버튼2
 		panel.getResolution_2MenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Change Resolution 2");
 			}
 		});
+		//해상도버튼3
 		panel.getResolution_3MenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Change Resolution 3");
 			}
 		});
+		//한국어버튼
 		panel.getLanguageKorMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Change Language Kor");
 			}
 		});
+		//영어어버튼
 		panel.getLanguageEngMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -124,6 +137,7 @@ public class MenuBarController {
 			}
 		});
 		
+		//csv업로드버튼
 		panel.getCsvUpLoadMenuItem().addActionListener(new ActionListener() {
 			
 			@Override
@@ -145,6 +159,7 @@ public class MenuBarController {
 			}
 		});
 		
+		//csv다운로드버튼
 		panel.getCsvDownLoadMenuItem().addActionListener(new ActionListener() {
 			
 			@Override
@@ -166,12 +181,14 @@ public class MenuBarController {
 				
 			}
 		});
+		//도움말버튼
 		panel.getHelpMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				HowToUseFrame f = new HowToUseFrame();
 			}
 		});
+		//개발자버튼
 		panel.getDevelopersMenuItem().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

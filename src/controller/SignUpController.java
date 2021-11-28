@@ -11,12 +11,14 @@ import view.SignUpPanel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+//회원가입 컨트롤러
 public class SignUpController {
 
 	private MainFrame mainFrame;
 	private LoginPanel loginPanel;
 	private SignUpPanel signUpPanel;
 
+	//초기화
 	public SignUpController(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		this.loginPanel = mainFrame.getLoginPanel();
@@ -24,7 +26,9 @@ public class SignUpController {
 		eventInit();
 	}
 
+	//버튼 액션 리스너 초기화
 	private void eventInit() {
+		//뒤로가기 버튼
 		signUpPanel.getGoBackButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -32,6 +36,7 @@ public class SignUpController {
 				signUpPanel.Clean();
 			}
 		});
+		//회원가입버튼
 		signUpPanel.getSignUpBtn().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -61,6 +66,7 @@ public class SignUpController {
 			}
 		});
 
+		//비밀번호 보이기 체크박스
 		signUpPanel.getCheckBox().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

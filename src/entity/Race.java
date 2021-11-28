@@ -1,5 +1,6 @@
 package entity;
 
+//인종 객체
 public class Race implements ListItem {
 	private Integer id;
 	private Integer nationId;

@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//DB연결을 담당하는 클래스
 public class ConnectionManager {
 	
 	private static ConnectionManager connectionManager = new ConnectionManager();
 	private Connection conn;
 	
+	//초기화
 	private ConnectionManager() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

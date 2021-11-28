@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+//국가 등록 화면
 public class NationRegisterPanel extends JPanel {
 	private JTextField nationName;
 	private JTextField nationCode;
@@ -38,6 +39,7 @@ public class NationRegisterPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	//초기화
 	public NationRegisterPanel() {
 		setLayout(null);
 		
@@ -351,7 +353,4 @@ public class NationRegisterPanel extends JPanel {
 		return goBackBtn;
 	}
 
-	
-	
-	
 }

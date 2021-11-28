@@ -11,10 +11,12 @@ import config.ConnectionManager;
 import entity.Climate;
 import entity.Media;
 
+//media dao 구현체
 public class MediaDaoImpl implements MediaDao{
 
 	private Connection con = ConnectionManager.getConnection();
 	
+	//국가 번호로 매체 조회
 	@Override
 	public List<Media> retrieveMediaListByNationId(int nationId) {
 		
@@ -42,6 +44,7 @@ public class MediaDaoImpl implements MediaDao{
 		return mediaList;
 	}
 
+	//매체 삽입
 	@Override
 	public boolean insertByMedia(Media media) {
 		String query = "INSERT INTO media (nation_id, name) VALUES (?, ?)";
@@ -59,6 +62,7 @@ public class MediaDaoImpl implements MediaDao{
 		}
 	}
 
+	//국가 번호로 매체 삭제
 	@Override
 	public int deleteByNationId(int nationId) {
 		String query = "DELETE FROM media WHERE nation_id=?";

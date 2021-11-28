@@ -1,5 +1,6 @@
 package entity;
 
+//게임을 위한 국가 객체
 public class NationForGame {
 	private String name;
 	private String code;

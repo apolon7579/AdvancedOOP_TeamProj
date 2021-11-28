@@ -10,6 +10,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import java.awt.Font;
 
+//메인 조회 화면
 public class MainRetrievePanel extends JPanel{
 	private JTextField searchField;
 	private JComboBox searchComboBox;
@@ -22,6 +23,7 @@ public class MainRetrievePanel extends JPanel{
 	private String[] header = {"이름","국가코드","수도","위치","면적"};
 	private String[][] data = {};
 	
+	//초기화
 	public MainRetrievePanel() {
 		setBounds(0, 0, 1030, 660);
 		setLayout(null);

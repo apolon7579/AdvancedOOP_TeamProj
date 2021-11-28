@@ -10,10 +10,12 @@ import java.util.List;
 import config.ConnectionManager;
 import entity.Language;
 
+//language dao 구현체
 public class LanguageDaoImpl implements LanguageDao{
 
 	private Connection con = ConnectionManager.getConnection();
 	
+	//국가 번호로 언어 조회
 	@Override
 	public List<Language> retrieveLanguageListByNationId(int nationId) {
 		
@@ -41,6 +43,7 @@ public class LanguageDaoImpl implements LanguageDao{
 		return null;
 	}
 
+	//언어 삽입
 	@Override
 	public boolean insertByLanguage(Language language) {
 		String query = "INSERT INTO language (nation_id, name) VALUES (?, ?)";
@@ -58,6 +61,7 @@ public class LanguageDaoImpl implements LanguageDao{
 		}
 	}
 
+	//국가 번호로 언어 삭제
 	@Override
 	public int deleteByNationId(int nationId) {
 		String query = "DELETE FROM language WHERE nation_id=?";

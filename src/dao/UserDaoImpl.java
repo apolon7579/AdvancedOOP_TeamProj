@@ -9,10 +9,12 @@ import java.sql.Types;
 import config.ConnectionManager;
 import entity.User;
 
+//user dao 구현체
 public class UserDaoImpl implements UserDao {
 
 	private Connection con = ConnectionManager.getConnection();
 
+	//유저 등록
 	@Override
 	public boolean createByNameAndUserIdAndPassword(String name, String id, String password) {
 		try {
@@ -33,6 +35,7 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	//아이디와 비밀번호로 유저 조회
 	@Override
 	public User retrieveByUserIdAndPassword(String id, String password) {
 
@@ -63,6 +66,7 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 	
+	//아이디로 유저 조회
 	@Override
 	public User retrieveByUserId(String id) {
 		User user = null;
@@ -91,11 +95,13 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	//유저 갱신(미구현)
 	@Override
 	public boolean updateByUserIdAndUser(String id, User newUser) {
 		return false;
 	}
 
+	//아이디로 유저 삭제
 	@Override
 	public boolean deleteByUserId(String id) {
 		try {
@@ -112,6 +118,7 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	//아이디로 점수 조회
 	@Override
 	public Integer retrieveLevelByUserId(String id) {
 		Integer level = null;
@@ -134,6 +141,7 @@ public class UserDaoImpl implements UserDao {
 		return level;
 	}
 
+	//최고점수조회
 	@Override
 	public Integer retrieveTopLevel() {
 		Integer level = null;
@@ -155,6 +163,7 @@ public class UserDaoImpl implements UserDao {
 		return level;
 	}
 
+	//유저 점수 갱신
 	@Override
 	public boolean updateLevelByUserAndLevel(User user, Integer newLevel) {
 		String query = "UPDATE user SET level=? WHERE user_id=?";
@@ -175,7 +184,5 @@ public class UserDaoImpl implements UserDao {
 			return false;
 		}
 	}
-
-	
 	
 }

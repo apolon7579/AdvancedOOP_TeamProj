@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import java.awt.Color;
 
+//회원가입 화면
 public class SignUpPanel extends JPanel {
 
 	private JTextField idBtn;

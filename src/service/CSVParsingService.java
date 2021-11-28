@@ -17,8 +17,10 @@ import entity.Media;
 import entity.Race;
 import entity.Religion;
 
+//csv 파심을 담당하는 서비스
 public class CSVParsingService {
 
+	//파일을 읽어 한줄씩 파싱
 	public static List<NationDto> readFile(Path path) throws Exception {
 		List<NationDto> nationList = new LinkedList<>();
 		BufferedReader csv = new BufferedReader(new InputStreamReader(new FileInputStream(path.toString()), "UTF-8"));
@@ -65,6 +67,7 @@ public class CSVParsingService {
 		return nationList;
 	}
 
+	//괄호안의 컴마를 무시하여 파싱하는 메서드
 	private static List<String> ignoreParenthesisInComma(String origin) {
 		if (origin == null)
 			return null;
@@ -91,6 +94,7 @@ public class CSVParsingService {
 		return parenthesisIgnored;
 	}
 
+	//인종 파서
 	private static List<Race> raceParser(String str) {
 		if (str == null)
 			return null;
@@ -121,6 +125,7 @@ public class CSVParsingService {
 		return raceList;
 	}
 
+	//종교 파서
 	private static List<Religion> religionParser(String str) {
 		if (str == null)
 			return null;
@@ -151,6 +156,7 @@ public class CSVParsingService {
 		return religionList;
 	}
 
+	//기후 파서
 	private static List<Climate> climateParser(String str) {
 		if (str == null) {
 			return null;
@@ -160,6 +166,7 @@ public class CSVParsingService {
 		}
 	}
 
+	//언어 파서
 	private static List<Language> languageParser(String str) {
 		if (str == null) {
 			return null;
@@ -169,6 +176,7 @@ public class CSVParsingService {
 		}
 	}
 
+	//도시 파서
 	private static List<City> cityParser(String str) {
 		if (str == null) {
 			return null;
@@ -178,6 +186,7 @@ public class CSVParsingService {
 		}
 	}
 
+	//매체 파서
 	private static List<Media> mediaParser(String str) {
 		if (str == null) {
 			return null;

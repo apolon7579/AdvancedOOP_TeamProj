@@ -1,5 +1,6 @@
 package entity;
 
+//종교 객체
 public class Religion implements ListItem {
 	private Integer id;
 	private Integer nationId;

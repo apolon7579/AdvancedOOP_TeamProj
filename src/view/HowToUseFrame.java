@@ -1,26 +1,24 @@
 package view;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+
+//사용방법 프레임
 public class HowToUseFrame extends JFrame {
 
 	private JLabel picLabel;
 	URL[] myPicture = null;
 	int index = 0;
 
+	//초기화
 	public HowToUseFrame() {
 		setSize(930, 560);
 		setLocationRelativeTo(null);

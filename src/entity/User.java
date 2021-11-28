@@ -1,5 +1,6 @@
 package entity;
 
+//유저 객체
 public class User {
 	private Integer id;
 	private String name;

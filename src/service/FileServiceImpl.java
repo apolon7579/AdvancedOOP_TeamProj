@@ -19,6 +19,7 @@ import dao.ReligionDao;
 import dao.ReligionDaoImpl;
 import dto.NationDto;
 
+//csv 업로드 및 다운로드 담당 service 구현체
 public class FileServiceImpl implements FileService {
 
 	NationDao nationDao = new NationDaoImpl();
@@ -29,6 +30,7 @@ public class FileServiceImpl implements FileService {
 	RaceDao raceDao = new RaceDaoImpl();
 	ReligionDao religionDao = new ReligionDaoImpl();
 	
+	//csv 업로드
 	@Override
 	public int upload(Path path) throws Exception{
 		/*
@@ -91,6 +93,7 @@ public class FileServiceImpl implements FileService {
 		return count;
 	}
 
+	//csv 다운로드
 	@Override
 	public int download(Path path) throws Exception {
 		List<String> list = nationDao.retrieveSerializableStringAllNation();

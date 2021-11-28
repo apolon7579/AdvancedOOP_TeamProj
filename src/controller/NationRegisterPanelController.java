@@ -30,6 +30,7 @@ import service.ReligionServiceImpl;
 import view.MainFrame;
 import view.NationRegisterPanel;
 
+//국가 등록 컨틀롤러
 public class NationRegisterPanelController {
 
 	private MainFrame mainFrame;
@@ -42,6 +43,7 @@ public class NationRegisterPanelController {
 	private RaceService raceService;
 	private ReligionService religionService;
 	
+	//초기화
 	public NationRegisterPanelController(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		this.nationRegisterPanel = mainFrame.getNationRegisterPanel();
@@ -56,6 +58,7 @@ public class NationRegisterPanelController {
 		eventInit();
 	}
 	
+	//버튼 액션 리스너 초기화
 	private void eventInit() {
 		
 		//뒤로가기 버튼
